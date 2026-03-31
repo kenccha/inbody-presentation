@@ -68,6 +68,49 @@ html {
   background: var(--dark-bg);
 }
 
+/* Atmospheric backgrounds */
+.slide.glow-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(172,4,48,0.12) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.slide.glow-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(232,183,58,0.06) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.slide.glow-blue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 30% 60%, rgba(0,91,158,0.1) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.slide.india-mood::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 20% 70%, rgba(232,183,58,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(172,4,48,0.06) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.slide.india-triumph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(232,183,58,0.1) 0%, transparent 60%);
+  z-index: 0;
+}
+
 .slide-content {
   flex: 1;
   display: flex;
@@ -144,9 +187,16 @@ html {
 }
 
 .card-icon {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  color: var(--brand);
+  font-weight: 700;
+  letter-spacing: 0;
 }
+
+.card-icon.gold-icon { color: var(--gold); }
+.card-icon.blue-icon { color: var(--blue); }
 
 .card h3 {
   font-size: var(--h3-size);
@@ -266,14 +316,19 @@ html {
   margin-top: 0.5rem;
 }
 
-/* Highlight box */
+/* Callout box — replaces border-left pattern */
 .highlight-box {
-  border-left: 3px solid var(--brand);
-  background: rgba(172, 4, 48, 0.08);
-  padding: 1rem 1.2rem;
-  border-radius: 0 8px 8px 0;
+  background: rgba(172, 4, 48, 0.06);
+  border: 1px solid rgba(172, 4, 48, 0.2);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
   margin-top: 1rem;
   max-width: 600px;
+}
+
+.highlight-box.gold-box {
+  background: rgba(232, 183, 58, 0.06);
+  border-color: rgba(232, 183, 58, 0.2);
 }
 
 /* GBD card */
@@ -590,7 +645,7 @@ html {
 <div class="page-number" id="pageNumber">01 / 17</div>
 
 <!-- ============ S0: HERO ============ -->
-<section class="slide" data-slide="0">
+<section class="slide glow-brand" data-slide="0">
   <div class="slide-content">
     <div class="reveal">
       <p class="subtitle" style="margin-bottom:1.5rem; font-size:var(--h3-size);">여러분의 몸은 <span class="gold">60%</span>가 물입니다.</p>
@@ -638,7 +693,7 @@ html {
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div class="three-col" style="max-width:1000px;">
         <div class="card">
-          <div class="card-icon">🏊</div>
+          <div class="card-icon blue-icon">H₂O</div>
           <h3>수중체중법</h3>
           <p>물탱크에 완전 잠수. 숨을 다 내뱉고 3회 반복. 연구실 전용.</p>
           <div style="margin-top:0.8rem;">
@@ -647,7 +702,7 @@ html {
           </div>
         </div>
         <div class="card">
-          <div class="card-icon">📏</div>
+          <div class="card-icon">mm</div>
           <h3>피부두겹법</h3>
           <p>캘리퍼로 피부를 집어서 지방 두께 측정. 측정자마다 결과가 다름.</p>
           <div style="margin-top:0.8rem;">
@@ -656,7 +711,7 @@ html {
           </div>
         </div>
         <div class="card">
-          <div class="card-icon">🛏️</div>
+          <div class="card-icon">50kHz</div>
           <h3>누운 BIA (RJL)</h3>
           <p>누워서 전극 4개. 50kHz 단일 주파수. 자세에 따라 값이 바뀜.</p>
           <div style="margin-top:0.8rem;">
@@ -670,7 +725,7 @@ html {
 </section>
 
 <!-- ============ S3: TRANSITION ============ -->
-<section class="slide" data-slide="3">
+<section class="slide glow-gold" data-slide="3">
   <div class="slide-content">
     <div class="reveal">
       <p class="impact-text">
@@ -696,19 +751,19 @@ html {
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div class="three-col" style="max-width:1000px;">
         <div class="card">
-          <div class="card-icon">🔀</div>
+          <div class="card-icon gold-icon">3MHz</div>
           <h3>Multi-Frequency</h3>
           <p>1kHz~3MHz, 최대 8개 주파수. 세포 내·외 수분을 정밀 구분.</p>
           <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">세계 최초 3MHz 적용 (2020)</p>
         </div>
         <div class="card">
-          <div class="card-icon">✋</div>
+          <div class="card-icon gold-icon">8pt</div>
           <h3>8점 접촉 전극</h3>
           <p>양손·양발 8개 접점. 5개 부위 독립 측정. 재현성 99%.</p>
           <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">1996년 창업자가 세계 최초 개발</p>
         </div>
         <div class="card">
-          <div class="card-icon">🚫</div>
+          <div class="card-icon gold-icon">0</div>
           <h3>No Estimation</h3>
           <p>나이·성별·인종 추정값 배제. 오직 임피던스만으로 결과 도출.</p>
           <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">DXA 대비 98% 상관관계 (Mayo Clinic)</p>
@@ -780,31 +835,16 @@ html {
       <h2 class="title" style="font-size:var(--h2-size);">의료기기는 <span class="gold" style="font-family:var(--font-serif); font-style:italic;">종합예술</span>이다</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="three-col" style="max-width:1000px; grid-template-columns: repeat(5, 1fr);">
-        <div class="card" style="text-align:center; padding:1rem;">
-          <div class="card-icon">🧬</div>
-          <p style="font-size:var(--small-size);">생체 이해</p>
-        </div>
-        <div class="card" style="text-align:center; padding:1rem;">
-          <div class="card-icon">⚡</div>
-          <p style="font-size:var(--small-size);">전자공학</p>
-        </div>
-        <div class="card" style="text-align:center; padding:1rem;">
-          <div class="card-icon">🏭</div>
-          <p style="font-size:var(--small-size);">생산 설비</p>
-        </div>
-        <div class="card" style="text-align:center; padding:1rem;">
-          <div class="card-icon">🌍</div>
-          <p style="font-size:var(--small-size);">글로벌 세일즈</p>
-        </div>
-        <div class="card" style="text-align:center; padding:1rem;">
-          <div class="card-icon">🔄</div>
-          <p style="font-size:var(--small-size);">끊임없는 개선</p>
-        </div>
+      <div style="display:flex; gap:clamp(1.5rem,3vw,3rem); justify-content:center; flex-wrap:wrap; max-width:900px;">
+        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">01</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">생체 이해</p></div>
+        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">02</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">전자공학</p></div>
+        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">03</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">생산 설비</p></div>
+        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">04</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">글로벌 세일즈</p></div>
+        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">05</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">끊임없는 개선</p></div>
       </div>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <div class="highlight-box" style="max-width:700px; text-align:center;">
+      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
         <p style="font-size:var(--body-size);"><span class="gold bold">과제업무제도</span> — 신입사원도 본인 기획 프로젝트 수행. CEO가 직접 멘토.<br>성과에 따라 <span class="gold bold">최대 1억원+ 보상</span></p>
       </div>
     </div>
@@ -846,7 +886,7 @@ html {
 </section>
 
 <!-- ============ S9: WORLD MAP ============ -->
-<section class="slide" data-slide="9">
+<section class="slide glow-blue" data-slide="9">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Global Network</p>
@@ -901,13 +941,13 @@ html {
 </section>
 
 <!-- ============ S12: INDIA SCENE 1 ============ -->
-<section class="slide" data-slide="12">
+<section class="slide india-mood" data-slide="12">
   <div class="slide-content">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 01</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h2 class="title">🇮🇳 뭄바이 공항, <span class="accent">혼자</span></h2>
+      <h2 class="title">뭄바이 공항, <span class="accent">혼자</span></h2>
     </div>
     <div class="reveal reveal-delay-2">
       <p class="subtitle">2016년 7월. 유통망 제로, 인지도 제로.<br>건물이 들어서기 전부터 법인 설립을 직접 주도.</p>
@@ -916,7 +956,7 @@ html {
 </section>
 
 <!-- ============ S13: INDIA SCENE 2 ============ -->
-<section class="slide" data-slide="13">
+<section class="slide india-mood" data-slide="13">
   <div class="slide-content">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 02</p>
@@ -936,7 +976,7 @@ html {
 </section>
 
 <!-- ============ S14: INDIA SCENE 3 ============ -->
-<section class="slide" data-slide="14">
+<section class="slide india-triumph" data-slide="14">
   <div class="slide-content">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 03</p>
@@ -956,7 +996,7 @@ html {
 </section>
 
 <!-- ============ S15: CLOSING ============ -->
-<section class="slide" data-slide="15">
+<section class="slide glow-brand" data-slide="15">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">마지막으로</p>
@@ -978,7 +1018,7 @@ html {
   <div class="slide-content">
     <div class="reveal">
       <div class="gbd-card">
-        <h2>🌏 GBD — <span class="accent">Global Business Developer</span></h2>
+        <h2>GBD — <span class="accent">Global Business Developer</span></h2>
         <p style="color:var(--text-secondary); margin-bottom:1rem;">인바디 글로벌 인재 육성 프로그램</p>
         <ul>
           <li>직무 무관, 역량과 성과로 해외 파견</li>
@@ -989,7 +1029,7 @@ html {
       </div>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.2rem;">
-      <div class="highlight-box" style="max-width:700px; text-align:center; border-left-color:var(--gold);">
+      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
         <p style="font-size:var(--body-size);"><span class="gold bold">InBody Startup Academy</span> — 대학생 8명 선발 → CEO 멘토링 → <span class="gold bold">CES 출전</span></p>
       </div>
     </div>
