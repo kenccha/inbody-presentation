@@ -477,6 +477,7 @@ html {
 
 .path-card:hover {
   border-color: var(--brand);
+  background: rgba(172,4,48,0.04);
 }
 
 .path-card .path-if {
@@ -484,12 +485,18 @@ html {
   font-size: var(--small-size);
   color: var(--gold);
   margin-bottom: 0.4rem;
+  transition: color 0.3s;
 }
+
+.path-card:hover .path-if { color: var(--brand-light); }
 
 .path-card h3 {
   font-size: var(--h3-size);
   margin-bottom: 0.3rem;
+  transition: color 0.3s;
 }
+
+.path-card:hover h3 { color: var(--brand-light); }
 
 .path-card p {
   font-size: var(--body-size);
@@ -911,7 +918,115 @@ html {
       <h2 class="title" style="font-size:var(--h2-size);">세계 <span class="gold">110+</span>개국에서</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="map-container">[ 세계지도 SVG + 법인 마커 애니메이션 — Phase 3에서 구현 ]</div>
+      <div class="map-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" style="width:100%;height:100%;">
+<style>
+  .continent { fill: none; stroke: rgba(228,230,234,0.15); stroke-width: 1.2; stroke-linejoin: round; }
+  .dot-brand { fill: #ac0430; opacity: 0; }
+  .dot-hq { fill: #e8b73a; opacity: 0; }
+  .dot-brand, .dot-hq { animation: dotAppear 0.5s ease forwards; }
+  @keyframes dotAppear {
+    0% { opacity: 0; transform: scale(0); }
+    60% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .pulse-ring { fill: none; stroke: #e8b73a; stroke-width: 1.5; opacity: 0; }
+  .pulse-ring { animation: pulse 2.5s ease-out infinite; animation-delay: 4.5s; }
+  @keyframes pulse {
+    0% { r: 6; opacity: 0.7; stroke-width: 2; }
+    100% { r: 22; opacity: 0; stroke-width: 0.5; }
+  }
+  .d1  { animation-delay: 0.0s; }
+  .d2  { animation-delay: 0.3s; }
+  .d3  { animation-delay: 0.6s; }
+  .d4  { animation-delay: 0.9s; }
+  .d5  { animation-delay: 1.2s; }
+  .d6  { animation-delay: 1.5s; }
+  .d7  { animation-delay: 1.8s; }
+  .d8  { animation-delay: 2.1s; }
+  .d9  { animation-delay: 2.4s; }
+  .d10 { animation-delay: 2.7s; }
+  .d11 { animation-delay: 3.0s; }
+  .d12 { animation-delay: 3.3s; }
+  .d13 { animation-delay: 3.6s; }
+  .d14 { animation-delay: 3.9s; }
+</style>
+
+<!-- North America -->
+<path class="continent" d="M 40,50 L 60,42 90,38 130,35 160,30 195,38 220,55 230,70 205,82 180,95 170,105 155,108 142,125 130,140 120,158 110,168 100,170 105,178 115,185 125,192 130,200 125,208 112,210 108,220 115,228 118,240 128,248 140,250 150,248 155,256 148,262 135,260 120,252 108,250 95,230 82,218 70,208 58,190 55,172 60,155 52,140 48,130 50,118 42,108 35,98 32,82 35,65 40,50 Z"/>
+
+<!-- South America -->
+<path class="continent" d="M 190,270 L 205,260 220,262 232,272 238,290 242,310 240,330 235,348 228,360 218,372 208,385 200,395 192,400 180,395 172,380 168,362 170,340 175,320 178,300 182,285 190,270 Z"/>
+
+<!-- Europe -->
+<path class="continent" d="M 420,52 L 432,48 445,50 460,48 475,52 488,50 500,55 510,60 505,68 498,72 490,78 485,85 478,92 470,98 465,105 458,110 450,108 445,102 440,95 435,88 430,82 425,75 420,68 418,60 420,52 Z"/>
+
+<!-- Africa -->
+<path class="continent" d="M 438,145 L 452,140 468,142 480,148 492,155 500,168 505,182 510,200 512,218 510,238 505,258 498,275 488,290 478,305 468,315 458,322 448,318 438,308 432,295 428,278 425,260 422,240 420,220 418,200 420,180 425,162 430,152 438,145 Z"/>
+
+<!-- Asia -->
+<path class="continent" d="M 510,42 L 540,35 570,30 600,28 635,30 665,35 695,32 720,38 745,42 770,48 790,55 800,65 798,78 790,88 782,95 778,105 790,108 800,100 810,98 818,105 815,115 808,122 798,128 785,130 775,125 768,118 755,120 740,125 728,130 715,138 705,148 698,155 690,158 678,155 665,148 652,142 640,138 628,140 618,148 612,158 608,168 612,178 622,188 630,195 632,205 628,212 618,218 608,222 595,225 582,218 572,208 565,198 558,188 552,178 548,168 542,155 538,142 535,128 530,115 525,102 518,90 512,78 508,65 510,42 Z"/>
+
+<!-- India subcontinent -->
+<path class="continent" d="M 628,140 L 640,138 652,142 658,155 660,170 655,185 648,198 640,208 632,215 625,210 622,198 620,185 618,170 620,155 625,145 628,140 Z"/>
+
+<!-- Southeast Asia islands -->
+<path class="continent" d="M 698,200 L 710,195 722,198 730,205 735,215 730,222 720,228 710,230 700,225 695,215 698,200 Z"/>
+<path class="continent" d="M 742,218 L 755,215 768,220 778,228 782,238 775,245 762,248 750,242 742,232 742,218 Z"/>
+
+<!-- Australia -->
+<path class="continent" d="M 780,280 L 800,272 820,268 840,272 855,280 862,295 858,312 848,325 835,332 818,335 800,330 788,320 780,308 778,295 780,280 Z"/>
+
+<!-- Japan -->
+<path class="continent" d="M 800,95 L 808,88 814,92 812,102 808,112 802,118 798,112 800,102 800,95 Z"/>
+
+<!-- UK / Ireland -->
+<path class="continent" d="M 438,62 L 445,58 450,62 448,70 444,76 438,74 436,68 438,62 Z"/>
+
+<!-- Dots: 14 InBody subsidiary locations -->
+<!-- 1. Seoul, Korea (HQ) — gold, larger, with pulse -->
+<circle class="pulse-ring" cx="767" cy="118" r="6"/>
+<circle class="dot-hq d1" cx="767" cy="118" r="6"/>
+
+<!-- 2. Los Angeles, USA -->
+<circle class="dot-brand d2" cx="125" cy="148" r="4"/>
+
+<!-- 3. Philadelphia, USA -->
+<circle class="dot-brand d3" cx="228" cy="125" r="4"/>
+
+<!-- 4. Tokyo, Japan -->
+<circle class="dot-brand d4" cx="805" cy="105" r="4"/>
+
+<!-- 5. Shanghai, China -->
+<circle class="dot-brand d5" cx="754" cy="140" r="4"/>
+
+<!-- 6. Amsterdam, Netherlands -->
+<circle class="dot-brand d6" cx="462" cy="82" r="4"/>
+
+<!-- 7. Frankfurt, Germany -->
+<circle class="dot-brand d7" cx="472" cy="88" r="4"/>
+
+<!-- 8. London, UK -->
+<circle class="dot-brand d8" cx="445" cy="78" r="4"/>
+
+<!-- 9. Mumbai, India -->
+<circle class="dot-brand d9" cx="636" cy="188" r="4"/>
+
+<!-- 10. Mexico City, Mexico -->
+<circle class="dot-brand d10" cx="155" cy="192" r="4"/>
+
+<!-- 11. Kuala Lumpur, Malaysia -->
+<circle class="dot-brand d11" cx="710" cy="218" r="4"/>
+
+<!-- 12. Singapore -->
+<circle class="dot-brand d12" cx="715" cy="225" r="4"/>
+
+<!-- 13. Ho Chi Minh, Vietnam -->
+<circle class="dot-brand d13" cx="718" cy="200" r="4"/>
+
+<!-- 14. Southport, Australia -->
+<circle class="dot-brand d14" cx="842" cy="310" r="4"/>
+
+</svg></div>
     </div>
     <div class="reveal reveal-delay-2">
       <div class="stat-row">
