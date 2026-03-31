@@ -701,58 +701,37 @@ body::before {
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 <div class="page-number" id="pageNumber">01 / 17</div>
 
-<!-- ============ S0: HERO ============ -->
+<!-- ============ ACT 1: 질문 ============ -->
+
+<!-- ============ S0: OPENING ============ -->
 <section class="slide glow-brand" data-slide="0">
   <div class="slide-content">
     <div class="reveal">
       <p class="subtitle" style="margin-bottom:1.5rem; font-size:var(--h3-size);">여러분의 몸은 <span class="gold">60%</span>가 물입니다.</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h1 class="title">그런데 그 물이 어디에, 얼마나 있는지<br><span class="accent">30초</span> 만에 알려주는 기계가 있습니다.</h1>
+      <h1 class="title">그런데 그 물이 세포 안에 있는지 밖에 있는지,<br><span class="accent">30초</span> 만에 알려주는 기계가 있습니다.</h1>
     </div>
     <div class="reveal reveal-delay-2">
-      <p class="subtitle">InBody — 체성분 분석의 글로벌 스탠더드</p>
+      <p class="subtitle">저는 그 기계를 만드는 회사에서 일합니다.</p>
     </div>
     <div class="scroll-hint">SCROLL ↓</div>
   </div>
 </section>
 
-<!-- ============ S1: QUESTION + VISUAL REVEAL ============ -->
+<!-- ============ S1: BEFORE INBODY ============ -->
 <section class="slide" data-slide="1">
   <div class="slide-content">
     <div class="reveal">
-      <p class="label">Before We Begin</p>
-      <h2 class="title" style="font-size:var(--h2-size);">체지방률을 가장 정확하게<br>측정하는 방법은?</h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:2rem;">
-      <p class="impact-text" style="font-size:var(--h3-size);">
-        체중계? BMI? 수중체중법?
-      </p>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:2rem;">
-      <p style="font-size:var(--h2-size); font-weight:700; text-align:center;">
-        <span class="accent">생체전기 임피던스 (BIA)</span>
-      </p>
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; margin-top:0.5rem;">
-        Bioelectrical Impedance Analysis — InBody의 핵심 기술
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S2: BEFORE INBODY (COMBINED) ============ -->
-<section class="slide" data-slide="2">
-  <div class="slide-content">
-    <div class="reveal">
       <p class="label">Before InBody</p>
-      <h2 class="title" style="font-size:var(--h2-size);">불편하고, 부정확하고, 비현실적이었던 시대</h2>
+      <h2 class="title" style="font-size:var(--h2-size);">옛날에는 이렇게 측정했습니다</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div class="three-col" style="max-width:1000px;">
         <div class="card">
           <div class="card-icon blue-icon">H₂O</div>
           <h3>수중체중법</h3>
-          <p>물탱크에 완전 잠수. 숨을 다 내뱉고 3회 반복. 연구실 전용.</p>
+          <p>물탱크에 들어가서 숨을 참아야 했습니다. 완전히 잠수한 채로 3회 반복. 연구실에서만 가능했죠.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">오차 ±2.5%</span>
             <span class="tag">노인·어린이 불가</span>
@@ -761,7 +740,7 @@ body::before {
         <div class="card">
           <div class="card-icon">mm</div>
           <h3>피부두겹법</h3>
-          <p>캘리퍼로 피부를 집어서 지방 두께 측정. 측정자마다 결과가 다름.</p>
+          <p>캘리퍼로 피부를 집어서 지방 두께를 쟀습니다. 누가 재느냐에 따라 결과가 달랐습니다.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">오차 ±3~9%</span>
             <span class="tag">비만인 측정 불가</span>
@@ -769,8 +748,8 @@ body::before {
         </div>
         <div class="card">
           <div class="card-icon">50kHz</div>
-          <h3>누운 BIA (RJL)</h3>
-          <p>누워서 전극 4개. 50kHz 단일 주파수. 자세에 따라 값이 바뀜.</p>
+          <h3>누운 BIA</h3>
+          <p>누워서 전극 4개를 붙이고, 50kHz 하나로 측정했습니다. 자세가 바뀌면 값도 바뀌었죠.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">자세 의존</span>
             <span class="tag">추정값 기반</span>
@@ -781,8 +760,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S3: TRANSITION ============ -->
-<section class="slide glow-gold" data-slide="3">
+<!-- ============ S2: TRANSITION 30초 ============ -->
+<section class="slide glow-gold" data-slide="2">
   <div class="slide-content">
     <div class="reveal">
       <p class="impact-text">
@@ -798,40 +777,37 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S4: 3 INNOVATIONS ============ -->
-<section class="slide" data-slide="4">
+<!-- ============ S3: RESULT SHEET ============ -->
+<section class="slide" data-slide="3">
   <div class="slide-content">
-    <div class="reveal">
-      <p class="label">InBody의 3가지 혁신</p>
-      <h2 class="title" style="font-size:var(--h2-size);">왜 InBody가 <span class="accent">다른가</span></h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="three-col" style="max-width:1000px;">
-        <div class="card">
-          <div class="card-icon gold-icon">3MHz</div>
-          <h3>Multi-Frequency</h3>
-          <p>1kHz~3MHz, 최대 8개 주파수. 세포 내·외 수분을 정밀 구분.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">세계 최초 3MHz 적용 (2020)</p>
+    <div class="two-col">
+      <div class="reveal">
+        <img src="assets/inbody-result-sheet.svg" alt="InBody Result Sheet" style="width:100%; max-width:320px; height:auto;">
+      </div>
+      <div>
+        <div class="reveal">
+          <p class="label">30초의 결과</p>
+          <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">이 종이 한 장에<br>여러분 몸의 구성이 전부 나옵니다</h2>
         </div>
-        <div class="card">
-          <div class="card-icon gold-icon">8pt</div>
-          <h3>8점 접촉 전극</h3>
-          <p>양손·양발 8개 접점. 5개 부위 독립 측정. 재현성 99%.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">1996년 창업자가 세계 최초 개발</p>
+        <div class="reveal reveal-delay-1">
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
+            체수분, 단백질, 무기질, 체지방, 골격근량... 부위별로 전부 나옵니다. 30초 서 있었을 뿐인데요.
+          </p>
         </div>
-        <div class="card">
-          <div class="card-icon gold-icon">0</div>
-          <h3>No Estimation</h3>
-          <p>나이·성별·인종 추정값 배제. 오직 임피던스만으로 결과 도출.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">DXA 대비 98% 상관관계 (Mayo Clinic)</p>
+        <div class="reveal reveal-delay-2">
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
+            전 세계 <span class="gold bold">8,000편 이상</span>의 학술 논문에서 기준 장비로 사용됩니다.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ S5: CELL MEMBRANE DIAGRAM ============ -->
-<section class="slide" data-slide="5">
+<!-- ============ ACT 2: 발견 ============ -->
+
+<!-- ============ S4: CELL MEMBRANE ============ -->
+<section class="slide" data-slide="4">
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal">
@@ -841,18 +817,18 @@ body::before {
       </div>
       <div>
         <div class="reveal">
-          <p class="label">여러분의 전공이 이 기계 안에 있다</p>
+          <p class="label">여러분의 전공이 이 기계 안에 있습니다</p>
           <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">세포막이<br><span class="accent">캐패시터</span>가 된다</h2>
         </div>
         <div class="reveal reveal-delay-1">
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
-            인지질 이중층이 축전기처럼 작동합니다. 저주파 전류는 세포 외액만 흐르고, 고주파는 세포막을 관통해 세포 내액까지 도달합니다.
+            세포생물학 시간에 배운 인지질 이중층, 기억나시죠? 그게 이 기계의 핵심 원리입니다. 저주파 전류는 세포막에 막혀서 세포 바깥만 흐르고, 고주파는 세포막을 관통해서 세포 안까지 들어갑니다.
           </p>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="highlight-box">
-            <strong>Phase Angle</strong> = 세포막 무결성의 지표.<br>
-            <span style="color:var(--text-secondary);">암환자 예후, 투석환자 영양상태, 사코페니아 진단에 실제 사용. 정상: 5~7°</span>
+            <strong>Phase Angle</strong> = 세포막이 얼마나 건강한지 보여주는 숫자.<br>
+            <span style="color:var(--text-secondary);">전류가 세포막을 만나면 위상이 틀어집니다. 이 각도가 클수록 세포막이 튼튼합니다. 정상: 5~7°</span>
           </div>
         </div>
       </div>
@@ -860,40 +836,77 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S6: RESULT SHEET ============ -->
-<section class="slide" data-slide="6">
+<!-- ============ S5: THREE INNOVATIONS ============ -->
+<section class="slide" data-slide="5">
   <div class="slide-content">
-    <div class="two-col">
-      <div class="reveal">
-        <img src="assets/inbody-result-sheet.svg" alt="InBody Result Sheet" style="width:100%; max-width:320px; height:auto;">
-      </div>
-      <div>
-        <div class="reveal">
-          <p class="label">InBody Result Sheet</p>
-          <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">30초 측정의 결과</h2>
+    <div class="reveal">
+      <p class="label">왜 다른 기계는 이걸 못 할까?</p>
+      <h2 class="title" style="font-size:var(--h2-size);">InBody의 <span class="accent">3가지</span> 혁신</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="three-col" style="max-width:1000px;">
+        <div class="card">
+          <div class="card-icon gold-icon">3MHz</div>
+          <h3>Multi-Frequency</h3>
+          <p>다른 BIA 기계들은 50kHz 하나만 씁니다. InBody는 8개 주파수를 씁니다. 왜냐하면 주파수마다 세포막을 통과하는 정도가 다르기 때문입니다.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">세계 최초 3MHz 적용 (2020)</p>
         </div>
-        <div class="reveal reveal-delay-1">
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
-            체수분, 단백질, 무기질, 체지방량, 골격근량, BMI, 체지방률, 부위별 근육량, 부위별 체지방... 하나의 결과지에 몸의 구성이 숫자로 나옵니다.
-          </p>
+        <div class="card">
+          <div class="card-icon gold-icon">8pt</div>
+          <h3>8점 접촉 전극</h3>
+          <p>양손·양발 8개 접점으로 5개 부위를 독립 측정합니다. 재현성 99%. 누가, 언제 재도 같은 결과가 나옵니다.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">1996년 창업자가 세계 최초 개발</p>
         </div>
-        <div class="reveal reveal-delay-2">
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
-            전 세계 <span class="gold bold">8,000+편</span>의 학술 논문에서 reference device로 사용.
-          </p>
+        <div class="card">
+          <div class="card-icon gold-icon">0</div>
+          <h3>No Estimation</h3>
+          <p>나이, 성별, 인종 같은 추정값을 쓰지 않습니다. 오직 임피던스 측정값만으로 결과를 냅니다.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">DXA 대비 98% 상관관계 (Mayo Clinic)</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ S7: 종합예술 + 과제업무제도 ============ -->
+<!-- ============ S6: PHASE ANGLE & CLINICAL ============ -->
+<section class="slide" data-slide="6">
+  <div class="slide-content">
+    <div class="reveal">
+      <h2 class="title" style="font-size:var(--h2-size);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <p class="impact-text">
+        <strong>Phase Angle</strong> = 세포막 무결성 지표
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; text-align:center; max-width:700px;">
+        암환자 예후 예측. 투석환자 영양상태 판단. 노인 근감소증 진단.<br>
+        여러분이 배우는 세포생물학이 실제로 사람을 살리는 현장이 여기 있습니다.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
+      <div class="highlight-box" style="max-width:600px; text-align:center;">
+        <p style="font-size:var(--body-size);">
+          <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 유의미 상승<br>
+          <span class="accent bold">Phase Angle 모니터링</span> → 투석환자 영양 중재 시점 결정<br>
+          <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S7: 종합예술 ============ -->
 <section class="slide" data-slide="7">
   <div class="slide-content">
     <div class="reveal">
       <h2 class="title" style="font-size:var(--h2-size);">의료기기는 <span class="gold" style="font-family:var(--font-serif); font-style:italic;">종합예술</span>이다</h2>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px; margin-bottom:1.5rem;">한 분야만 잘해서는 절대 만들 수 없습니다.</p>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:0.5rem;">
       <div style="display:flex; gap:clamp(1.5rem,3vw,3rem); justify-content:center; flex-wrap:wrap; max-width:900px;">
         <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">01</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">생체 이해</p></div>
         <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">02</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">전자공학</p></div>
@@ -902,16 +915,140 @@ body::before {
         <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">05</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">끊임없는 개선</p></div>
       </div>
     </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
       <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);"><span class="gold bold">과제업무제도</span> — 신입사원도 본인 기획 프로젝트 수행. CEO가 직접 멘토.<br>성과에 따라 <span class="gold bold">최대 1억원+ 보상</span></p>
+        <p style="font-size:var(--body-size);"><span class="gold bold">과제업무제도</span> — 신입사원도 본인이 기획한 프로젝트를 직접 수행합니다. CEO가 직접 멘토링.<br>성과에 따라 <span class="gold bold">최대 1억원 보상</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ S8: 선택해봐 너의 길 ============ -->
-<section class="slide" data-slide="8">
+<!-- ============ ACT 3: 도전 ============ -->
+
+<!-- ============ S8: INDIA SCENE 01 ============ -->
+<section class="slide india-mood" data-slide="8">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="scene-number">India Story — Scene 01</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="title">뭄바이 공항, <span class="accent">혼자</span></h2>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p class="subtitle">2016년 7월. 비행기에서 내렸습니다.</p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; line-height:1.7; max-width:600px;">
+        사무실도 없었습니다. 팀도 없었습니다. 고객도 없었습니다.<br>
+        건물이 들어서기 전부터, 법인 설립부터 직접 했습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S9: INDIA SCENE 02 ============ -->
+<section class="slide india-mood" data-slide="9">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="scene-number">India Story — Scene 02</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="title" style="font-size:var(--h2-size);">채용 <span class="accent">5번</span> 실패.<br>통관 <span class="accent">40일</span>.<br>물류 파트너가 사라진 밤.</h2>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p class="subtitle">적합한 팀을 만드는 데만 6년이 걸렸습니다.</p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
+      <div class="quote" style="max-width:600px; margin:0 auto;">
+        "체성분 분석이 뭔지 설명하는 것부터 시작했습니다.<br>문을 두드리고, 또 두드렸습니다."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S10: INDIA SCENE 03 ============ -->
+<section class="slide india-mood" data-slide="10">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="scene-number">India Story — Scene 03</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="title" style="font-size:var(--h2-size);"><span class="accent">InBody Academy</span></h2>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; line-height:1.7; max-width:650px;">
+        의사들에게 체성분 분석이 왜 필요한지, 하나하나 설명했습니다.<br>
+        거절당하고, 또 찾아가고, 또 설명하고.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
+      <div class="quote" style="max-width:600px; margin:0 auto;">
+        "결국 사람을 찾았습니다. 맞는 사람을 만나면, 그들은 멈출 수 없습니다."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S11: VIDEO PLACEHOLDER (HIDDEN) ============ -->
+<section class="slide" data-slide="11" id="videoSlide" style="display:none;">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Video</p>
+      <div class="svg-placeholder" style="aspect-ratio:16/9; max-width:800px;">[ 영상 삽입 자리 — 나중에 추가 ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S11: INDIA SCENE 04 — TRIUMPH ============ -->
+<section class="slide india-triumph" data-slide="12">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="scene-number">India Story — Scene 04</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="title">그리고 <span class="gold">Apollo Hospital</span>이<br>온 날</h2>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p class="subtitle">2024년 상반기, 인도 메디컬 매출 <span class="gold bold">100%+ 성장</span></p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
+      <p style="font-size:var(--h3-size); text-align:center; color:var(--text-secondary);">꿈만 같았습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACT 4: 초대 ============ -->
+
+<!-- ============ S12: GLOBAL NETWORK ============ -->
+<section class="slide glow-blue" data-slide="13">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Global Network</p>
+      <h2 class="title" style="font-size:var(--h2-size);">세계 <span class="gold">110+</span>개국에서</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
+      <div class="map-container" style="background:transparent; position:relative; display:flex; align-items:center; justify-content:center;">
+        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:100%;">
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="stat-row">
+        <div class="stat"><div class="stat-number">110+</div><div class="stat-label">수출국<br><span style="font-size:0.7rem;">유엔 회원국의 57%</span></div></div>
+        <div class="stat"><div class="stat-number">14</div><div class="stat-label">해외법인</div></div>
+        <div class="stat"><div class="stat-number">83%</div><div class="stat-label">해외매출<br><span style="font-size:0.7rem;">2025 Q1</span></div></div>
+        <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">데이터<br><span style="font-size:0.7rem;">한국인구 4배</span></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
+        2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S13: CHOOSE YOUR PATH ============ -->
+<section class="slide" data-slide="14">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Choose Your Path</p>
@@ -922,7 +1059,7 @@ body::before {
         <div class="path-card">
           <p class="path-if">연구가 좋다면 →</p>
           <h3>임상팀 / AI 연구소</h3>
-          <p>7,000+편 논문 지원, Phase Angle 연구, Mayo Clinic 협력. 석·박사 10명의 AI Lab.</p>
+          <p>8,000+편 논문 지원, Phase Angle 연구, Mayo Clinic 협력. 석·박사 10명의 AI Lab.</p>
         </div>
         <div class="path-card">
           <p class="path-if">세계를 누비고 싶다면 →</p>
@@ -941,122 +1078,15 @@ body::before {
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ S9: WORLD MAP ============ -->
-<section class="slide glow-blue" data-slide="9">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">Global Network</p>
-      <h2 class="title" style="font-size:var(--h2-size);">세계 <span class="gold">110+</span>개국에서</h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="map-container" style="background:transparent; position:relative; display:flex; align-items:center; justify-content:center;">
-        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:100%;">
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="stat-row">
-        <div class="stat"><div class="stat-number">110+</div><div class="stat-label">수출국<br><span style="font-size:0.7rem;">유엔 회원국의 57%</span></div></div>
-        <div class="stat"><div class="stat-number">14</div><div class="stat-label">해외법인·지사</div></div>
-        <div class="stat"><div class="stat-number">83%</div><div class="stat-label">해외 매출 비중<br><span style="font-size:0.7rem;">2025 Q1</span></div></div>
-        <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">체성분 데이터<br><span style="font-size:0.7rem;">한국 인구의 4배</span></div></div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.2rem;">
+      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
+        <p style="font-size:var(--body-size);"><span class="gold bold">InBody Startup Academy</span> — 대학생 8명 선발 → CEO 멘토링 → <span class="gold bold">CES 출전</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ S10: REVENUE CHART ============ -->
-<section class="slide" data-slide="10">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">Revenue Growth</p>
-      <h2 class="title" style="font-size:var(--h2-size);">하루 <span class="gold">6.4억원</span>어치</h2>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <div class="chart-container" id="revenueChart">
-        <div class="bar-group"><div class="bar-value">1,179</div><div class="bar" style="--target-h:100px;"></div><div class="bar-label">2019</div></div>
-        <div class="bar-group"><div class="bar-value">1,071</div><div class="bar" style="--target-h:91px;"></div><div class="bar-label">2020</div></div>
-        <div class="bar-group"><div class="bar-value">1,378</div><div class="bar" style="--target-h:118px;"></div><div class="bar-label">2021</div></div>
-        <div class="bar-group"><div class="bar-value">1,600</div><div class="bar" style="--target-h:137px;"></div><div class="bar-label">2022</div></div>
-        <div class="bar-group"><div class="bar-value">1,704</div><div class="bar" style="--target-h:146px;"></div><div class="bar-label">2023</div></div>
-        <div class="bar-group"><div class="bar-value">2,045</div><div class="bar" style="--target-h:175px;"></div><div class="bar-label">2024</div></div>
-        <div class="bar-group"><div class="bar-value">2,339</div><div class="bar gold-bar" style="--target-h:200px;"></div><div class="bar-label">2025</div></div>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:0.5rem;">
-      <p style="font-size:var(--small-size); color:var(--text-dim); text-align:center;">(단위: 억원, 연결기준) · 6년간 매출 2배 성장</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S11: VIDEO PLACEHOLDER ============ -->
-<section class="slide" data-slide="11" id="videoSlide" style="display:none;">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">Video</p>
-      <div class="svg-placeholder" style="aspect-ratio:16/9; max-width:800px;">[ 영상 삽입 자리 — 나중에 추가 ]</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S12: INDIA SCENE 1 ============ -->
-<section class="slide india-mood" data-slide="12">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="scene-number">India Story — Scene 01</p>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <h2 class="title">뭄바이 공항, <span class="accent">혼자</span></h2>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <p class="subtitle">2016년 7월. 유통망 제로, 인지도 제로.<br>건물이 들어서기 전부터 법인 설립을 직접 주도.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S13: INDIA SCENE 2 ============ -->
-<section class="slide india-mood" data-slide="13">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="scene-number">India Story — Scene 02</p>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <h2 class="title" style="font-size:var(--h2-size);">채용 <span class="accent">5번</span> 실패.<br>통관 <span class="accent">40일</span>. 물류 파트너 무너짐.</h2>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p class="subtitle">팀을 만드는 데만 6년이 걸렸다.</p>
-    </div>
-    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
-      <div class="quote" style="max-width:600px; margin:0 auto;">
-        "체성분 분석이 뭔지 설명하는 것부터 시작했다.<br>문을 두드리고, 또 두드렸다."
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S14: INDIA SCENE 3 ============ -->
-<section class="slide india-triumph" data-slide="14">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="scene-number">India Story — Scene 03</p>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <h2 class="title">그리고 <span class="gold">Apollo Hospital</span>이<br>온 날</h2>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p class="subtitle">2024년 상반기, 인도 메디컬 매출 <span class="gold bold">100%+ 성장</span></p>
-    </div>
-    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
-      <div class="quote" style="max-width:500px; margin:0 auto;">
-        "맞는 사람을 찾으면, 그들은 멈출 수 없다"
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S15: CLOSING ============ -->
+<!-- ============ S14: CLOSING ============ -->
 <section class="slide glow-brand" data-slide="15">
   <div class="slide-content">
     <div class="reveal">
@@ -1065,16 +1095,18 @@ body::before {
     <div class="reveal reveal-delay-1">
       <h2 class="title">유행을 쫓지 마세요.<br><span class="accent">본인이 파는 인생</span>이<br>제일 중요합니다.</h2>
     </div>
-    <div class="reveal reveal-delay-2" style="margin-top:2rem;">
-      <p class="subtitle">
-        스티브잡스 때는 인문학, 지금은 AI. 유행은 바뀝니다.<br><br>
-        <strong style="color:var(--text-primary);">생물이 재미있으면, 그게 여러분의 중심입니다.</strong>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p class="subtitle">스티브잡스 때는 인문학, 지금은 AI. 유행은 바뀝니다.</p>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
+      <p style="font-size:var(--h3-size); font-weight:700; text-align:center; color:var(--text-primary);">
+        생물이 재미있으면, 그게 여러분의 중심입니다.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ============ S16: GBD + STARTUP ACADEMY + CONTACT ============ -->
+<!-- ============ S15: GBD + CONTACT ============ -->
 <section class="slide" data-slide="16">
   <div class="slide-content">
     <div class="reveal">
@@ -1089,12 +1121,7 @@ body::before {
         </ul>
       </div>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.2rem;">
-      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);"><span class="gold bold">InBody Startup Academy</span> — 대학생 8명 선발 → CEO 멘토링 → <span class="gold bold">CES 출전</span></p>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem; text-align:center;">
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem; text-align:center;">
       <p style="font-size:var(--h3-size); font-weight:700;">inbodyrecruit.com</p>
       <p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.5rem;">Q&A — 무엇이든 물어보세요</p>
     </div>
