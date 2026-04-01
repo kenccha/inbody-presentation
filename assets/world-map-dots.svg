@@ -3,7 +3,7 @@
   <!-- Generated from Natural Earth country boundary data -->
   <!-- Designed for light backgrounds (transparent BG, dark dots) -->
   <!-- Lat range: -60 to 85, Lon range: -180 to 180 -->
-  <g fill="rgba(26,26,46,0.55)" stroke="none">
+  <g fill="rgba(26,26,46,0.4)" stroke="none">
     <circle cx="428.1" cy="445.1" r="2.0"/>
     <circle cx="314.9" cy="435.4" r="2.0"/>
     <circle cx="301.8" cy="430.6" r="2.0"/>
