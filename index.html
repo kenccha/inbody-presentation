@@ -801,11 +801,11 @@ body::before {
 <div class="logo"><img src="assets/logo.png" alt="InBody"></div>
 <nav class="nav-dots" id="navDots"></nav>
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-<div class="page-number" id="pageNumber">01 / 17</div>
+<div class="page-number" id="pageNumber">01 / 27</div>
 
-<!-- ============ ACT 1: 질문 ============ -->
+<!-- ============ ACT 1: 호기심 (S0-S5) ============ -->
 
-<!-- ============ S0: OPENING ============ -->
+<!-- ============ S0: OPENING "60%가 물" ============ -->
 <section class="slide glow-brand" data-slide="0">
   <div class="slide-content">
     <div class="reveal">
@@ -821,8 +821,43 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S1: BEFORE INBODY ============ -->
+<!-- ============ S1: QUIZ ============ -->
 <section class="slide" data-slide="1">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Quiz</p>
+      <h2 class="title" style="font-size:var(--h2-size);">여러분이라면 어떤 방법을 고르시겠습니까?</h2>
+      <p class="subtitle" style="margin-top:0.5rem;">체지방률을 가장 정확하게 측정하는 방법은?</p>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="path-grid">
+        <div class="path-card">
+          <p class="path-if">A</p>
+          <h3>체중계 (BMI)</h3>
+          <p>키와 몸무게만으로 계산. 근육이 많아도 '비만'으로 판정될 수 있습니다.</p>
+        </div>
+        <div class="path-card">
+          <p class="path-if">B</p>
+          <h3>줄자 (허리둘레)</h3>
+          <p>허리둘레로 내장지방을 추정. 간편하지만 체지방률은 알 수 없습니다.</p>
+        </div>
+        <div class="path-card">
+          <p class="path-if">C</p>
+          <h3>물탱크 (수중체중법)</h3>
+          <p>골드 스탠더드였지만, 물속에서 숨을 참아야 합니다. 연구실 전용.</p>
+        </div>
+        <div class="path-card">
+          <p class="path-if">D</p>
+          <h3>InBody (BIA)</h3>
+          <p>발판 위에 30초. 미세전류로 세포 안팎의 수분까지 구분합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S2: BEFORE INBODY ============ -->
+<section class="slide" data-slide="2">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Before InBody</p>
@@ -862,8 +897,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S2: TRANSITION 30초 ============ -->
-<section class="slide glow-gold" data-slide="2">
+<!-- ============ S3: TRANSITION 30초 ============ -->
+<section class="slide glow-gold" data-slide="3">
   <div class="slide-content">
     <div class="reveal">
       <p class="impact-text">
@@ -879,8 +914,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S3: RESULT SHEET ============ -->
-<section class="slide" data-slide="3">
+<!-- ============ S4: RESULT SHEET ============ -->
+<section class="slide" data-slide="4">
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal" style="text-align:center;">
@@ -911,10 +946,67 @@ body::before {
   </div>
 </section>
 
-<!-- ============ ACT 2: 발견 ============ -->
+<!-- ============ S5: BODY COMPOSITION (NEW) ============ -->
+<section class="slide" data-slide="5">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Body Composition</p>
+      <h2 class="title" style="font-size:var(--h2-size);">지금 여러분 몸에서 일어나고 있는 일</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="two-col" style="max-width:1000px;">
+        <div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-icon blue-icon">60%</div>
+            <h3>체수분 (Body Water)</h3>
+            <p>세포 안팎을 채우는 물. 영양소 운반, 체온 조절, 노폐물 배출의 매개체입니다.</p>
+          </div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-icon">16%</div>
+            <h3>단백질 (Protein)</h3>
+            <p>세포 신호전달, 효소 활성에 필수인 그 단백질입니다. 근육의 주성분이자 면역의 핵심.</p>
+          </div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-icon gold-icon">6%</div>
+            <h3>무기질 (Minerals)</h3>
+            <p>뼈와 치아를 구성하는 칼슘, 신경전달에 쓰이는 나트륨·칼륨. 생화학 반응의 조연.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">15~25%</div>
+            <h3>체지방 (Body Fat)</h3>
+            <p>에너지 저장, 장기 보호, 호르몬 분비. 너무 많아도, 너무 적어도 문제입니다.</p>
+          </div>
+        </div>
+        <div>
+          <div class="reveal reveal-delay-2">
+            <div class="highlight-box" style="text-align:center;">
+              <p style="font-size:var(--h3-size); font-weight:700; margin-bottom:0.5rem;">
+                <span class="accent">코로나 환자는 하루에 근육 500g을 잃습니다</span>
+              </p>
+              <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
+                중환자실에서 체성분 변화를 실시간으로 모니터링할 수 있는 기계가 병상 옆에 있다면?<br>
+                InBody는 그 현장에 이미 있습니다.
+              </p>
+              <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.8rem;">
+                — 이라미 대표, 서울경제 인터뷰
+              </p>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-3" style="margin-top:1rem;">
+            <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+              생물학 교과서에서 배운 세포의 구성 요소가 그대로 InBody 결과지에 나옵니다. 체수분, 단백질, 무기질, 체지방 — 여러분의 전공이 곧 이 회사의 언어입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ============ S4: CELL MEMBRANE ============ -->
-<section class="slide" data-slide="4">
+<!-- ============ ACT 2: 발견 (S6-S12) ============ -->
+
+<!-- ============ S6: CELL MEMBRANE ============ -->
+<section class="slide" data-slide="6">
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal">
@@ -946,8 +1038,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S5: THREE INNOVATIONS ============ -->
-<section class="slide" data-slide="5">
+<!-- ============ S7: THREE INNOVATIONS ============ -->
+<section class="slide" data-slide="7">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">왜 다른 기계는 이걸 못 할까?</p>
@@ -978,8 +1070,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S6: PHASE ANGLE & CLINICAL ============ -->
-<section class="slide" data-slide="6">
+<!-- ============ S8: PHASE ANGLE & CLINICAL (COVID line removed) ============ -->
+<section class="slide" data-slide="8">
   <div class="slide-content">
     <div class="reveal">
       <h2 class="title" style="font-size:var(--h2-size);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
@@ -1004,16 +1096,54 @@ body::before {
         </p>
       </div>
     </div>
-    <div class="reveal reveal-delay-4" style="margin-top:1rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:700px; line-height:1.7;">
-        코로나 환자는 하루에 근육 500g을 잃습니다. 이걸 실시간으로 모니터링할 수 있는 기계가 병상 옆에 있다면?
-      </p>
+  </div>
+</section>
+
+<!-- ============ S9: SARCOPENIA (NEW) ============ -->
+<section class="slide" data-slide="9">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Sarcopenia</p>
+      <h2 class="title" style="font-size:var(--h2-size);">Phase Angle에서 <span class="accent">사코페니아</span>까지</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="two-col" style="max-width:1000px;">
+        <div>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; margin-bottom:1rem;">
+            근감소증(Sarcopenia)은 단순히 근육이 줄어드는 것이 아닙니다.<br>
+            <strong>근육량 감소 + 근력 저하</strong>가 동시에 나타나는 질환입니다.
+          </p>
+          <div class="highlight-box" style="margin-bottom:1rem;">
+            <p style="font-size:var(--body-size);">
+              <span class="accent bold">65세 이상 10~16%</span>가 근감소증.<br>
+              <span style="color:var(--text-secondary);">AWGS 2025 컨센서스에서 Multi-frequency BIA를 근감소증 진단에 공식 인정했습니다.</span>
+            </p>
+          </div>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+            Phase Angle로 세포 건강을 보고, 골격근량으로 근육을 측정하고, InGrip으로 악력까지 — InBody 하나로 근감소증 진단의 전 과정을 커버합니다.
+          </p>
+        </div>
+        <div>
+          <div class="card" style="text-align:center;">
+            <div class="card-icon gold-icon">InGrip</div>
+            <h3>악력 측정기</h3>
+            <p>Load cell 메커니즘, Bluetooth 연동. 근력 저하를 정량적으로 측정합니다.</p>
+            <p style="margin-top:0.8rem; font-size:var(--small-size); color:var(--gold);">체성분 + 악력 = 근감소증 종합 진단</p>
+          </div>
+          <div class="reveal reveal-delay-2" style="margin-top:1rem;">
+            <div class="stat-row" style="justify-content:center;">
+              <div class="stat"><div class="stat-number">10~16%</div><div class="stat-label">65세+ 유병률</div></div>
+              <div class="stat"><div class="stat-number">BIA</div><div class="stat-label">AWGS 2025 공인</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ S7: 종합예술 ============ -->
-<section class="slide" data-slide="7">
+<!-- ============ S10: 종합예술 (과제업무제도 highlight-box removed) ============ -->
+<section class="slide" data-slide="10">
   <div class="slide-content">
     <div class="reveal">
       <h2 class="title" style="font-size:var(--h2-size);">의료기기는 <span class="gold" style="font-family:var(--font-serif); font-style:italic; font-size:1.15em;">종합예술</span>이다</h2>
@@ -1030,24 +1160,91 @@ body::before {
         <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">05</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.3rem;">끊임없는 개선</p></div>
       </div>
     </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1rem;">
+    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:700px;">
         1996년, 전세금 <span class="gold bold">5,000만원</span>과 직원 4명으로 삼성동 지하 창고에서 시작했습니다.<br>
         첫 해 매출 1억원. 지금은 2,339억원.
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ============ S11: FOUNDING STORY (NEW) ============ -->
+<section class="slide" data-slide="11">
+  <div class="slide-content left-aligned">
+    <div class="reveal">
+      <p class="label">Founding Story</p>
+      <h2 class="title" style="font-size:var(--h2-size); text-align:left;">지하 창고, <span class="gold">5,000만원</span>, 4명</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:650px;">
+        1996년, 삼성동 지하창고. 전세금 5,000만원이 전부였습니다.<br>
+        직원 4명. 첫 해 매출 1억원.<br>
+        6년 만에 100억원을 돌파했습니다.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <div class="quote" style="max-width:600px;">
+        결혼하기 전에 '사업할 건데 말릴 거면 결혼하지 말자'고 했다
+      </div>
+    </div>
     <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
-      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);"><span class="gold bold">과제업무제도</span> — 신입사원도 본인이 기획한 프로젝트를 수행합니다. CEO가 직접 멘토링합니다. 성과에 따라 <span class="gold bold">최대 1억원 이상 보상</span>. 우리 회장님의 목표는 '환갑 전에 CEO 10명을 만드는 것'입니다.<br>천안공장에서는 한 사람이 한 대를 처음부터 끝까지 완성합니다. 장인제도. 불량률 0.23%.</p>
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:650px;">
+        "월급날이 괴롭다고 하잖아요. 저는 무서웠습니다."<br>
+        그 두려움을 견디며 만든 회사가 지금 110개국에 수출합니다.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-4" style="margin-top:1rem;">
+      <div class="stat-row" style="justify-content:flex-start;">
+        <div class="stat"><div class="stat-number">1996</div><div class="stat-label">창업년도</div></div>
+        <div class="stat"><div class="stat-number">4명</div><div class="stat-label">초기 직원</div></div>
+        <div class="stat"><div class="stat-number">1억</div><div class="stat-label">첫 해 매출</div></div>
+        <div class="stat"><div class="stat-number">6년</div><div class="stat-label">100억 돌파</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ACT 3: 도전 ============ -->
+<!-- ============ S12: CHEONAN FACTORY (NEW) ============ -->
+<section class="slide" data-slide="12">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Manufacturing</p>
+      <h2 class="title" style="font-size:var(--h2-size);">천안공장 — <span class="accent">한 사람이 한 대를 만든다</span></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="three-col" style="max-width:1000px;">
+        <div class="card">
+          <div class="card-icon">Cell</div>
+          <h3>셀 생산 방식</h3>
+          <p>한 사람이 한 대를 처음부터 끝까지 완성합니다. 라인의 부속품이 아닌 장인.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon gold-icon">0.23%</div>
+          <h3>불량률</h3>
+          <p>장인 제도가 만들어낸 품질. 제1공장 연간 6만대 이상 생산.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">100%</div>
+          <h3>국내 생산</h3>
+          <p>OEM/ODM 없음. 100% 자체 설계, 자체 생산. 기술 유출 원천 차단.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <div class="stat-row">
+        <div class="stat"><div class="stat-number">10%</div><div class="stat-label">매출 대비 R&D</div></div>
+        <div class="stat"><div class="stat-number">30%</div><div class="stat-label">전직원 중 연구개발</div></div>
+        <div class="stat"><div class="stat-number">6만+</div><div class="stat-label">연간 생산 (대)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ============ S8: INDIA SCENE 01 ============ -->
-<section class="slide india-mood" data-slide="8">
+<!-- ============ ACT 3: 도전 (S13-S19) ============ -->
+
+<!-- ============ S13: INDIA SCENE 01 ============ -->
+<section class="slide india-mood" data-slide="13">
   <div class="slide-content" style="padding:var(--slide-padding);">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 01</p>
@@ -1072,8 +1269,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S9: INDIA SCENE 02 ============ -->
-<section class="slide india-mood" data-slide="9">
+<!-- ============ S14: INDIA SCENE 02 ============ -->
+<section class="slide india-mood" data-slide="14">
   <div class="slide-content left-aligned">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 02</p>
@@ -1097,8 +1294,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S10: INDIA SCENE 03 ============ -->
-<section class="slide india-mood" data-slide="10">
+<!-- ============ S15: INDIA SCENE 03 ============ -->
+<section class="slide india-mood" data-slide="15">
   <div class="slide-content" style="padding:var(--slide-padding);">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 03</p>
@@ -1125,8 +1322,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S11: VIDEO ============ -->
-<section class="slide" data-slide="11">
+<!-- ============ S16: VIDEO ============ -->
+<section class="slide" data-slide="16">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">해외법인제도</p>
@@ -1142,8 +1339,8 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S12: INDIA SCENE 04 — TRIUMPH ============ -->
-<section class="slide india-triumph" data-slide="12">
+<!-- ============ S17: INDIA SCENE 04 — TRIUMPH ============ -->
+<section class="slide india-triumph" data-slide="17">
   <div class="slide-content" style="padding:var(--slide-padding);">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 04</p>
@@ -1168,10 +1365,73 @@ body::before {
   </div>
 </section>
 
-<!-- ============ ACT 4: 초대 ============ -->
+<!-- ============ S18: ACT TRANSITION (NEW) ============ -->
+<section class="slide act-divider" data-slide="18">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="impact-text">
+        20대에 법인장을 맡기고, 신입에게 CEO가 직접 멘토링하고,<br>대학생 8명을 CES에 보내는 회사.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:2rem;">
+      <p class="impact-text">
+        <strong>어떤 회사가 이런 일을 할까?</strong>
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:2rem;">
+      <div class="quote">
+        일을 '아는' 사람이 아니라 '하는' 사람 — 차기철
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ============ S12: GLOBAL NETWORK ============ -->
-<section class="slide glow-blue" data-slide="13">
+<!-- ============ S19: LEE RAMI CEO STORY (NEW) ============ -->
+<section class="slide" data-slide="19">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">From Entry to CEO</p>
+      <h2 class="title" style="font-size:var(--h2-size);">연 10대 팔던 회사에서 시작해,<br><span class="accent">19년 만에 대표</span>가 되다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2003</div>
+          <div class="timeline-text">벤처기업 인바디 입사. 연 10대 판매가 최고 실적이던 시절.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">임상 → 영업</div>
+          <div class="timeline-text">임상연구소에서 영업부로. 내성적인 성격을 극복하며 현장을 배우다. 이후 회장 보조실.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">일본법인 3년</div>
+          <div class="timeline-text">매출 2배 성장. 해외 사업의 감각을 익히다.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">유럽법인장 4년</div>
+          <div class="timeline-text">매출 2.5배 성장. 현지에서 팀을 키우고, 시장을 만들다.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-text">대표이사 취임. 말단 사원에서 19년 만에 대표가 되다.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <div class="quote">
+        출산하러 병원에 들어가면서도 노트북을 챙겼다
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:0.5rem;">
+      <p style="font-size:var(--small-size); color:var(--text-dim); text-align:center;">— 포브스코리아, 서울경제</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACT 4: 초대 (S20-S26) ============ -->
+
+<!-- ============ S20: GLOBAL NETWORK ============ -->
+<section class="slide glow-blue" data-slide="20">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Global Network</p>
@@ -1203,8 +1463,108 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S13: CHOOSE YOUR PATH ============ -->
-<section class="slide" data-slide="14">
+<!-- ============ S21: REVENUE CHART (NEW) ============ -->
+<section class="slide glow-gold" data-slide="21">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Revenue</p>
+      <h2 class="title" style="font-size:var(--h2-size);"><span class="gold">1,179억</span>에서 <span class="gold">2,339억</span>까지</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="chart-container">
+        <div class="bar-group">
+          <div class="bar-value">1,179</div>
+          <div class="bar" style="--target-h: 126px;"></div>
+          <div class="bar-label">2019</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">1,071</div>
+          <div class="bar" style="--target-h: 115px;"></div>
+          <div class="bar-label">2020</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">1,378</div>
+          <div class="bar" style="--target-h: 148px;"></div>
+          <div class="bar-label">2021</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">1,600</div>
+          <div class="bar" style="--target-h: 171px;"></div>
+          <div class="bar-label">2022</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">1,704</div>
+          <div class="bar" style="--target-h: 182px;"></div>
+          <div class="bar-label">2023</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">2,045</div>
+          <div class="bar gold-bar" style="--target-h: 219px;"></div>
+          <div class="bar-label">2024</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">2,339</div>
+          <div class="bar gold-bar" style="--target-h: 250px;"></div>
+          <div class="bar-label">2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
+        인수합병 없이. <span class="gold bold">조급한 토끼보다 꾸준한 거북이가 낫다.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S22: BWA ON (NEW) ============ -->
+<section class="slide" data-slide="22">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Next Frontier</p>
+      <h2 class="title" style="font-size:var(--h2-size);"><span class="accent">2.5억 명</span>의 환자를 위한<br>세계 최초 가정용 의료기기</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="two-col" style="max-width:1000px;">
+        <div>
+          <h3 style="font-size:var(--h3-size); margin-bottom:0.8rem;">BWA ON</h3>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; margin-bottom:1rem;">
+            림프부종 환자 전 세계 <span class="accent bold">2.5억 명</span>. 암 치료 후 림프계 손상으로 발생하는 부종 — 심각해질 때까지 모르는 경우가 많았습니다.
+          </p>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; margin-bottom:1rem;">
+            BWA ON은 가정에서 체수분을 측정해 초기 부종을 감지합니다. 생물학에서 배운 림프계가 실제 제품이 됩니다.
+          </p>
+          <div class="highlight-box" style="margin-top:1rem;">
+            <p style="font-size:var(--body-size);">
+              <span class="accent bold">DTx 전략</span>: 건강보험 수가 적용 추진.<br>
+              <span style="color:var(--text-secondary);">기기 + 환자 앱 + 의료진 웹 — 디지털 치료제 생태계.</span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-icon">Problem</div>
+            <h3>늦은 발견</h3>
+            <p>부종이 심각해져야 병원을 찾습니다. 초기 감지가 예후를 결정합니다.</p>
+          </div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-icon gold-icon">Solution</div>
+            <h3>가정 내 체수분 측정</h3>
+            <p>BIA 기술로 팔다리의 수분 변화를 매일 추적. 이상 징후를 조기에 포착합니다.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon blue-icon">Ecosystem</div>
+            <h3>연결된 치료</h3>
+            <p>환자 앱에서 기록하고, 의료진 웹에서 모니터링. 원격 진료와 연동됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S23: CHOOSE YOUR PATH ============ -->
+<section class="slide" data-slide="23">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Choose Your Path</p>
@@ -1247,8 +1607,51 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S14: CLOSING ============ -->
-<section class="slide glow-brand" data-slide="15">
+<!-- ============ S24: WELLNESS / CULTURE (NEW) ============ -->
+<section class="slide" data-slide="24">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Work Culture</p>
+      <h2 class="title" style="font-size:var(--h2-size);">체성분분석기 만드는 회사의 <span class="accent">복지</span></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="three-col" style="max-width:1100px;">
+        <div class="card">
+          <div class="card-icon gold-icon">4.5일</div>
+          <h3>주 4.5일제</h3>
+          <p>금요일 오전 근무. 여유 있는 주말의 시작.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">PT</div>
+          <h3>그룹 PT 프로그램</h3>
+          <p>20명/기수, 체성분 매칭 2인1조. 주2회 2시간, 8주. 대표이사도 1기로 참여. 10kg 이상 감량 사례.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">+</div>
+          <h3>건강 지원</h3>
+          <p>단백질 보충제 + 운동복 제공. 체성분분석기 회사답게.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <div class="two-col" style="max-width:1000px;">
+        <div class="card">
+          <div class="card-icon gold-icon">PM</div>
+          <h3>과제업무제도</h3>
+          <p>신입사원도 본인이 기획한 프로젝트의 PM이 됩니다. CEO가 직접 멘토링합니다. 성과에 따라 <span class="gold bold">최대 억대 성과급</span>. 회장님의 목표: '환갑 전에 CEO 10명 만들기'.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue-icon">IBAT</div>
+          <h3>열린 채용</h3>
+          <p>학점, 자격증, 영어 제한 없음. InBody Aptitude Test — 역량과 성장 가능성으로 평가합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S25: CLOSING ============ -->
+<section class="slide glow-brand" data-slide="25">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">마지막으로</p>
@@ -1265,19 +1668,37 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S15: GBD + CONTACT ============ -->
-<section class="slide" data-slide="16">
+<!-- ============ S26: GBD + CONTACT + STARTUP ACADEMY ============ -->
+<section class="slide" data-slide="26">
   <div class="slide-content">
     <div class="reveal">
-      <div class="gbd-card">
-        <h2>GBD — <span class="accent">Global Business Developer</span></h2>
-        <p style="color:var(--text-secondary); margin-bottom:1rem;">인바디 글로벌 인재 육성 프로그램</p>
-        <ul>
-          <li>직무 무관, 역량과 성과로 해외 파견</li>
-          <li>1~2년 훈련 → 3년간 해외 사업 수행</li>
-          <li>리더 트랙 (법인장) / 엑스퍼트 트랙 (임상·회계)</li>
-          <li>어학교육 + 직무 트레이닝 + 주거·항공 지원</li>
-        </ul>
+      <div class="two-col" style="max-width:1100px; align-items:start;">
+        <div class="gbd-card">
+          <h2>GBD — <span class="accent">Global Business Developer</span></h2>
+          <p style="color:var(--text-secondary); margin-bottom:1rem;">인바디 글로벌 인재 육성 프로그램</p>
+          <ul>
+            <li>직무 무관, 역량과 성과로 해외 파견</li>
+            <li>1~2년 훈련 → 3년간 해외 사업 수행</li>
+            <li>리더 트랙 (법인장) / 엑스퍼트 트랙 (임상·회계)</li>
+            <li>어학교육 + 직무 트레이닝 + 주거·항공 지원</li>
+          </ul>
+        </div>
+        <div>
+          <div class="gbd-card" style="margin-bottom:1.5rem;">
+            <h2><span class="gold">Startup Academy</span></h2>
+            <p style="color:var(--text-secondary); margin-bottom:1rem;">대학생이 CES에 서는 법</p>
+            <ul>
+              <li>대학생 8명 선발, 개발비·월급 전액 지원</li>
+              <li>CEO가 직접 멘토링</li>
+              <li>CES 라스베이거스 항공편 전액 지원</li>
+              <li>2025년 'InBody AI Scale' 전시 성공</li>
+            </ul>
+          </div>
+          <div style="text-align:center; padding:1rem; background:var(--dark-card); border:1px solid rgba(0,0,0,0.12); border-radius:12px;">
+            <p style="font-size:var(--body-size); color:var(--text-secondary); margin-bottom:0.5rem;">QR 코드로 채용 페이지 바로 가기</p>
+            <div style="width:120px; height:120px; background:var(--dark-surface); border:1px dashed var(--text-dim); border-radius:8px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:var(--small-size); color:var(--text-dim);">QR Code</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem; text-align:center;">
