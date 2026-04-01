@@ -218,6 +218,7 @@ body::before {
   gap: clamp(0.8rem, 1.5vw, 1.5rem);
   width: 100%;
   max-width: 1100px;
+  align-items: stretch;
 }
 
 .card {
@@ -226,6 +227,8 @@ body::before {
   border-radius: 12px;
   padding: clamp(1rem, 2vw, 1.8rem);
   box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
 }
 
 .card-icon {
@@ -570,9 +573,9 @@ body::before {
   pointer-events: none;
 }
 .logo img {
-  height: 22px;
+  height: 36px;
   width: auto;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 /* Nav dots — right */
@@ -625,15 +628,9 @@ body::before {
   width: 0%;
 }
 
-/* Page number — bottom right */
+/* Page number — hidden during presentation */
 .page-number {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 2rem;
-  z-index: 100;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-dim);
+  display: none;
 }
 
 /* Scroll hint */
