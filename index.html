@@ -9,21 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ===========================================
-   INBODY CUSTOM THEME — DARK CINEMATIC
+   INBODY CUSTOM THEME — LIGHT WARM
    =========================================== */
 :root {
   --brand: #ac0430;
   --brand-light: #d4063e;
-  --gold: #e8b73a;
-  --dark-bg: #0c1017;
-  --dark-surface: #131921;
-  --dark-card: #1a2130;
-  --dark-navy: #1e2631;
+  --gold: #b8860b;
+  --dark-bg: #f2f0eb;
+  --dark-surface: #e8e6e1;
+  --dark-card: #ffffff;
+  --dark-navy: #e3e1dc;
   --blue: #005b9e;
-  --text-primary: #e4e6ea;
-  --text-secondary: #8a8f9a;
-  --text-dim: #4a5060;
-  --charcoal: #3e454b;
+  --text-primary: #1a1a2e;
+  --text-secondary: #3d4150;
+  --text-dim: #9a9eaa;
+  --charcoal: #b0b4be;
 
   --font-kr: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
   --font-en: 'DM Sans', system-ui, sans-serif;
@@ -65,7 +65,7 @@ body::before {
   inset: 0;
   z-index: 999;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -91,7 +91,7 @@ body::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: radial-gradient(ellipse 40% 35% at 50% 50%, rgba(172,4,48,0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse 40% 35% at 50% 50%, rgba(172,4,48,0.07) 0%, transparent 70%);
   z-index: 0;
   animation: drift-slow 12s ease-in-out infinite alternate;
 }
@@ -100,7 +100,7 @@ body::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: radial-gradient(ellipse 35% 30% at 50% 50%, rgba(232,183,58,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse 35% 30% at 50% 50%, rgba(184,134,11,0.06) 0%, transparent 70%);
   z-index: 0;
   animation: drift-slow 15s ease-in-out infinite alternate;
 }
@@ -109,7 +109,7 @@ body::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: radial-gradient(ellipse 45% 35% at 40% 55%, rgba(0,91,158,0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse 45% 35% at 40% 55%, rgba(0,91,158,0.07) 0%, transparent 60%);
   z-index: 0;
   animation: drift-diagonal 18s ease-in-out infinite alternate;
 }
@@ -119,8 +119,8 @@ body::before {
   position: absolute;
   inset: -50%;
   background:
-    radial-gradient(ellipse 30% 25% at 25% 65%, rgba(232,183,58,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 35% 30% at 75% 35%, rgba(172,4,48,0.08) 0%, transparent 50%);
+    radial-gradient(ellipse 30% 25% at 25% 65%, rgba(184,134,11,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 75% 35%, rgba(172,4,48,0.05) 0%, transparent 50%);
   z-index: 0;
   animation: drift-slow 14s ease-in-out infinite alternate;
 }
@@ -129,7 +129,7 @@ body::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: radial-gradient(ellipse 40% 40% at 50% 50%, rgba(232,183,58,0.12) 0%, transparent 55%);
+  background: radial-gradient(ellipse 40% 40% at 50% 50%, rgba(184,134,11,0.08) 0%, transparent 55%);
   z-index: 0;
   animation: pulse-glow 6s ease-in-out infinite;
 }
@@ -220,9 +220,10 @@ body::before {
 
 .card {
   background: var(--dark-card);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 12px;
   padding: clamp(1rem, 2vw, 1.8rem);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 
 .card-icon {
@@ -329,7 +330,7 @@ body::before {
   height: 10px;
   border-radius: 50%;
   background: var(--brand);
-  border: 2px solid var(--dark-bg);
+  border: 2px solid var(--dark-surface);
 }
 
 .timeline-year {
@@ -369,7 +370,7 @@ body::before {
 /* Callout box — replaces border-left pattern */
 .highlight-box {
   background: rgba(172, 4, 48, 0.06);
-  border: 1px solid rgba(172, 4, 48, 0.2);
+  border: 1px solid rgba(172, 4, 48, 0.25);
   padding: 1.2rem 1.5rem;
   border-radius: 10px;
   margin-top: 1rem;
@@ -377,8 +378,8 @@ body::before {
 }
 
 .highlight-box.gold-box {
-  background: rgba(232, 183, 58, 0.06);
-  border-color: rgba(232, 183, 58, 0.2);
+  background: rgba(184, 134, 11, 0.07);
+  border-color: rgba(184, 134, 11, 0.25);
 }
 
 /* GBD card */
@@ -389,6 +390,7 @@ body::before {
   padding: clamp(1.5rem, 3vw, 2.5rem);
   max-width: 700px;
   width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .gbd-card h2 {
@@ -503,15 +505,16 @@ body::before {
 
 .path-card {
   background: var(--dark-card);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 12px;
   padding: clamp(1rem, 2vw, 1.5rem);
   transition: border-color 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 
 .path-card:hover {
   border-color: var(--brand);
-  background: rgba(172,4,48,0.04);
+  background: rgba(172,4,48,0.05);
 }
 
 .path-card .path-if {
@@ -586,7 +589,7 @@ body::before {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--text-dim);
+  background: var(--charcoal);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -605,7 +608,7 @@ body::before {
   left: 2rem;
   width: 120px;
   height: 3px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
   border-radius: 2px;
   z-index: 100;
 }
@@ -696,7 +699,7 @@ body::before {
 <body>
 
 <!-- ============ NAVIGATION UI ============ -->
-<div class="logo"><img src="assets/inbody-logo-white.svg" alt="InBody"></div>
+<div class="logo"><img src="assets/logo.png" alt="InBody"></div>
 <nav class="nav-dots" id="navDots"></nav>
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 <div class="page-number" id="pageNumber">01 / 17</div>
@@ -817,7 +820,7 @@ body::before {
     <div class="two-col">
       <div class="reveal">
         <div class="svg-placeholder" style="background:transparent;border:none;">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400" font-family="'Noto Sans KR',sans-serif"><defs><marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#e74c5e"/></marker><marker id="arrowBrand" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#ac0430"/></marker><filter id="glowMembrane" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><text x="250" y="32" text-anchor="middle" fill="#e4e6ea" font-size="14" font-weight="700" letter-spacing="2">CELL MEMBRANE</text><text x="408" y="100" text-anchor="middle" fill="#005b9e" font-size="13" font-weight="700">ECW</text><text x="408" y="116" text-anchor="middle" fill="#8a8f9a" font-size="9">세포외수분</text><circle cx="250" cy="210" r="120" fill="none" stroke="#ac0430" stroke-width="3" filter="url(#glowMembrane)"/><circle cx="250" cy="210" r="114" fill="none" stroke="#ac0430" stroke-width="1" opacity="0.35"/><circle cx="250" cy="210" r="75" fill="none" stroke="#005b9e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/><text x="250" y="205" text-anchor="middle" fill="#005b9e" font-size="18" font-weight="700">ICW</text><text x="250" y="222" text-anchor="middle" fill="#8a8f9a" font-size="9">세포내수분</text><line x1="30" y1="210" x2="122" y2="210" stroke="#e74c5e" stroke-width="2.5" marker-end="url(#arrowRed)"/><g transform="translate(136,210)" stroke="#e74c5e" stroke-width="3" stroke-linecap="round"><line x1="-8" y1="-8" x2="8" y2="8"/><line x1="8" y1="-8" x2="-8" y2="8"/></g><text x="70" y="190" text-anchor="middle" fill="#e74c5e" font-size="12" font-weight="700">저주파</text><text x="70" y="238" text-anchor="middle" fill="#8a8f9a" font-size="9">Low Freq</text><line x1="470" y1="210" x2="260" y2="210" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowBrand)"><animate attributeName="stroke-dashoffset" from="0" to="26" dur="1s" repeatCount="indefinite"/></line><g transform="translate(370,210)" opacity="0.5"><line x1="-3" y1="-6" x2="3" y2="6" stroke="#ac0430" stroke-width="1.5"/><line x1="3" y1="-6" x2="-3" y2="6" stroke="#ac0430" stroke-width="1.5"/></g><text x="430" y="190" text-anchor="middle" fill="#ac0430" font-size="12" font-weight="700">고주파</text><text x="430" y="238" text-anchor="middle" fill="#8a8f9a" font-size="9">High Freq</text><circle cx="270" cy="200" r="2" fill="#ac0430" opacity="0.6"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="290" cy="220" r="1.5" fill="#ac0430" opacity="0.4"><animate attributeName="opacity" values="0.1;0.7;0.1" dur="2s" repeatCount="indefinite" begin="0.3s"/></circle><circle cx="265" cy="230" r="1.8" fill="#ac0430" opacity="0.5"><animate attributeName="opacity" values="0.15;0.75;0.15" dur="1.8s" repeatCount="indefinite" begin="0.7s"/></circle><g transform="translate(100,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#e74c5e" stroke-width="2.5"/><text x="38" y="4" fill="#8a8f9a" font-size="9">차단 (저주파, ~5kHz)</text></g><g transform="translate(270,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5"/><text x="38" y="4" fill="#8a8f9a" font-size="9">관통 (고주파, ~1MHz)</text></g><g transform="translate(250,328)" stroke="#e8b73a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"><line x1="-8" y1="-4" x2="8" y2="-4"/><line x1="-8" y1="4" x2="8" y2="4"/><line x1="0" y1="-10" x2="0" y2="-4"/><line x1="0" y1="4" x2="0" y2="10"/></g><text x="250" y="352" text-anchor="middle" fill="#e8b73a" font-size="8" opacity="0.7">capacitor</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400" font-family="'Noto Sans KR',sans-serif"><defs><marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#e74c5e"/></marker><marker id="arrowBrand" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#ac0430"/></marker><filter id="glowMembrane" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><text x="250" y="32" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="700" letter-spacing="2">CELL MEMBRANE</text><text x="408" y="100" text-anchor="middle" fill="#005b9e" font-size="13" font-weight="700">ECW</text><text x="408" y="116" text-anchor="middle" fill="#4a4e5a" font-size="9">세포외수분</text><circle cx="250" cy="210" r="120" fill="none" stroke="#ac0430" stroke-width="3" filter="url(#glowMembrane)"/><circle cx="250" cy="210" r="114" fill="none" stroke="#ac0430" stroke-width="1" opacity="0.35"/><circle cx="250" cy="210" r="75" fill="none" stroke="#005b9e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/><text x="250" y="205" text-anchor="middle" fill="#005b9e" font-size="18" font-weight="700">ICW</text><text x="250" y="222" text-anchor="middle" fill="#4a4e5a" font-size="9">세포내수분</text><line x1="30" y1="210" x2="122" y2="210" stroke="#e74c5e" stroke-width="2.5" marker-end="url(#arrowRed)"/><g transform="translate(136,210)" stroke="#e74c5e" stroke-width="3" stroke-linecap="round"><line x1="-8" y1="-8" x2="8" y2="8"/><line x1="8" y1="-8" x2="-8" y2="8"/></g><text x="70" y="190" text-anchor="middle" fill="#e74c5e" font-size="12" font-weight="700">저주파</text><text x="70" y="238" text-anchor="middle" fill="#4a4e5a" font-size="9">Low Freq</text><line x1="470" y1="210" x2="260" y2="210" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowBrand)"><animate attributeName="stroke-dashoffset" from="0" to="26" dur="1s" repeatCount="indefinite"/></line><g transform="translate(370,210)" opacity="0.5"><line x1="-3" y1="-6" x2="3" y2="6" stroke="#ac0430" stroke-width="1.5"/><line x1="3" y1="-6" x2="-3" y2="6" stroke="#ac0430" stroke-width="1.5"/></g><text x="430" y="190" text-anchor="middle" fill="#ac0430" font-size="12" font-weight="700">고주파</text><text x="430" y="238" text-anchor="middle" fill="#4a4e5a" font-size="9">High Freq</text><circle cx="270" cy="200" r="2" fill="#ac0430" opacity="0.6"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="290" cy="220" r="1.5" fill="#ac0430" opacity="0.4"><animate attributeName="opacity" values="0.1;0.7;0.1" dur="2s" repeatCount="indefinite" begin="0.3s"/></circle><circle cx="265" cy="230" r="1.8" fill="#ac0430" opacity="0.5"><animate attributeName="opacity" values="0.15;0.75;0.15" dur="1.8s" repeatCount="indefinite" begin="0.7s"/></circle><g transform="translate(100,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#e74c5e" stroke-width="2.5"/><text x="38" y="4" fill="#4a4e5a" font-size="9">차단 (저주파, ~5kHz)</text></g><g transform="translate(270,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5"/><text x="38" y="4" fill="#4a4e5a" font-size="9">관통 (고주파, ~1MHz)</text></g><g transform="translate(250,328)" stroke="#e8b73a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"><line x1="-8" y1="-4" x2="8" y2="-4"/><line x1="-8" y1="4" x2="8" y2="4"/><line x1="0" y1="-10" x2="0" y2="-4"/><line x1="0" y1="4" x2="0" y2="10"/></g><text x="250" y="352" text-anchor="middle" fill="#e8b73a" font-size="8" opacity="0.7">capacitor</text></svg>
         </div>
       </div>
       <div>
