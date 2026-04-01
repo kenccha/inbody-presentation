@@ -588,19 +588,21 @@ body::before {
 }
 
 .nav-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--charcoal);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0;
+  padding: 8px;
+  background-clip: content-box;
 }
 
 .nav-dot.active {
   background: var(--brand);
-  transform: scale(1.4);
+  background-clip: content-box;
+  transform: scale(1.2);
 }
 
 /* Progress bar — bottom left */
@@ -610,7 +612,7 @@ body::before {
   left: 2rem;
   width: 120px;
   height: 3px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.15);
   border-radius: 2px;
   z-index: 100;
 }
