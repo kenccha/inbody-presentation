@@ -953,52 +953,44 @@ body::before {
       <p class="label">Body Composition</p>
       <h2 class="title" style="font-size:var(--h2-size);">지금 여러분 몸에서 일어나고 있는 일</h2>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="two-col" style="max-width:1000px;">
-        <div>
-          <div class="card" style="margin-bottom:1rem;">
-            <div class="card-icon blue-icon">60%</div>
-            <h3>체수분 (Body Water)</h3>
-            <p>세포 안팎을 채우는 물. 영양소 운반, 체온 조절, 노폐물 배출의 매개체입니다.</p>
-          </div>
-          <div class="card" style="margin-bottom:1rem;">
-            <div class="card-icon">16%</div>
-            <h3>단백질 (Protein)</h3>
-            <p>세포 신호전달, 효소 활성에 필수인 그 단백질입니다. 근육의 주성분이자 면역의 핵심.</p>
-          </div>
-          <div class="card" style="margin-bottom:1rem;">
-            <div class="card-icon gold-icon">6%</div>
-            <h3>무기질 (Minerals)</h3>
-            <p>뼈와 치아를 구성하는 칼슘, 신경전달에 쓰이는 나트륨·칼륨. 생화학 반응의 조연.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">15~25%</div>
-            <h3>체지방 (Body Fat)</h3>
-            <p>에너지 저장, 장기 보호, 호르몬 분비. 너무 많아도, 너무 적어도 문제입니다.</p>
-          </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(0.5rem,1vw,1rem); max-width:1100px; width:100%;">
+        <div class="card">
+          <div class="card-icon blue-icon">60%</div>
+          <h3>체수분</h3>
+          <p>세포 안팎의 물. 영양소 운반, 체온 조절.</p>
         </div>
-        <div>
-          <div class="reveal reveal-delay-2">
-            <div class="highlight-box" style="text-align:center;">
-              <p style="font-size:var(--h3-size); font-weight:700; margin-bottom:0.5rem;">
-                <span class="accent">코로나 환자는 하루에 근육 500g을 잃습니다</span>
-              </p>
-              <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
-                중환자실에서 체성분 변화를 실시간으로 모니터링할 수 있는 기계가 병상 옆에 있다면?<br>
-                InBody는 그 현장에 이미 있습니다.
-              </p>
-              <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.8rem;">
-                — 서울경제
-              </p>
-            </div>
-          </div>
-          <div class="reveal reveal-delay-3" style="margin-top:1rem;">
-            <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
-              생물학 교과서에서 배운 세포의 구성 요소가 그대로 InBody 결과지에 나옵니다. 체수분, 단백질, 무기질, 체지방 — 여러분의 전공이 곧 이 회사의 언어입니다.
-            </p>
-          </div>
+        <div class="card">
+          <div class="card-icon">16%</div>
+          <h3>단백질</h3>
+          <p>효소 활성, 세포 신호전달. 근육의 주성분.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon gold-icon">6%</div>
+          <h3>무기질</h3>
+          <p>칼슘, 나트륨, 칼륨. 생화학 반응의 조연.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">15~25%</div>
+          <h3>체지방</h3>
+          <p>에너지 저장, 호르몬 분비. 균형이 핵심.</p>
         </div>
       </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
+      <div class="highlight-box" style="text-align:center; max-width:700px;">
+        <p style="font-size:var(--h3-size); font-weight:700; margin-bottom:0.5rem;">
+          <span class="accent">코로나 환자는 하루에 근육 500g을 잃습니다</span>
+        </p>
+        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
+          중환자실에서 체성분 변화를 실시간으로 모니터링할 수 있는 기계가 병상 옆에 있다면? InBody는 그 현장에 이미 있습니다.
+        </p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:0.8rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
+        여러분의 전공이 곧 이 회사의 언어입니다.
+      </p>
     </div>
   </div>
 </section>
