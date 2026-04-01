@@ -691,6 +691,43 @@ body::before {
   .nav-dots { display: none; }
 }
 
+/* Left-aligned slide variant */
+.slide-content.left-aligned {
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: clamp(4rem, 8vw, 8rem);
+}
+
+.slide-content.left-aligned .title,
+.slide-content.left-aligned .subtitle,
+.slide-content.left-aligned p,
+.slide-content.left-aligned .quote {
+  text-align: left;
+}
+
+.slide-content.left-aligned .scene-number {
+  text-align: left;
+}
+
+/* ACT divider accent */
+.slide.act-divider {
+  background: var(--dark-surface);
+}
+
+/* India story side accent */
+.slide.india-mood .slide-content.left-aligned::before {
+  content: '';
+  position: absolute;
+  left: clamp(2rem, 5vw, 5rem);
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--brand), var(--gold));
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -953,18 +990,18 @@ body::before {
 
 <!-- ============ S8: INDIA SCENE 01 ============ -->
 <section class="slide india-mood" data-slide="8">
-  <div class="slide-content">
+  <div class="slide-content left-aligned">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 01</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h2 class="title">뭄바이 공항, <span class="accent">혼자</span></h2>
+      <h2 class="title" style="text-align:left;">뭄바이 공항, <span class="accent">혼자</span></h2>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p class="subtitle">2016년 7월. 스물여섯이었습니다.</p>
+      <p class="subtitle" style="text-align:left;">2016년 7월. 스물여섯이었습니다.</p>
     </div>
     <div class="reveal reveal-delay-3" style="margin-top:1rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; line-height:1.7; max-width:600px;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:600px;">
         동료 한 명과 뭄바이 공항에 내렸습니다.<br>
         사무실도 없었습니다. 팀도 없었습니다. 고객도 없었습니다.<br>
         건물이 들어서기 전부터, 회사 설립 서류부터 직접 작성했습니다.
@@ -975,15 +1012,15 @@ body::before {
 
 <!-- ============ S9: INDIA SCENE 02 ============ -->
 <section class="slide india-mood" data-slide="9">
-  <div class="slide-content">
+  <div class="slide-content left-aligned">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 02</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h2 class="title" style="font-size:var(--h2-size);">채용 <span class="accent">5번</span> 실패. 통관 <span class="accent">40일</span>.<br>물류 파트너가 사라진 밤.</h2>
+      <h2 class="title" style="font-size:var(--h2-size); text-align:left;">채용 <span class="accent">5번</span> 실패. 통관 <span class="accent">40일</span>.<br>물류 파트너가 사라진 밤.</h2>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; line-height:1.7; max-width:650px;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:650px;">
         한 포지션을 채우는 데 다섯 번을 시도했습니다.<br>
         보낸 물건이 세관에서 40일 넘게 묶였습니다.<br>
         어느 날 물류 파트너가 연락이 끊겼습니다.<br>
@@ -991,7 +1028,7 @@ body::before {
       </p>
     </div>
     <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
-      <div class="quote" style="max-width:600px; margin:0 auto;">
+      <div class="quote" style="max-width:600px;">
         "생존 모드였습니다."
       </div>
     </div>
@@ -1000,15 +1037,15 @@ body::before {
 
 <!-- ============ S10: INDIA SCENE 03 ============ -->
 <section class="slide india-mood" data-slide="10">
-  <div class="slide-content">
+  <div class="slide-content left-aligned">
     <div class="reveal">
       <p class="scene-number">India Story — Scene 03</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h2 class="title" style="font-size:var(--h2-size);"><span class="accent">InBody Academy</span></h2>
+      <h2 class="title" style="font-size:var(--h2-size); text-align:left;"><span class="accent">InBody Academy</span></h2>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; line-height:1.7; max-width:650px;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:650px;">
         인도에서는 체성분 분석이라는 개념 자체가 없었습니다.<br>
         의사 한 명 한 명을 찾아가서, BIA가 뭔지부터 설명했습니다.<br>
         InBody Academy를 인도에 런칭했습니다.<br>
@@ -1016,7 +1053,7 @@ body::before {
       </p>
     </div>
     <div class="reveal reveal-delay-3" style="margin-top:1.5rem;">
-      <div class="quote" style="max-width:600px; margin:0 auto;">
+      <div class="quote" style="max-width:600px;">
         "맞는 사람을 만나면, 그들은 멈출 수 없습니다."
       </div>
     </div>
