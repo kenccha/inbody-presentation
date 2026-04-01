@@ -16,7 +16,7 @@
   --brand-light: #d4063e;
   --gold: #b8860b;
   --dark-bg: #f2f0eb;
-  --dark-surface: #e8e6e1;
+  --dark-surface: #eae8e3;
   --dark-card: #ffffff;
   --dark-navy: #e3e1dc;
   --blue: #005b9e;
@@ -220,10 +220,10 @@ body::before {
 
 .card {
   background: var(--dark-card);
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.12);
   border-radius: 12px;
   padding: clamp(1rem, 2vw, 1.8rem);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .card-icon {
@@ -369,8 +369,8 @@ body::before {
 
 /* Callout box — replaces border-left pattern */
 .highlight-box {
-  background: rgba(172, 4, 48, 0.06);
-  border: 1px solid rgba(172, 4, 48, 0.25);
+  background: rgba(172, 4, 48, 0.08);
+  border: 1px solid rgba(172, 4, 48, 0.3);
   padding: 1.2rem 1.5rem;
   border-radius: 10px;
   margin-top: 1rem;
@@ -378,8 +378,8 @@ body::before {
 }
 
 .highlight-box.gold-box {
-  background: rgba(184, 134, 11, 0.07);
-  border-color: rgba(184, 134, 11, 0.25);
+  background: rgba(184, 134, 11, 0.1);
+  border-color: rgba(184, 134, 11, 0.35);
 }
 
 /* GBD card */
@@ -505,11 +505,11 @@ body::before {
 
 .path-card {
   background: var(--dark-card);
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.12);
   border-radius: 12px;
   padding: clamp(1rem, 2vw, 1.5rem);
   transition: border-color 0.3s ease;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .path-card:hover {
