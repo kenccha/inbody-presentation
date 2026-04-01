@@ -672,6 +672,30 @@ body::before {
   50% { transform: translateX(-50%) translateY(-8px); }
 }
 
+/* Printer effect — result sheet slides up from bottom */
+@keyframes printer-feed {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+.printer-slot {
+  position: absolute;
+  right: clamp(2rem, 5vw, 6rem);
+  bottom: 4rem;
+  width: clamp(160px, 18vw, 260px);
+  overflow: hidden;
+  border-radius: 4px;
+  filter: drop-shadow(0 8px 30px rgba(0,0,0,0.15));
+  z-index: 2;
+}
+
+.printer-slot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: printer-feed 2.5s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+}
+
 /* ===========================================
    REVEAL ANIMATION
    =========================================== */
@@ -826,17 +850,20 @@ body::before {
 
 <!-- ============ S0: OPENING "60%가 물" ============ -->
 <section class="slide glow-brand" data-slide="0">
-  <div class="slide-content">
+  <div class="slide-content" style="align-items:flex-start; padding-left:clamp(3rem,8vw,8rem); max-width:65%;">
     <div class="reveal">
-      <p class="subtitle" style="margin-bottom:1.5rem; font-size:var(--h3-size);">여러분의 몸은 <span class="gold">60%</span>가 물입니다.</p>
+      <p class="subtitle" style="margin-bottom:1.5rem; font-size:var(--h3-size); text-align:left;">여러분의 몸은 <span class="gold">60%</span>가 물입니다.</p>
     </div>
     <div class="reveal reveal-delay-1">
-      <h1 class="title">그런데 그 물이 세포 안에 있는지 밖에 있는지,<br><span class="accent"><span class="display-accent">30</span>초</span> 만에 알려주는 기계가 있습니다.</h1>
+      <h1 class="title" style="text-align:left; font-size:clamp(1.8rem, 4vw, 3.2rem);">그런데 그 물이 세포 안에 있는지 밖에 있는지,<br><span class="accent"><span class="display-accent">30</span>초</span> 만에 알려주는 기계가 있습니다.</h1>
     </div>
     <div class="reveal reveal-delay-2">
-      <p class="subtitle">저는 고려대에서 바이오의공학을 전공하고, 26살에 인도 뭄바이로 떠났습니다. 지금은 InBody에서 글로벌 사업을 총괄하고 있습니다.</p>
+      <p class="subtitle" style="text-align:left;">저는 고려대에서 바이오의공학을 전공하고, 26살에 인도 뭄바이로 떠났습니다. 지금은 InBody에서 글로벌 사업을 총괄하고 있습니다.</p>
     </div>
     <div class="scroll-hint">SCROLL ↓</div>
+  </div>
+  <div class="printer-slot">
+    <img src="assets/images/result-sheet-kor.png" alt="InBody 결과지">
   </div>
 </section>
 
