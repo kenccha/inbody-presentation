@@ -32,11 +32,11 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
 
-  --title-size: clamp(2.8rem, 6vw, 5.2rem);
-  --h2-size: clamp(2rem, 4.4vw, 3.7rem);
-  --h3-size: clamp(1.3rem, 2.7vw, 2rem);
-  --body-size: clamp(1rem, 1.85vw, 1.4rem);
-  --small-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  --title-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  --h2-size: clamp(1.7rem, 3.5vw, 2.8rem);
+  --h3-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  --body-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  --small-size: clamp(0.8rem, 1vw, 0.95rem);
   --slide-padding: clamp(2rem, 5vw, 5rem);
   --content-gap: clamp(0.5rem, 2vw, 2rem);
 }
@@ -285,27 +285,23 @@ body::before {
 }
 
 .stat {
-  min-width: 140px;
-  padding: 1rem 1.2rem;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(26,26,46,0.08);
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(26,26,46,0.08);
+  padding: 0.6rem 0.8rem;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(26,26,46,0.06);
+  border-radius: 12px;
 }
 
 .stat-number {
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
   color: var(--gold);
-  line-height: 0.95;
 }
 
 .stat-label {
   font-size: var(--small-size);
   color: var(--text-secondary);
-  margin-top: 0.3rem;
-  line-height: 1.35;
+  margin-top: 0.2rem;
 }
 
 /* Display accent — Instrument Serif on key numbers */
@@ -939,7 +935,7 @@ body::before {
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal" style="text-align:center;">
-        <img src="assets/images/inbody-device.png" alt="InBody 770" style="width:100%; max-width:280px; height:auto; filter:drop-shadow(0 4px 20px rgba(0,0,0,0.1));">
+        <img src="assets/images/inbody-device.png" alt="InBody 770" style="width:100%; max-width:220px; height:auto; filter:drop-shadow(0 4px 20px rgba(0,0,0,0.1));">
       </div>
       <div>
         <div class="reveal">
@@ -1284,7 +1280,7 @@ body::before {
 </section>
 
 <!-- ============ S16: GLOBAL NETWORK + WORLD MAP ============ -->
-<section class="slide glow-blue" data-slide="16">
+<section class="slide glow-blue" data-slide="16" style="background:var(--dark-bg);">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Global Network</p>
@@ -1292,7 +1288,7 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
       <div class="map-container" style="background:transparent; position:relative; display:flex; align-items:center; justify-content:center;">
-        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:100%;">
+        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:35vh;">
       </div>
     </div>
     <div class="reveal reveal-delay-2">
@@ -1303,21 +1299,16 @@ body::before {
         <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">데이터<br><span style="font-size:0.7rem;">한국인구 4배</span></div></div>
       </div>
     </div>
-    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
+    <div class="reveal reveal-delay-3" style="margin-top:0.5rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
         2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
-      </p>
-    </div>
-    <div class="reveal reveal-delay-4" style="margin-top:1rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
-        지금 이 순간에도 전 세계에서 누군가가 InBody 위에 서 있습니다.
       </p>
     </div>
   </div>
 </section>
 
 <!-- ============ S17: REVENUE CHART ============ -->
-<section class="slide glow-gold" data-slide="17">
+<section class="slide glow-gold" data-slide="17" style="background:var(--dark-bg);">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Revenue</p>
