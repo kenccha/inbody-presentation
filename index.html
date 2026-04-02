@@ -32,11 +32,11 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
 
-  --title-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  --h2-size: clamp(1.7rem, 3.5vw, 2.8rem);
-  --h3-size: clamp(1.15rem, 2.2vw, 1.6rem);
-  --body-size: clamp(0.95rem, 1.5vw, 1.2rem);
-  --small-size: clamp(0.8rem, 1vw, 0.95rem);
+  --title-size: clamp(2.8rem, 6vw, 5.2rem);
+  --h2-size: clamp(2rem, 4.4vw, 3.7rem);
+  --h3-size: clamp(1.3rem, 2.7vw, 2rem);
+  --body-size: clamp(1rem, 1.85vw, 1.4rem);
+  --small-size: clamp(0.85rem, 1.15vw, 1.05rem);
   --slide-padding: clamp(2rem, 5vw, 5rem);
   --content-gap: clamp(0.5rem, 2vw, 2rem);
 }
@@ -285,23 +285,27 @@ body::before {
 }
 
 .stat {
-  padding: 0.6rem 0.8rem;
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(26,26,46,0.06);
-  border-radius: 12px;
+  min-width: 140px;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(26,26,46,0.08);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(26,26,46,0.08);
 }
 
 .stat-number {
   font-family: var(--font-mono);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
   font-weight: 700;
   color: var(--gold);
+  line-height: 0.95;
 }
 
 .stat-label {
   font-size: var(--small-size);
   color: var(--text-secondary);
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
+  line-height: 1.35;
 }
 
 /* Display accent — Instrument Serif on key numbers */
@@ -935,7 +939,7 @@ body::before {
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal" style="text-align:center;">
-        <img src="assets/images/inbody-device.png" alt="InBody 770" style="width:100%; max-width:220px; height:auto; filter:drop-shadow(0 4px 20px rgba(0,0,0,0.1));">
+        <img src="assets/images/inbody-device.png" alt="InBody 770" style="width:100%; max-width:280px; height:auto; filter:drop-shadow(0 4px 20px rgba(0,0,0,0.1));">
       </div>
       <div>
         <div class="reveal">
@@ -1280,7 +1284,7 @@ body::before {
 </section>
 
 <!-- ============ S16: GLOBAL NETWORK + WORLD MAP ============ -->
-<section class="slide glow-blue" data-slide="16" style="background:var(--dark-bg);">
+<section class="slide glow-blue" data-slide="16">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Global Network</p>
@@ -1288,7 +1292,7 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
       <div class="map-container" style="background:transparent; position:relative; display:flex; align-items:center; justify-content:center;">
-        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:35vh;">
+        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:100%;">
       </div>
     </div>
     <div class="reveal reveal-delay-2">
@@ -1299,16 +1303,21 @@ body::before {
         <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">데이터<br><span style="font-size:0.7rem;">한국인구 4배</span></div></div>
       </div>
     </div>
-    <div class="reveal reveal-delay-3" style="margin-top:0.5rem;">
+    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
         2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-4" style="margin-top:1rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
+        지금 이 순간에도 전 세계에서 누군가가 InBody 위에 서 있습니다.
       </p>
     </div>
   </div>
 </section>
 
 <!-- ============ S17: REVENUE CHART ============ -->
-<section class="slide glow-gold" data-slide="17" style="background:var(--dark-bg);">
+<section class="slide glow-gold" data-slide="17">
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Revenue</p>
@@ -1379,38 +1388,63 @@ body::before {
 </section>
 
 <!-- ============ S19: CHOOSE YOUR PATH ============ -->
-<!-- ============ S19: CLOSING + PATHS (MERGED) ============ -->
-<section class="slide" data-slide="19" style="background:var(--dark-bg);">
-  <div class="slide-content" style="justify-content:center; gap:clamp(0.8rem,1.5vw,1.5rem);">
+<section class="slide" data-slide="19">
+  <div class="slide-content">
     <div class="reveal">
-      <h2 class="title" style="font-size:var(--h2-size); line-height:1.4;">유행을 쫓지 마세요.<br><span class="accent">본인이 파는 인생</span>이 제일 중요합니다.</h2>
+      <p class="label">Choose Your Path</p>
+      <h2 class="title" style="font-size:var(--h2-size);">생물학과라면, <span class="accent">어디로</span> 갈 수 있을까?</h2>
     </div>
-    <div class="reveal reveal-delay-1">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
-        생물이 재미있으면, 그게 여러분의 중심입니다.
-      </p>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:0.5rem;">
-      <div class="path-grid" style="max-width:1000px;">
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="path-grid">
         <div class="path-card">
-          <p class="path-if">연구 →</p>
+          <p class="path-if">연구가 좋다면 →</p>
           <h3>임상팀 / AI 연구소</h3>
+          <p>8,000+편 논문 지원, Phase Angle 연구, Mayo Clinic 협력. 석·박사 10명의 AI Lab.</p>
         </div>
         <div class="path-card">
-          <p class="path-if">글로벌 →</p>
-          <h3>GBD 해외 파견</h3>
+          <p class="path-if">세계를 누비고 싶다면 →</p>
+          <h3>GBD (해외 파견)</h3>
+          <p>14개국 법인. 1~2년 훈련 후 해외 사업 수행. 주거·항공 지원.</p>
         </div>
         <div class="path-card">
-          <p class="path-if">데이터 →</p>
-          <h3>데이터사이언스</h3>
+          <p class="path-if">데이터가 좋다면 →</p>
+          <h3>데이터사이언스팀</h3>
+          <p>2억+ 체성분 빅데이터 분석. 개인 맞춤 건강관리 알고리즘 개발.</p>
         </div>
         <div class="path-card">
-          <p class="path-if">제품 →</p>
+          <p class="path-if">제품을 만들고 싶다면 →</p>
           <h3>R&D / 기계설계</h3>
+          <p>μA 정밀 전류 회로 설계부터 3D CAD 구조 설계까지. 천안공장에서 직접 제조.</p>
         </div>
       </div>
     </div>
-    <div class="reveal reveal-delay-3">
+    <div class="reveal reveal-delay-2" style="margin-top:1.2rem;">
+      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
+        <p style="font-size:var(--body-size);"><span class="gold bold">InBody Startup Academy</span> — 대학생 8명 선발, 개발비·월급·CES 항공편 전액 지원. CEO가 직접 멘토링. 2025년 라스베이거스 CES에서 'InBody AI Scale'을 전시했습니다.</p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
+      <div class="highlight-box" style="max-width:700px; text-align:center;">
+        <p style="font-size:var(--body-size);">20대에 인도 법인장, 27세에 호주 법인장. 어디서 시작하든, 어디까지 갈 수 있는지는 본인이 정합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S20: CLOSING ============ -->
+<section class="slide glow-brand" data-slide="20" style="background:var(--dark-surface);">
+  <div class="slide-content">
+    <div class="reveal">
+      <h2 class="title" style="font-size:var(--h2-size); line-height:1.5;">유행을 쫓지 마세요.<br><span class="accent">본인이 파는 인생</span>이<br>제일 중요합니다.</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:2rem; max-width:650px;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.8; text-align:center;">
+        저도 대학생 때 이런 자리에 앉아 있었습니다.<br>
+        스티브잡스 때는 인문학, 지금은 AI. 유행은 바뀝니다.<br>
+        <strong style="color:var(--text-primary);">생물이 재미있으면, 그게 여러분의 중심입니다.</strong>
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
       <div class="quote" style="max-width:500px; margin:0 auto;">
         조급한 토끼보다 꾸준한 거북이가 낫다 — 차기철
       </div>
@@ -1419,7 +1453,7 @@ body::before {
 </section>
 
 <!-- ============ S21: CLOSING — 3 BLOCKS + QR ============ -->
-<section class="slide" data-slide="20">
+<section class="slide" data-slide="21">
   <div class="slide-content" style="justify-content:space-between; padding-top:clamp(2rem,4vw,4rem); padding-bottom:clamp(1.5rem,3vw,3rem);">
     <div class="reveal" style="width:100%;">
       <div class="three-col" style="max-width:1100px; margin:0 auto; gap:clamp(1rem,2vw,2rem);">
