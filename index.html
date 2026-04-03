@@ -44,16 +44,11 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
-  overflow: hidden;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow: hidden;
   background: var(--dark-bg);
   color: var(--text-primary);
   font-family: var(--font-kr);
@@ -78,14 +73,21 @@ body::before {
    =========================================== */
 .slide {
   width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  scroll-snap-align: start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
+  /* JS handles navigation */
   display: flex;
   flex-direction: column;
   position: relative;
   background: var(--dark-bg);
+}
+
+/* Glow slides — clip atmospheric pseudo-elements without hiding content */
+.slide.glow-brand::before,
+.slide.glow-gold::before,
+.slide.glow-blue::before {
+  clip-path: inset(-50%);
 }
 
 /* Atmospheric backgrounds — animated */
@@ -116,24 +118,70 @@ body::before {
   animation: drift-diagonal 18s ease-in-out infinite alternate;
 }
 
+.slide.india-mood {
+  background: linear-gradient(135deg, #1a5e2a 0%, #2d8a4e 25%, #e87d2f 55%, #d4611a 80%, #c94e12 100%);
+}
+
 .slide.india-mood::before {
   content: '';
   position: absolute;
   inset: -50%;
   background:
-    radial-gradient(ellipse 30% 25% at 25% 65%, rgba(184,134,11,0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 35% 30% at 75% 35%, rgba(172,4,48,0.05) 0%, transparent 50%);
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(26,94,42,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 70% 30%, rgba(232,125,47,0.3) 0%, transparent 60%);
   z-index: 0;
   animation: drift-slow 14s ease-in-out infinite alternate;
+}
+
+.slide.india-mood .scene-number,
+.slide.india-mood h2,
+.slide.india-mood .subtitle,
+.slide.india-mood p {
+  color: #fff;
+}
+
+.slide.india-mood .accent {
+  color: #ffd166;
+}
+
+.slide.india-mood .quote {
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.9);
+}
+
+.slide.india-triumph {
+  background: linear-gradient(135deg, #1a5e2a 0%, #2d8a4e 25%, #e87d2f 55%, #d4611a 80%, #c94e12 100%);
 }
 
 .slide.india-triumph::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: radial-gradient(ellipse 40% 40% at 50% 50%, rgba(184,134,11,0.08) 0%, transparent 55%);
+  background:
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(26,94,42,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 70% 30%, rgba(232,125,47,0.3) 0%, transparent 60%);
   z-index: 0;
   animation: pulse-glow 6s ease-in-out infinite;
+}
+
+.slide.india-triumph .scene-number,
+.slide.india-triumph h2,
+.slide.india-triumph .subtitle,
+.slide.india-triumph p {
+  color: #fff;
+}
+
+.slide.india-triumph .gold {
+  color: #ffd166;
+}
+
+.slide.india-triumph .highlight-box.gold-box {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.slide.india-triumph .photo-side {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
 @keyframes drift-slow {
@@ -316,7 +364,7 @@ body::before {
 
 /* Impact text slide */
 .impact-text {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-size: clamp(1.3rem, 3vw, 2.2rem);
   line-height: 1.7;
   text-align: center;
@@ -324,6 +372,7 @@ body::before {
   font-weight: 400;
   color: var(--text-secondary);
 }
+.inline-logo { height: 0.85em; vertical-align: middle; margin: 0 0.1em; }
 
 .impact-text strong {
   color: var(--text-primary);
@@ -830,7 +879,7 @@ body::before {
     animation-duration: 0.01ms !important;
     transition-duration: 0.2s !important;
   }
-  html { scroll-behavior: auto; }
+  html { scroll-behavior: auto !important; }
 }
 </style>
 </head>
@@ -923,7 +972,7 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:2rem;">
       <p class="impact-text">
-        InBody는 이걸<br>
+        <img src="inbody-logo.svg" alt="InBody" class="inline-logo">는 이걸<br>
         <strong><span class="accent">발판 위에 <span class="gold">30초</span> 서 있기</span></strong>로 바꿨습니다.
       </p>
     </div>
@@ -940,7 +989,7 @@ body::before {
       <div>
         <div class="reveal">
           <p class="label">30초의 결과</p>
-          <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">이 종이 한 장에<br>여러분 몸의 구성이 전부 나옵니다</h2>
+          <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">종이 한 장에<br>여러분 몸의 구성이 전부 나옵니다</h2>
         </div>
         <div class="reveal reveal-delay-1">
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
@@ -952,11 +1001,6 @@ body::before {
             전 세계 <span class="gold bold">8,000편 이상</span>의 학술 논문에서 기준 장비로 사용됩니다.
           </p>
         </div>
-        <div class="reveal reveal-delay-3">
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-top:1rem;">
-            재미있는 건, InBody의 첫 고객이 대학병원이 아니라 한의원이었다는 겁니다. 녹용을 먹는 환자의 근육량이 실제로 늘어나는 걸 InBody로 확인할 수 있었거든요.
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -965,40 +1009,44 @@ body::before {
 <!-- ============ ACT 2: 발견 (S5-S8) ============ -->
 
 <!-- ============ S5: BODY COMPOSITION + COVID 500g ============ -->
-<section class="slide" data-slide="5">
+
+<!-- ============ S6: THREE INNOVATIONS ============ -->
+<section class="slide" data-slide="6">
   <div class="slide-content">
     <div class="reveal">
-      <p class="label">Body Composition</p>
-      <h2 class="title" style="font-size:var(--h2-size);">지금 여러분 몸에서 일어나고 있는 일</h2>
+      <p class="label">왜 다른 기계는 이걸 못 할까?</p>
+      <h2 class="title" style="font-size:var(--h2-size);">InBody의 <span class="accent">3가지</span> 혁신</h2>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="stat-row" style="gap:clamp(2rem,5vw,5rem);">
-        <div class="stat"><div class="stat-number" style="color:var(--blue);">60%</div><div class="stat-label">체수분</div></div>
-        <div class="stat"><div class="stat-number">16%</div><div class="stat-label">단백질</div></div>
-        <div class="stat"><div class="stat-number" style="color:var(--gold);">6%</div><div class="stat-label">무기질</div></div>
-        <div class="stat"><div class="stat-number">15~25%</div><div class="stat-label">체지방</div></div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="three-col" style="max-width:1000px;">
+        <div class="card">
+          <img src="assets/images/tech-q3.jpg" alt="Multi-Frequency" style="width:100%; border-radius:var(--radius-sm); margin-bottom:0.8rem;">
+          <div class="card-icon gold-icon">3MHz</div>
+          <h3>Multi-Frequency</h3>
+          <p>다른 BIA는 50kHz 하나. InBody는 8개 주파수. 주파수마다 세포막을 통과하는 정도가 다릅니다.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">세계 최초 3MHz 적용 (2020)</p>
+        </div>
+        <div class="card">
+          <img src="assets/images/tech-q2.jpg" alt="8-Point Electrodes" style="width:100%; border-radius:var(--radius-sm); margin-bottom:0.8rem;">
+          <div class="card-icon gold-icon">8pt</div>
+          <h3>8점 접촉 전극</h3>
+          <p>양손·양발 8개 접점, 5개 부위 독립 측정. 재현성 99%. 누가, 언제 재도 같은 결과.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">1996년 창업자가 세계 최초 개발</p>
+        </div>
+        <div class="card">
+          <img src="assets/images/tech-q5.jpg" alt="No Estimation" style="width:100%; border-radius:var(--radius-sm); margin-bottom:0.8rem;">
+          <div class="card-icon gold-icon">0</div>
+          <h3>No Estimation</h3>
+          <p>나이, 성별, 인종 추정값 없음. 오직 임피던스 측정값만으로 결과를 냅니다.</p>
+          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">DXA 대비 98% 상관관계 (Mayo Clinic)</p>
+        </div>
       </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <div class="highlight-box" style="text-align:center; max-width:700px;">
-        <p style="font-size:var(--h3-size); font-weight:700; margin-bottom:0.5rem;">
-          <span class="accent">코로나 환자는 하루에 근육 500g을 잃습니다</span>
-        </p>
-        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
-          중환자실에서 체성분 변화를 실시간으로 모니터링할 수 있는 기계가 병상 옆에 있다면? InBody는 그 현장에 이미 있습니다.
-        </p>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-3" style="margin-top:0.8rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
-        여러분의 전공이 곧 이 회사의 언어입니다.
-      </p>
     </div>
   </div>
 </section>
 
-<!-- ============ S6: CELL MEMBRANE ============ -->
-<section class="slide" data-slide="6">
+<!-- ============ S7: CELL MEMBRANE ============ -->
+<section class="slide" data-slide="7">
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal">
@@ -1016,46 +1064,12 @@ body::before {
             세포생물학 시간에 배운 인지질 이중층, 기억나시죠? 그게 이 기계의 핵심 원리입니다. 저주파 전류는 세포막에 막혀서 세포 바깥만 흐르고, 고주파는 세포막을 관통해서 세포 안까지 들어갑니다.
           </p>
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-top:1rem;">
-            저도 바이오의공학부에서 이 원리를 배웠습니다. 그때는 이게 직업이 될 줄 몰랐죠.
+            <strong style="color:var(--text-primary);">외수분(ECW)</strong> — 혈액, 림프액, 간질액 등 세포 바깥의 수분<br>
+            <strong style="color:var(--text-primary);">내수분(ICW)</strong> — 세포질, 미토콘드리아 등 세포 안의 수분
           </p>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="highlight-box">
-            <strong>Phase Angle</strong> = 세포막이 얼마나 건강한지 보여주는 숫자.<br>
-            <span style="color:var(--text-secondary);">전류가 세포막을 만나면 위상이 틀어집니다. 이 각도가 클수록 세포막이 튼튼합니다. 정상: 5~7°</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S7: THREE INNOVATIONS ============ -->
-<section class="slide" data-slide="7">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">왜 다른 기계는 이걸 못 할까?</p>
-      <h2 class="title" style="font-size:var(--h2-size);">InBody의 <span class="accent">3가지</span> 혁신</h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="three-col" style="max-width:1000px;">
-        <div class="card">
-          <div class="card-icon gold-icon">3MHz</div>
-          <h3>Multi-Frequency</h3>
-          <p>다른 BIA는 50kHz 하나. InBody는 8개 주파수. 주파수마다 세포막을 통과하는 정도가 다릅니다.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">세계 최초 3MHz 적용 (2020)</p>
-        </div>
-        <div class="card">
-          <div class="card-icon gold-icon">8pt</div>
-          <h3>8점 접촉 전극</h3>
-          <p>양손·양발 8개 접점, 5개 부위 독립 측정. 재현성 99%. 누가, 언제 재도 같은 결과.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">1996년 창업자가 세계 최초 개발</p>
-        </div>
-        <div class="card">
-          <div class="card-icon gold-icon">0</div>
-          <h3>No Estimation</h3>
-          <p>나이, 성별, 인종 추정값 없음. 오직 임피던스 측정값만으로 결과를 냅니다.</p>
-          <p style="margin-top:0.5rem; font-size:var(--small-size); color:var(--gold);">DXA 대비 98% 상관관계 (Mayo Clinic)</p>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-top:1rem;">
+            저주파로 외수분만 측정하고, 고주파로 전체 수분을 측정하면 그 차이가 내수분입니다. 근육은 수분이 많고 지방은 거의 없으니, 부위별 수분량 차이로 근육과 지방의 분포까지 알 수 있습니다.
+          </p>
         </div>
       </div>
     </div>
@@ -1069,24 +1083,27 @@ body::before {
       <h2 class="title" style="font-size:var(--h2-size);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="two-col" style="max-width:1000px; align-items:start;">
-        <div>
-          <p class="impact-text" style="text-align:left; font-size:var(--h3-size);"><strong>Phase Angle</strong> = 세포막 무결성 지표</p>
-          <div class="highlight-box" style="margin-top:1rem;">
-            <p style="font-size:var(--body-size);">
-              <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 상승<br>
-              <span class="accent bold">모니터링</span> → 투석환자 영양 중재 시점 결정<br>
-              <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
-            </p>
-          </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:1000px;">
+        <div style="padding:1.4rem 1.7rem; border-radius:18px; border:1.5px solid rgba(0,0,0,0.08); background:rgba(255,255,255,0.4); grid-row: span 2; display:flex; align-items:center;">
+          <p style="font-size:var(--body-size);">
+            <span class="accent bold">Phase Angle</span> — 세포막의 건강 점수<br><br>
+            <span style="color:var(--text-secondary);">인바디가 보내는 전류는 세포막을 만나면 살짝 지연됩니다. 이 지연이 만드는 각도가 Phase Angle입니다. 세포막이 튼튼할수록 각도가 크고, 손상되면 각도가 줄어듭니다. 정상: <strong style="color:var(--text-primary);">5~7°</strong></span>
+          </p>
         </div>
-        <div>
-          <div class="highlight-box gold-box">
+        <div class="highlight-box" style="margin-top:0; max-width:none; display:flex; align-items:center;">
+          <p style="font-size:var(--body-size);">
+            <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 상승<br>
+            <span class="accent bold">모니터링</span> → 투석환자 영양 중재 시점 결정<br>
+            <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
+          </p>
+        </div>
+        <div style="grid-column: 2; padding:0;">
+          <div class="highlight-box gold-box" style="margin-top:0; max-width:none;">
             <p style="font-size:var(--body-size);">
               <span class="gold bold">근감소증 (Sarcopenia)</span><br>
-              65세 이상 10~16% 유병. AWGS 2025에서 Multi-frequency BIA를 진단에 공식 인정.<br><br>
-              <span class="gold bold">InGrip</span> 악력 측정기로 근력까지 측정.<br>
-              <span style="color:var(--text-secondary);">체성분 + 악력 = 근감소증 종합 진단</span>
+              65세 이상 10~16% 유병. 낙상, 골절, 사망률 증가의 핵심 원인.<br><br>
+              AWGS 2025에서 Multi-frequency BIA를 근감소증 진단에 공식 인정.<br>
+              <span style="color:var(--text-secondary);">근육량 감소를 조기에 발견하면 운동·영양 중재로 되돌릴 수 있습니다.</span>
             </p>
           </div>
         </div>
@@ -1097,7 +1114,24 @@ body::before {
 
 <!-- ============ ACT 3: 도전 (S9-S14) ============ -->
 
-<!-- ============ S9: FOUNDING STORY ============ -->
+<!-- ============ S9: FOUNDER INTRO ============ -->
+<section class="slide act-divider" data-slide="9">
+  <div class="slide-content" style="display:flex; align-items:center; justify-content:center; gap:clamp(2rem,5vw,5rem);">
+    <div class="reveal" style="flex:0 0 auto;">
+      <img src="assets/images/founder-early.jpg" alt="차기철 회장 — 창업 초기" style="width:clamp(200px,25vw,360px); height:auto; border-radius:var(--radius-lg); box-shadow:0 8px 32px rgba(0,0,0,0.12);">
+    </div>
+    <div class="reveal reveal-delay-1" style="max-width:500px;">
+      <p class="label">Our Founder</p>
+      <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">이 기계를 만든 사람의<br>이야기입니다</h2>
+      <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+        연세대 기계공학 → KAIST 석사 → 유타대 생체공학 박사 → 하버드 의대 연구원.<br>
+        그리고 1996년, 모든 걸 걸고 창업했습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S10: FOUNDING STORY ============ -->
 <section class="slide" data-slide="9">
   <div class="slide-content left-aligned">
     <div class="reveal">
@@ -1125,27 +1159,90 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S10: 종합예술 + 천안공장 (MERGED) ============ -->
-<section class="slide" data-slide="10">
+<!-- ============ FACTORY — 천안공장 ============ -->
+<section class="slide" data-slide="factory" style="overflow:hidden;">
+  <div style="position:absolute; inset:0;">
+    <img src="assets/images/factory.jpg" alt="InBody 천안 공장" style="width:100%; height:100%; object-fit:cover; opacity:0.25;">
+  </div>
+  <div class="slide-content" style="position:relative; z-index:1; justify-content:center;">
+    <div class="reveal">
+      <p class="label">Cheonan, Korea</p>
+      <h2 class="title" style="font-size:var(--h2-size);">직접 만들고, 직접 책임지는 <span class="gold">공장</span></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); max-width:600px; line-height:1.7;">
+        천안 본사 공장에서 기획부터 제조, 출하까지.<br>
+        InBody의 모든 제품은 이곳에서 태어납니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL NETWORK + WORLD MAP ============ -->
+<section class="slide" data-slide="16" style="background:var(--dark-bg);">
   <div class="slide-content">
     <div class="reveal">
-      <h2 class="title" style="font-size:var(--h2-size);">의료기기는 <span class="gold" style="font-family:var(--font-serif); font-style:italic; font-size:1.15em;">종합예술</span>이다</h2>
+      <p class="label">Global Network</p>
+      <h2 class="title" style="font-size:var(--h2-size);">세계 <span class="gold">110+</span>개국에서</h2>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:0.8rem;">
-      <div style="display:flex; gap:clamp(1.5rem,3vw,3rem); justify-content:center; flex-wrap:wrap; max-width:900px;">
-        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">01</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.2rem;">생체 이해</p></div>
-        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">02</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.2rem;">전자공학</p></div>
-        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">03</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.2rem;">생산 설비</p></div>
-        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">04</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.2rem;">글로벌 세일즈</p></div>
-        <div style="text-align:center;"><span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">05</span><p style="font-size:var(--body-size); color:var(--text-secondary); margin-top:0.2rem;">끊임없는 개선</p></div>
+    <div class="reveal reveal-delay-1" style="margin-top:0.5rem;">
+      <div style="position:relative; width:100%; max-width:700px; margin:0 auto;">
+        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; display:block;">
+        <style>.corp-dot{position:absolute;width:10px;height:10px;background:var(--brand);border-radius:50%;box-shadow:0 0 8px var(--brand),0 0 16px rgba(172,4,48,0.4);animation:corpPulse 2s ease-in-out infinite;transform:translate(-50%,-50%);}.corp-dot::after{content:attr(data-label);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:0.6rem;color:var(--text-dim);white-space:nowrap;opacity:0.9;font-family:var(--font-mono);font-weight:600;}@keyframes corpPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1;}50%{transform:translate(-50%,-50%) scale(1.4);opacity:0.7;}}</style>
+        <div class="corp-dot" style="top:31.8%;left:28.6%;" data-label="미국"></div>
+        <div class="corp-dot" style="top:45.2%;left:22.5%;" data-label="멕시코"></div>
+        <div class="corp-dot" style="top:23.1%;left:50.0%;" data-label="영국"></div>
+        <div class="corp-dot" style="top:22.5%;left:51.4%;" data-label="네덜란드"></div>
+        <div class="corp-dot" style="top:24.9%;left:50.6%;" data-label="프랑스"></div>
+        <div class="corp-dot" style="top:24.1%;left:52.4%;" data-label="독일"></div>
+        <div class="corp-dot" style="top:30.3%;left:58.1%;" data-label="터키"></div>
+        <div class="corp-dot" style="top:38.9%;left:71.4%;" data-label="인도"></div>
+        <div class="corp-dot" style="top:51.2%;left:79.6%;" data-label="베트남"></div>
+        <div class="corp-dot" style="top:56.5%;left:78.3%;" data-label="말레이시아"></div>
+        <div class="corp-dot" style="top:37.1%;left:83.8%;" data-label="중국"></div>
+        <div class="corp-dot" style="top:32.7%;left:85.3%;" data-label="한국"></div>
+        <div class="corp-dot" style="top:34.0%;left:88.8%;" data-label="일본"></div>
+        <div class="corp-dot" style="top:82.0%;left:92.0%;" data-label="호주"></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="stat-row">
+        <div class="stat"><div class="stat-number">110+</div><div class="stat-label">수출국<br><span style="font-size:0.7rem;">유엔 회원국의 57%</span></div></div>
+        <div class="stat"><div class="stat-number">14</div><div class="stat-label">해외법인</div></div>
+        <div class="stat"><div class="stat-number">83%</div><div class="stat-label">해외매출<br><span style="font-size:0.7rem;">2025 Q1</span></div></div>
+        <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">데이터<br><span style="font-size:0.7rem;">한국인구 4배</span></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
+        2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVENUE CHART ============ -->
+<section class="slide" data-slide="17" style="background:var(--dark-bg);">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">Revenue</p>
+      <h2 class="title" style="font-size:var(--h2-size);"><span class="gold">1,179억</span>에서 <span class="gold">2,339억</span>까지</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
+      <div class="chart-container">
+        <div class="bar-group"><div class="bar-value">1,179</div><div class="bar" style="--target-h: 126px;"></div><div class="bar-label">2019</div></div>
+        <div class="bar-group"><div class="bar-value">1,071</div><div class="bar" style="--target-h: 115px;"></div><div class="bar-label">2020</div></div>
+        <div class="bar-group"><div class="bar-value">1,378</div><div class="bar" style="--target-h: 148px;"></div><div class="bar-label">2021</div></div>
+        <div class="bar-group"><div class="bar-value">1,600</div><div class="bar" style="--target-h: 171px;"></div><div class="bar-label">2022</div></div>
+        <div class="bar-group"><div class="bar-value">1,704</div><div class="bar" style="--target-h: 182px;"></div><div class="bar-label">2023</div></div>
+        <div class="bar-group"><div class="bar-value">2,045</div><div class="bar gold-bar" style="--target-h: 219px;"></div><div class="bar-label">2024</div></div>
+        <div class="bar-group"><div class="bar-value">2,339</div><div class="bar gold-bar" style="--target-h: 250px;"></div><div class="bar-label">2025</div></div>
       </div>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);">
-          천안공장: <span class="gold bold">한 사람이 한 대를 완성</span>. 불량률 <span class="gold bold">0.23%</span>. 100% 국내 생산. R&D 투자 매출의 10%.
-        </p>
-      </div>
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
+        인수합병 없이. <span class="gold bold">조급한 토끼보다 꾸준한 거북이가 낫다.</span>
+      </p>
     </div>
   </div>
 </section>
@@ -1161,15 +1258,23 @@ body::before {
         <div>
           <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1rem;">뭄바이 공항, <span class="accent">혼자</span></h2>
           <p class="subtitle" style="text-align:left; margin-bottom:1rem;">2016년 7월. 스물여섯이었습니다.</p>
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+          <p style="font-size:var(--body-size); line-height:1.7; margin-bottom:1rem;">
+            카레가 좋아서 타게 된 비행기.<br>
             동료 한 명과 뭄바이 공항에 내렸습니다.<br>
             사무실도 없었습니다. 팀도 없었습니다.<br>
-            고객도 없었습니다.<br>
+            고객도 없었습니다.
+          </p>
+          <p style="font-size:var(--body-size); line-height:1.7; margin-bottom:1rem;">
+            1개월을 1년같이.<br>
+            좋은 인도인 동료들을 찾는다.<br>
+            10번 찍는다.
+          </p>
+          <p style="font-size:var(--body-size); line-height:1.7;">
             건물이 들어서기 전부터, 회사 설립 서류부터 직접 작성했습니다.
           </p>
         </div>
         <div class="photo-side">
-          <img src="assets/images/airplane-selfie.jpg" alt="첫 비행기 안에서">
+          <img src="assets/images/gateway-of-india.jpg" alt="Gateway of India & Taj Mahal Hotel" style="max-height:300px; object-fit:cover;">
         </div>
       </div>
     </div>
@@ -1187,11 +1292,9 @@ body::before {
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.8; max-width:650px;">
-        세 번째로 뽑은 사람이 3주 만에 퇴사했습니다.<br>
+        세번째로 뽑은 사람이 3주 만에 퇴사했습니다.<br>
         보낸 물건이 세관에서 40일 넘게 묶였습니다.<br>
-        어느 날 물류 파트너가 전화를 안 받았습니다.<br>
-        서울에 전화할까 생각했는데, 시차 때문에 새벽이었습니다.<br>
-        그래서 그냥 다음 날 링크드인을 다시 열었습니다.
+        물류 파트너가 전화를 안 받았습니다.
       </p>
     </div>
     <div class="reveal reveal-delay-3" style="margin-top:1.2rem;">
@@ -1237,126 +1340,63 @@ body::before {
       <p class="scene-number">India Story — Scene 04</p>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="photo-layout">
-        <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,3vw,3rem); width:100%; max-width:1100px; align-items:stretch;">
+        <div style="display:flex; flex-direction:column; justify-content:center;">
           <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1rem;">그리고 <span class="gold">Apollo Hospital</span>이 온 날</h2>
           <p class="subtitle" style="text-align:left; margin-bottom:1rem;">2024년 상반기, 인도 메디컬 매출 <span class="gold bold">100%+ 성장</span></p>
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; margin-bottom:0.8rem;">
-            함께 인도에 갔던 동료 김도성은 지금 35세에 InBody 멕시코법인 CEO입니다. 인도에서 배운 것을 멕시코에서 재현하고 있습니다.
-          </p>
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
-            또 다른 동료 Jade Kim은 27세에 InBody 오세아니아 법인장이 되었습니다. 여러분과 비슷한 나이입니다.
+            8년간의 노력이 결실을 맺었습니다.<br>
+            인도 최대 병원 체인 Apollo Hospital이 InBody를 선택했습니다.<br>
+            혼자 시작한 시장에서, 이제 인도 전역의 의사들이 InBody를 찾습니다.
           </p>
         </div>
-        <div class="photo-side">
-          <img src="assets/images/team-photo.jpg" alt="InBody India 팀 단체 사진">
+        <div style="display:flex; flex-direction:column; gap:1rem; justify-content:center;">
+          <div class="photo-side" style="border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+            <img src="assets/images/team-photo.jpg" alt="InBody India 팀 단체 사진" style="width:100%; height:auto; display:block; object-fit:cover;">
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ACT 4: 초대 (S15-S21) ============ -->
-
-<!-- ============ S15: ACT TRANSITION ============ -->
-<section class="slide act-divider" data-slide="15">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="impact-text">
-        20대에 법인장을 맡기고, 신입에게 CEO가 직접 멘토링하고,<br>대학생 8명을 CES에 보내는 회사.
-      </p>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:2rem;">
-      <p class="impact-text">
-        <strong>어떤 회사가 이런 일을 할까?</strong>
-      </p>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:2rem;">
-      <div class="quote">
-        일을 '아는' 사람이 아니라 '하는' 사람 — 차기철
+<!-- ============ S14.5: INDIA SUCCESS — VIP & Growth ============ -->
+<section class="slide india-triumph" data-slide="14b" style="overflow:hidden;">
+  <div style="position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr;">
+    <div style="position:relative; overflow:hidden;">
+      <img src="assets/images/antilia.jpg" alt="Antilia" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:brightness(0.85);">
+      <div style="position:absolute; bottom:1.5rem; left:1.5rem; right:1rem;">
+        <p style="font-size:clamp(0.7rem,1.2vw,0.9rem); color:rgba(255,255,255,0.7); text-shadow:0 1px 4px rgba(0,0,0,0.5);">Antilia, Mumbai — 세계에서 가장 비싼 개인 주택</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ S16: GLOBAL NETWORK + WORLD MAP ============ -->
-<section class="slide glow-blue" data-slide="16" style="background:var(--dark-bg);">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">Global Network</p>
-      <h2 class="title" style="font-size:var(--h2-size);">세계 <span class="gold">110+</span>개국에서</h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div class="map-container" style="background:transparent; position:relative; display:flex; align-items:center; justify-content:center;">
-        <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; max-height:35vh;">
+    <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(2rem,4vw,4rem);">
+      <div class="reveal">
+        <p class="scene-number">India Story — Scene 05</p>
+        <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1.5rem;">인도에서 <span class="gold">세계로</span></h2>
       </div>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="stat-row">
-        <div class="stat"><div class="stat-number">110+</div><div class="stat-label">수출국<br><span style="font-size:0.7rem;">유엔 회원국의 57%</span></div></div>
-        <div class="stat"><div class="stat-number">14</div><div class="stat-label">해외법인</div></div>
-        <div class="stat"><div class="stat-number">83%</div><div class="stat-label">해외매출<br><span style="font-size:0.7rem;">2025 Q1</span></div></div>
-        <div class="stat"><div class="stat-number">2억+</div><div class="stat-label">데이터<br><span style="font-size:0.7rem;">한국인구 4배</span></div></div>
+      <div class="reveal reveal-delay-1">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem;">
+          <img src="assets/images/lee-jaeyong-india.jpg" alt="이재용 터번" style="width:70px; height:70px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid rgba(255,255,255,0.3); box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
+            <span class="gold bold">이재용</span> 삼성 회장도 주목한 인도.<br>
+            <span class="gold bold">암바니</span> 자택에도 InBody가 들어갔습니다.
+          </p>
+        </div>
+        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.8; margin-bottom:1.2rem;">
+          글로벌 기업들이 몰려드는 그곳에서,<br>
+          InBody는 이미 <span class="gold bold">8년째</span> 뿌리를 내리고 있었습니다.
+        </p>
       </div>
-    </div>
-    <div class="reveal reveal-delay-3" style="margin-top:0.5rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
-        2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ S17: REVENUE CHART ============ -->
-<section class="slide glow-gold" data-slide="17" style="background:var(--dark-bg);">
-  <div class="slide-content">
-    <div class="reveal">
-      <p class="label">Revenue</p>
-      <h2 class="title" style="font-size:var(--h2-size);"><span class="gold">1,179억</span>에서 <span class="gold">2,339억</span>까지</h2>
-    </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="chart-container">
-        <div class="bar-group">
-          <div class="bar-value">1,179</div>
-          <div class="bar" style="--target-h: 126px;"></div>
-          <div class="bar-label">2019</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">1,071</div>
-          <div class="bar" style="--target-h: 115px;"></div>
-          <div class="bar-label">2020</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">1,378</div>
-          <div class="bar" style="--target-h: 148px;"></div>
-          <div class="bar-label">2021</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">1,600</div>
-          <div class="bar" style="--target-h: 171px;"></div>
-          <div class="bar-label">2022</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">1,704</div>
-          <div class="bar" style="--target-h: 182px;"></div>
-          <div class="bar-label">2023</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">2,045</div>
-          <div class="bar gold-bar" style="--target-h: 219px;"></div>
-          <div class="bar-label">2024</div>
-        </div>
-        <div class="bar-group">
-          <div class="bar-value">2,339</div>
-          <div class="bar gold-bar" style="--target-h: 250px;"></div>
-          <div class="bar-label">2025</div>
+      <div class="reveal reveal-delay-2">
+        <div class="highlight-box gold-box" style="margin:0;">
+          <p style="font-size:var(--body-size); line-height:1.7; margin-bottom:0.5rem;">
+            함께 인도에 갔던 동료 <span class="gold bold">김도성</span>은 지금 35세에 InBody 멕시코법인 CEO입니다.
+          </p>
+          <p style="font-size:var(--body-size); line-height:1.7;">
+            또 다른 동료 <span class="gold bold">Jade Kim</span>은 27세에 InBody 오세아니아 법인장이 되었습니다.
+          </p>
         </div>
       </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
-      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
-        인수합병 없이. <span class="gold bold">조급한 토끼보다 꾸준한 거북이가 낫다.</span>
-      </p>
     </div>
   </div>
 </section>
@@ -1378,6 +1418,51 @@ body::before {
   </div>
 </section>
 
+<!-- ============ 과제 업무 설명 ============ -->
+<section class="slide" data-slide="10">
+  <div class="slide-content">
+    <div class="reveal">
+      <p class="label">과제 업무</p>
+      <h2 class="title" style="font-size:var(--h2-size);">의료기기는 <span class="gold" style="font-family:var(--font-serif); font-style:italic; font-size:1.15em;">종합예술</span>이다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
+      <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:0.8rem; max-width:1000px;">
+        <div style="background:rgba(255,255,255,0.5); border-radius:12px; padding:1.2rem 1rem; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">01</span>
+          <p style="font-size:var(--body-size); font-weight:600; margin:0.4rem 0 0.3rem;">생체 이해</p>
+          <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.5;">인체 임피던스 원리<br>임상 논문 8,000+편</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.5); border-radius:12px; padding:1.2rem 1rem; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">02</span>
+          <p style="font-size:var(--body-size); font-weight:600; margin:0.4rem 0 0.3rem;">전자공학</p>
+          <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.5;">μA 정밀 전류 회로<br>멀티주파수 BIA 설계</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.5); border-radius:12px; padding:1.2rem 1rem; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">03</span>
+          <p style="font-size:var(--body-size); font-weight:600; margin:0.4rem 0 0.3rem;">생산 설비</p>
+          <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.5;">천안공장 100% 국내 생산<br>한 사람이 한 대를 완성</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.5); border-radius:12px; padding:1.2rem 1rem; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">04</span>
+          <p style="font-size:var(--body-size); font-weight:600; margin:0.4rem 0 0.3rem;">글로벌 세일즈</p>
+          <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.5;">110+개국 수출<br>14개 해외법인 운영</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.5); border-radius:12px; padding:1.2rem 1rem; text-align:center; border:1px solid rgba(0,0,0,0.06);">
+          <span style="font-family:var(--font-mono); font-size:var(--h3-size); color:var(--brand); font-weight:700;">05</span>
+          <p style="font-size:var(--body-size); font-weight:600; margin:0.4rem 0 0.3rem;">끊임없는 개선</p>
+          <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.5;">불량률 0.23%<br>R&D 매출의 10%</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:1.2rem;">
+      <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:700px;">
+        이 다섯 가지를 <span class="gold bold">한 회사 안에서</span> 모두 경험할 수 있는 곳.<br>
+        그게 의료기기 회사입니다.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ S19: CHOOSE YOUR PATH ============ -->
 <section class="slide" data-slide="19">
   <div class="slide-content">
@@ -1386,37 +1471,22 @@ body::before {
       <h2 class="title" style="font-size:var(--h2-size);">생물학과라면, <span class="accent">어디로</span> 갈 수 있을까?</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
-      <div class="path-grid">
-        <div class="path-card">
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; max-width:1000px;">
+        <div style="background:rgba(255,255,255,0.6); border-radius:16px; padding:2rem 1.5rem; border:1.5px solid rgba(0,0,0,0.06);">
           <p class="path-if">연구가 좋다면 →</p>
-          <h3>임상팀 / AI 연구소</h3>
-          <p>8,000+편 논문 지원, Phase Angle 연구, Mayo Clinic 협력. 석·박사 10명의 AI Lab.</p>
+          <h3 style="font-size:var(--h3-size); font-weight:700; margin:0.5rem 0;">임상팀 / AI 연구소</h3>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">8,000+편 논문 지원<br>Phase Angle 연구<br>Mayo Clinic 협력<br>석·박사 10명의 AI Lab</p>
         </div>
-        <div class="path-card">
+        <div style="background:rgba(255,255,255,0.6); border-radius:16px; padding:2rem 1.5rem; border:1.5px solid rgba(0,0,0,0.06);">
           <p class="path-if">세계를 누비고 싶다면 →</p>
-          <h3>GBD (해외 파견)</h3>
-          <p>14개국 법인. 1~2년 훈련 후 해외 사업 수행. 주거·항공 지원.</p>
+          <h3 style="font-size:var(--h3-size); font-weight:700; margin:0.5rem 0;">GBD (해외 파견)</h3>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">14개국 법인<br>1~2년 훈련 후 해외 사업 수행<br>주거·항공 지원</p>
         </div>
-        <div class="path-card">
+        <div style="background:rgba(255,255,255,0.6); border-radius:16px; padding:2rem 1.5rem; border:1.5px solid rgba(0,0,0,0.06);">
           <p class="path-if">데이터가 좋다면 →</p>
-          <h3>데이터사이언스팀</h3>
-          <p>2억+ 체성분 빅데이터 분석. 개인 맞춤 건강관리 알고리즘 개발.</p>
+          <h3 style="font-size:var(--h3-size); font-weight:700; margin:0.5rem 0;">데이터사이언스팀</h3>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">2억+ 체성분 빅데이터 분석<br>개인 맞춤 건강관리<br>알고리즘 개발</p>
         </div>
-        <div class="path-card">
-          <p class="path-if">제품을 만들고 싶다면 →</p>
-          <h3>R&D / 기계설계</h3>
-          <p>μA 정밀 전류 회로 설계부터 3D CAD 구조 설계까지. 천안공장에서 직접 제조.</p>
-        </div>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="margin-top:1.2rem;">
-      <div class="highlight-box gold-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);"><span class="gold bold">InBody Startup Academy</span> — 대학생 8명 선발, 개발비·월급·CES 항공편 전액 지원. CEO가 직접 멘토링. 2025년 라스베이거스 CES에서 'InBody AI Scale'을 전시했습니다.</p>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-3" style="margin-top:1rem;">
-      <div class="highlight-box" style="max-width:700px; text-align:center;">
-        <p style="font-size:var(--body-size);">20대에 인도 법인장, 27세에 호주 법인장. 어디서 시작하든, 어디까지 갈 수 있는지는 본인이 정합니다.</p>
       </div>
     </div>
   </div>
@@ -1483,9 +1553,20 @@ body::before {
         </div>
       </div>
     </div>
-    <div class="reveal reveal-delay-1" style="text-align:center; margin-top:clamp(1rem,2vw,2rem);">
-      <img src="assets/qr-jobs.svg" alt="QR Code" style="width:120px; height:120px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
-      <p style="font-size:var(--small-size); color:var(--text-secondary); margin-top:0.5rem;">QR 스캔 → 부서별 업무 소개 | Q&A — 무엇이든 물어보세요</p>
+    <div class="reveal reveal-delay-1" style="display:flex; align-items:center; justify-content:center; gap:clamp(2rem,4vw,4rem); margin-top:clamp(0.8rem,1.5vw,1.5rem);">
+      <div style="text-align:center;">
+        <img src="assets/qr-jobs.svg" alt="QR Code" style="width:100px; height:100px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <p style="font-size:var(--small-size); color:var(--text-secondary); margin-top:0.3rem;">QR 스캔 → 더 알아보기</p>
+      </div>
+      <div style="text-align:left;">
+        <p style="font-size:var(--body-size); font-weight:600; color:var(--text-primary);">차인준 부사장</p>
+        <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.6; margin-top:0.2rem;">
+          InBody 영업그룹<br>
+          kenneth@inbody.com<br>
+          010-7737-3939
+        </p>
+        <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.3rem;">리멤버로 명함 저장 →</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1505,6 +1586,7 @@ body::before {
   const slides = getVisibleSlides();
   const totalSlides = slides.length;
   let currentSlide = 0;
+  let isAnimating = false;
 
   // Build nav dots
   const navDots = document.getElementById('navDots');
@@ -1517,22 +1599,16 @@ body::before {
   });
 
   function updateUI() {
-    // Nav dots
     document.querySelectorAll('.nav-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === currentSlide);
     });
-    // Progress bar
     const progress = ((currentSlide) / (totalSlides - 1)) * 100;
     document.getElementById('progressFill').style.width = progress + '%';
-    // Page number
     const num = String(currentSlide + 1).padStart(2, '0');
     const total = String(totalSlides).padStart(2, '0');
     document.getElementById('pageNumber').textContent = `${num} / ${total}`;
-    // Hide fixed logo on title slide (S0 has its own large logo)
     document.querySelector('.logo').style.opacity = currentSlide === 0 ? '0' : '1';
-    // Reveal animations
     triggerReveals();
-    // Chart animation — add chart-active when revenue slide is visible
     slides.forEach(s => s.classList.remove('chart-active'));
     slides[currentSlide].classList.add('chart-active');
   }
@@ -1546,10 +1622,12 @@ body::before {
   }
 
   function goToSlide(index) {
-    if (index < 0 || index >= totalSlides) return;
+    if (index < 0 || index >= totalSlides || isAnimating) return;
+    isAnimating = true;
     currentSlide = index;
     slides[index].scrollIntoView({ behavior: 'smooth' });
     updateUI();
+    setTimeout(() => { isAnimating = false; }, 600);
   }
 
   // Keyboard navigation
@@ -1569,20 +1647,20 @@ body::before {
     }
   });
 
-  // Scroll detection via IntersectionObserver (root = body as scroll container)
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const index = slides.indexOf(entry.target);
-        if (index !== -1) {
-          currentSlide = index;
-          updateUI();
-        }
+  // Wheel navigation (debounced — one slide per scroll gesture)
+  let wheelAccum = 0;
+  let wheelTimer = null;
+  document.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    wheelAccum += e.deltaY;
+    if (wheelTimer) clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(() => {
+      if (Math.abs(wheelAccum) > 30) {
+        goToSlide(currentSlide + (wheelAccum > 0 ? 1 : -1));
       }
-    });
-  }, { root: document.body, threshold: 0.5 });
-
-  slides.forEach(slide => observer.observe(slide));
+      wheelAccum = 0;
+    }, 80);
+  }, { passive: false });
 
   // Touch swipe
   let touchStartY = 0;
