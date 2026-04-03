@@ -32,11 +32,11 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
 
-  --title-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  --h2-size: clamp(1.7rem, 3.5vw, 2.8rem);
-  --h3-size: clamp(1.15rem, 2.2vw, 1.6rem);
-  --body-size: clamp(0.95rem, 1.5vw, 1.2rem);
-  --small-size: clamp(0.8rem, 1vw, 0.95rem);
+  --title-size: clamp(2.5rem, 5vw, 4.2rem);
+  --h2-size: clamp(2rem, 4vw, 3.2rem);
+  --h3-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  --body-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  --small-size: clamp(0.9rem, 1.2vw, 1.1rem);
   --slide-padding: clamp(1.5rem, 3vw, 3rem);
   --content-gap: clamp(0.5rem, 1.5vw, 1.5rem);
 }
@@ -1126,38 +1126,37 @@ body::before {
 </section>
 
 <!-- ============ S8: PHASE ANGLE + SARCOPENIA (MERGED) ============ -->
-<section class="slide" data-slide="8">
-  <div class="slide-content" style="gap:clamp(1rem,2vw,1.5rem);">
+<section class="slide glow-brand" data-slide="8" style="overflow:hidden;">
+  <img src="assets/images/cell-membrane.png" alt="" style="position:absolute; left:-5%; top:50%; transform:translateY(-50%); width:45%; height:auto; opacity:0.1; pointer-events:none; filter:blur(1px);">
+  <div class="slide-content" style="gap:0;">
     <div class="reveal">
-      <h2 class="title" style="font-size:var(--h2-size);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
+      <h2 class="title" style="font-size:var(--h2-size); margin-bottom:clamp(1rem,2vw,2rem);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
     </div>
-    <div class="reveal reveal-delay-1" style="display:grid; grid-template-columns:auto 1fr; gap:clamp(1.5rem,3vw,3rem); max-width:1300px; align-items:center;">
+    <div class="reveal reveal-delay-1" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,4vw,4rem); max-width:1300px; align-items:center;">
       <div style="text-align:center;">
-        <img src="assets/images/cell-membrane.png" alt="인지질 이중층 — 세포막 구조" style="width:clamp(180px,20vw,300px); height:auto; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.08);">
-        <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.5rem;">인지질 이중층 — 세포막 구조</p>
+        <div style="font-family:var(--font-mono); font-size:clamp(6rem,12vw,10rem); font-weight:700; color:var(--brand); line-height:1; margin-bottom:0.5rem; text-shadow:0 4px 30px rgba(172,4,48,0.15);">5~7°</div>
+        <p style="font-size:var(--h3-size); font-weight:600; color:var(--text-primary); margin-bottom:0.5rem;">Phase Angle</p>
+        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:400px; margin:0 auto;">
+          세포막의 건강 점수.<br>
+          전류가 세포막을 만나면 생기는 지연.<br>
+          튼튼할수록 크고, 손상되면 줄어듭니다.
+        </p>
       </div>
-      <div>
-        <div style="padding:1.2rem 1.5rem; border-radius:16px; border:1.5px solid rgba(0,0,0,0.08); background:rgba(255,255,255,0.4); margin-bottom:0.8rem;">
-          <p style="font-size:var(--body-size);">
-            <span class="accent bold">Phase Angle</span> — 세포막의 건강 점수<br><br>
-            <span style="color:var(--text-secondary);">인바디가 보내는 전류는 세포막을 만나면 살짝 지연됩니다. 이 지연이 만드는 각도가 Phase Angle입니다. 세포막이 튼튼할수록 각도가 크고, 손상되면 각도가 줄어듭니다. 정상: <strong style="color:var(--text-primary);">5~7°</strong></span>
+      <div style="display:flex; flex-direction:column; gap:clamp(0.8rem,1.5vw,1.2rem);">
+        <div style="background:rgba(172,4,48,0.06); border-left:4px solid var(--brand); border-radius:0 12px 12px 0; padding:clamp(1rem,2vw,1.5rem);">
+          <p style="font-size:var(--body-size); font-weight:700; color:var(--brand); margin-bottom:0.4rem;">Phase Angle &lt; 5°</p>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+            암환자 사망률 상승과 직결<br>
+            투석환자 영양 중재 시점 결정<br>
+            <strong style="color:var(--text-primary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</strong>
           </p>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
-          <div class="highlight-box" style="margin:0; max-width:none;">
-            <p style="font-size:var(--small-size);">
-              <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 상승<br>
-              <span class="accent bold">모니터링</span> → 투석환자 영양 중재 시점 결정<br>
-              <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
-            </p>
-          </div>
-          <div class="highlight-box gold-box" style="margin:0; max-width:none;">
-            <p style="font-size:var(--small-size);">
-              <span class="gold bold">근감소증 (Sarcopenia)</span><br>
-              65세 이상 10~16% 유병. 낙상, 골절, 사망률 증가의 핵심 원인.<br>
-              AWGS 2025에서 Multi-frequency BIA를 근감소증 진단에 공식 인정.
-            </p>
-          </div>
+        <div style="background:rgba(166,122,0,0.06); border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:clamp(1rem,2vw,1.5rem);">
+          <p style="font-size:var(--body-size); font-weight:700; color:var(--gold); margin-bottom:0.4rem;">근감소증 (Sarcopenia)</p>
+          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
+            65세 이상 10~16% 유병. 낙상·골절·사망률 증가의 핵심 원인.<br>
+            <strong style="color:var(--text-primary);">AWGS 2025, Multi-frequency BIA를 공식 진단 도구로 인정.</strong>
+          </p>
         </div>
       </div>
     </div>
@@ -1205,7 +1204,6 @@ body::before {
     </div>
     <div class="reveal reveal-delay-3" style="margin-top:0.8rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); max-width:650px;">
-        첫 해 매출 1억원. <span class="gold bold">지금은 2,339억원.</span>
       </p>
     </div>
   </div>
@@ -1267,7 +1265,7 @@ body::before {
     </div>
     <div class="reveal reveal-delay-3">
       <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center;">
-        2025년 매출 <span class="gold bold">2,339억원</span>. 하루 <span class="gold bold">6.4억원</span>어치.
+        110개국 수출. 14개 해외법인. 하루 <span class="gold bold">6.4억원</span>어치 의료기기를 세계에 보냅니다.
       </p>
     </div>
   </div>
@@ -1546,7 +1544,7 @@ body::before {
 <section class="slide glow-brand" data-slide="20" style="background:var(--dark-surface);">
   <div class="slide-content">
     <div class="reveal">
-      <h2 class="title" style="font-size:var(--h2-size); line-height:1.5;">유행을 쫓지 마세요.<br><span class="accent">본인이 파는 인생</span>이<br>제일 중요합니다.</h2>
+      <h2 class="title" style="font-size:var(--h2-size); line-height:1.5;">유행을 쫓지 마세요.<br><span class="accent">본인이 파고드는 것</span>이<br>제일 중요합니다.</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:2rem; max-width:650px;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.8; text-align:center;">
@@ -1568,7 +1566,9 @@ body::before {
   <div class="slide-content" style="justify-content:center; gap:clamp(1.5rem,3vw,2.5rem); padding-top:clamp(2rem,4vw,4rem); padding-bottom:clamp(1.5rem,3vw,3rem);">
     <div class="reveal" style="display:flex; align-items:center; justify-content:center; gap:clamp(2rem,4vw,4rem);">
       <div style="text-align:center;">
-        <img src="assets/qr-jobs.svg" alt="QR Code" style="width:clamp(140px,15vw,200px); height:clamp(140px,15vw,200px); filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <a href="https://kenccha.github.io/inbody-presentation/info.html" target="_blank" rel="noopener" style="display:block;">
+          <img src="assets/qr-info.svg" alt="QR Code" style="width:clamp(140px,15vw,200px); height:clamp(140px,15vw,200px); filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        </a>
         <p style="font-size:var(--small-size); color:var(--text-secondary); margin-top:0.5rem;">QR 스캔 → 더 알아보기</p>
       </div>
       <div style="text-align:left;">
@@ -1616,10 +1616,21 @@ body::before {
 <!-- ============ JAVASCRIPT ============ -->
 <script>
 function toggleFullscreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(() => {});
+  var el = document.documentElement;
+  if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen();
+    }
   } else {
-    document.exitFullscreen();
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
   }
 }
 
