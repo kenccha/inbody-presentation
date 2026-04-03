@@ -44,7 +44,7 @@ body {
 }
 
 .header .logo {
-  height: 28px;
+  height: 52px;
   margin-bottom: 1.5rem;
 }
 
@@ -388,15 +388,13 @@ body {
     </div>
 
     <!-- Remember -->
-    <a href="https://www.remember.co.kr/name_card/view?cid=kenneth@inbody.com" target="_blank" rel="noopener" class="remember-cta">
+    <a href="https://link.rmbr.in/lins2r" target="_blank" rel="noopener" class="remember-cta">
       리멤버로 연결하기 — 차인준 부사장
     </a>
 
     <div class="footer">
       <div class="footer-links">
-        <a href="https://inbody.co.kr" target="_blank">inbody.co.kr</a>
-        <a href="https://inbodyusa.com" target="_blank">inbodyusa.com</a>
-        <a href="https://inbodyrecruit.com" target="_blank">inbodyrecruit.com</a>
+        <a href="https://inbody.com" target="_blank">inbody.com</a>
       </div>
       <p>InBody Co., Ltd. · 서울 강남구 언주로 625</p>
     </div>
@@ -644,19 +642,37 @@ body {
 </div>
 
 <script>
-function showSection(id) {
+function showSection(id, skipPush) {
   document.querySelectorAll('.section-page').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (!skipPush) {
+    if (id === 'landing') {
+      history.pushState({ section: 'landing' }, '', window.location.pathname);
+    } else {
+      history.pushState({ section: id }, '', '#' + id);
+    }
+  }
 }
+
+// Browser back/forward button support
+window.addEventListener('popstate', (e) => {
+  const section = (e.state && e.state.section) || 'landing';
+  if (document.getElementById(section)) {
+    showSection(section, true);
+  }
+});
 
 // Handle URL hash for direct links
 if (window.location.hash) {
   const section = window.location.hash.slice(1);
   if (document.getElementById(section)) {
-    showSection(section);
+    showSection(section, true);
   }
 }
+
+// Set initial state
+history.replaceState({ section: 'landing' }, '', window.location.href);
 </script>
 
 </body>

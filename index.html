@@ -73,14 +73,17 @@ body::before {
    =========================================== */
 .slide {
   width: 100vw;
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow: visible;
-  /* JS handles navigation */
-  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: none;
   flex-direction: column;
   position: relative;
   background: var(--dark-bg);
+}
+
+.slide.active {
+  display: flex;
 }
 
 /* Glow slides — clip atmospheric pseudo-elements without hiding content */
@@ -1364,7 +1367,7 @@ body::before {
 <section class="slide india-triumph" data-slide="14b" style="overflow:hidden;">
   <div style="position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr;">
     <div style="position:relative; overflow:hidden;">
-      <img src="assets/images/antilia.jpg" alt="Antilia" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:brightness(0.85);">
+      <img src="assets/images/antilia.jpg" alt="Antilia" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block; filter:brightness(0.85);">
       <div style="position:absolute; bottom:1.5rem; left:1.5rem; right:1rem;">
         <p style="font-size:clamp(0.7rem,1.2vw,0.9rem); color:rgba(255,255,255,0.7); text-shadow:0 1px 4px rgba(0,0,0,0.5);">Antilia, Mumbai — 세계에서 가장 비싼 개인 주택</p>
       </div>
@@ -1376,7 +1379,7 @@ body::before {
       </div>
       <div class="reveal reveal-delay-1">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem;">
-          <img src="assets/images/lee-jaeyong-india.jpg" alt="이재용 터번" style="width:70px; height:70px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid rgba(255,255,255,0.3); box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+          <img src="assets/images/lee-jaeyong-india.jpg" alt="이재용 터번" style="width:120px; height:120px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid rgba(255,255,255,0.3); box-shadow:0 4px 12px rgba(0,0,0,0.2);">
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
             <span class="gold bold">이재용</span> 삼성 회장도 주목한 인도.<br>
             <span class="gold bold">암바니</span> 자택에도 InBody가 들어갔습니다.
@@ -1513,59 +1516,53 @@ body::before {
   </div>
 </section>
 
-<!-- ============ S21: CLOSING — 3 BLOCKS + QR ============ -->
+<!-- ============ S21: CLOSING — QR + 3 BLOCKS ============ -->
 <section class="slide" data-slide="21">
-  <div class="slide-content" style="justify-content:space-between; padding-top:clamp(2rem,4vw,4rem); padding-bottom:clamp(1.5rem,3vw,3rem);">
-    <div class="reveal" style="width:100%;">
-      <div class="three-col" style="max-width:1100px; margin:0 auto; gap:clamp(1rem,2vw,2rem);">
-        <div class="card" style="text-align:center;">
-          <div class="card-icon" style="font-size:1.8rem;">?</div>
-          <h3 style="margin-bottom:0.6rem;">결과지가 궁금하다면</h3>
-          <p style="color:var(--text-secondary); line-height:1.6;">
-            InBody 결과지에서<br>
-            궁금한 점이 있으신가요?<br><br>
-            체수분, 단백질, 무기질, 체지방<br>
-            부위별 근육, Phase Angle<br><br>
-            <span class="accent bold">지금 바로 질문해주세요</span>
-          </p>
-        </div>
-        <div class="card" style="text-align:center; border-color:var(--gold);">
-          <div class="card-icon gold-icon" style="font-size:1.8rem;">@</div>
-          <h3 style="margin-bottom:0.6rem;">직무별 하는 일</h3>
-          <p style="color:var(--text-secondary); line-height:1.6;">
-            임상팀 · AI 연구소<br>
-            데이터사이언스<br>
-            R&D · 기계설계<br>
-            글로벌 영업<br><br>
-            <span class="gold bold">QR 스캔으로 자세히 보기</span>
-          </p>
-        </div>
-        <div class="card" style="text-align:center; border-color:var(--brand);">
-          <div class="card-icon" style="font-size:1.8rem;">GBD</div>
-          <h3 style="margin-bottom:0.6rem;">해외 파견 프로그램</h3>
-          <p style="color:var(--text-secondary); line-height:1.6;">
-            1~2년 훈련 → 14개국 파견<br>
-            20대 법인장 가능<br>
-            주거·항공·어학 전액 지원<br><br>
-            학점·자격증·영어 제한 <span class="accent bold">없음</span><br>
-            <span class="accent bold">inbodyrecruit.com</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-1" style="display:flex; align-items:center; justify-content:center; gap:clamp(2rem,4vw,4rem); margin-top:clamp(0.8rem,1.5vw,1.5rem);">
+  <div class="slide-content" style="justify-content:center; gap:clamp(1.5rem,3vw,2.5rem); padding-top:clamp(2rem,4vw,4rem); padding-bottom:clamp(1.5rem,3vw,3rem);">
+    <div class="reveal" style="display:flex; align-items:center; justify-content:center; gap:clamp(2rem,4vw,4rem);">
       <div style="text-align:center;">
-        <img src="assets/qr-jobs.svg" alt="QR Code" style="width:100px; height:100px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
-        <p style="font-size:var(--small-size); color:var(--text-secondary); margin-top:0.3rem;">QR 스캔 → 더 알아보기</p>
+        <img src="assets/qr-jobs.svg" alt="QR Code" style="width:clamp(140px,15vw,200px); height:clamp(140px,15vw,200px); filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));">
+        <p style="font-size:var(--small-size); color:var(--text-secondary); margin-top:0.5rem;">QR 스캔 → 더 알아보기</p>
       </div>
       <div style="text-align:left;">
-        <p style="font-size:var(--body-size); font-weight:600; color:var(--text-primary);">차인준 부사장</p>
-        <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.6; margin-top:0.2rem;">
+        <p style="font-size:var(--h3-size); font-weight:700; color:var(--text-primary);">차인준 부사장</p>
+        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-top:0.3rem;">
           InBody 영업그룹<br>
           kenneth@inbody.com<br>
           010-7737-3939
         </p>
-        <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.3rem;">리멤버로 명함 저장 →</p>
+        <a href="https://link.rmbr.in/lins2r" target="_blank" rel="noopener" style="font-size:var(--small-size); color:var(--blue); margin-top:0.4rem; display:inline-block; text-decoration:none;">리멤버로 명함 저장 →</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1" style="width:100%;">
+      <div class="three-col" style="max-width:1000px; margin:0 auto; gap:clamp(0.8rem,1.5vw,1.5rem);">
+        <div class="card" style="text-align:center; padding:clamp(0.8rem,1.5vw,1.2rem);">
+          <div class="card-icon" style="font-size:1.5rem;">?</div>
+          <h3 style="margin-bottom:0.4rem; font-size:var(--body-size);">결과지가 궁금하다면</h3>
+          <p style="color:var(--text-secondary); line-height:1.5; font-size:var(--small-size);">
+            체수분, 단백질, 무기질, 체지방<br>
+            부위별 근육, Phase Angle<br>
+            <span class="accent bold">지금 바로 질문해주세요</span>
+          </p>
+        </div>
+        <div class="card" style="text-align:center; border-color:var(--gold); padding:clamp(0.8rem,1.5vw,1.2rem);">
+          <div class="card-icon gold-icon" style="font-size:1.5rem;">@</div>
+          <h3 style="margin-bottom:0.4rem; font-size:var(--body-size);">직무별 하는 일</h3>
+          <p style="color:var(--text-secondary); line-height:1.5; font-size:var(--small-size);">
+            임상팀 · AI 연구소<br>
+            데이터사이언스 · R&D<br>
+            <span class="gold bold">QR 스캔으로 자세히 보기</span>
+          </p>
+        </div>
+        <div class="card" style="text-align:center; border-color:var(--brand); padding:clamp(0.8rem,1.5vw,1.2rem);">
+          <div class="card-icon" style="font-size:1.5rem;">GBD</div>
+          <h3 style="margin-bottom:0.4rem; font-size:var(--body-size);">해외 파견 프로그램</h3>
+          <p style="color:var(--text-secondary); line-height:1.5; font-size:var(--small-size);">
+            1~2년 훈련 → 14개국 파견<br>
+            학점·자격증·영어 제한 <span class="accent bold">없음</span><br>
+            <span class="accent bold">inbodyrecruit.com</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -1624,10 +1621,11 @@ body::before {
   function goToSlide(index) {
     if (index < 0 || index >= totalSlides || isAnimating) return;
     isAnimating = true;
+    slides[currentSlide].classList.remove('active');
     currentSlide = index;
-    slides[index].scrollIntoView({ behavior: 'smooth' });
+    slides[index].classList.add('active');
     updateUI();
-    setTimeout(() => { isAnimating = false; }, 600);
+    setTimeout(() => { isAnimating = false; }, 150);
   }
 
   // Keyboard navigation
@@ -1675,7 +1673,8 @@ body::before {
     }
   }, { passive: true });
 
-  // Initial
+  // Initial — show first slide
+  slides[0].classList.add('active');
   updateUI();
 })();
 </script>
