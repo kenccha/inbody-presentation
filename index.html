@@ -72,18 +72,28 @@ body::before {
    SLIDE BASE
    =========================================== */
 .slide {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  display: none;
+  display: flex;
   flex-direction: column;
-  position: relative;
   background: var(--dark-bg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  z-index: 1;
 }
 
 .slide.active {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
 }
 
 /* Glow slides — clip atmospheric pseudo-elements without hiding content */
@@ -1081,32 +1091,35 @@ body::before {
 
 <!-- ============ S8: PHASE ANGLE + SARCOPENIA (MERGED) ============ -->
 <section class="slide" data-slide="8">
-  <div class="slide-content">
+  <div class="slide-content" style="gap:clamp(1rem,2vw,1.5rem);">
     <div class="reveal">
       <h2 class="title" style="font-size:var(--h2-size);">이 숫자 하나로 <span class="accent">사람을 살립니다</span></h2>
     </div>
-    <div class="reveal reveal-delay-1" style="margin-top:1rem;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:1000px;">
-        <div style="padding:1.4rem 1.7rem; border-radius:18px; border:1.5px solid rgba(0,0,0,0.08); background:rgba(255,255,255,0.4); grid-row: span 2; display:flex; align-items:center;">
+    <div class="reveal reveal-delay-1" style="display:grid; grid-template-columns:auto 1fr; gap:clamp(1.5rem,3vw,3rem); max-width:1100px; align-items:center;">
+      <div style="text-align:center;">
+        <img src="assets/images/cell-membrane.png" alt="인지질 이중층 — 세포막 구조" style="width:clamp(180px,20vw,300px); height:auto; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+        <p style="font-size:var(--small-size); color:var(--text-dim); margin-top:0.5rem;">인지질 이중층 — 세포막 구조</p>
+      </div>
+      <div>
+        <div style="padding:1.2rem 1.5rem; border-radius:16px; border:1.5px solid rgba(0,0,0,0.08); background:rgba(255,255,255,0.4); margin-bottom:0.8rem;">
           <p style="font-size:var(--body-size);">
             <span class="accent bold">Phase Angle</span> — 세포막의 건강 점수<br><br>
             <span style="color:var(--text-secondary);">인바디가 보내는 전류는 세포막을 만나면 살짝 지연됩니다. 이 지연이 만드는 각도가 Phase Angle입니다. 세포막이 튼튼할수록 각도가 크고, 손상되면 각도가 줄어듭니다. 정상: <strong style="color:var(--text-primary);">5~7°</strong></span>
           </p>
         </div>
-        <div class="highlight-box" style="margin-top:0; max-width:none; display:flex; align-items:center;">
-          <p style="font-size:var(--body-size);">
-            <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 상승<br>
-            <span class="accent bold">모니터링</span> → 투석환자 영양 중재 시점 결정<br>
-            <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
-          </p>
-        </div>
-        <div style="grid-column: 2; padding:0;">
-          <div class="highlight-box gold-box" style="margin-top:0; max-width:none;">
-            <p style="font-size:var(--body-size);">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+          <div class="highlight-box" style="margin:0; max-width:none;">
+            <p style="font-size:var(--small-size);">
+              <span class="accent bold">Phase Angle &lt; 5°</span> → 암환자 사망률 상승<br>
+              <span class="accent bold">모니터링</span> → 투석환자 영양 중재 시점 결정<br>
+              <span style="color:var(--text-secondary);">세포막이 무너지면 숫자가 먼저 알려줍니다.</span>
+            </p>
+          </div>
+          <div class="highlight-box gold-box" style="margin:0; max-width:none;">
+            <p style="font-size:var(--small-size);">
               <span class="gold bold">근감소증 (Sarcopenia)</span><br>
-              65세 이상 10~16% 유병. 낙상, 골절, 사망률 증가의 핵심 원인.<br><br>
-              AWGS 2025에서 Multi-frequency BIA를 근감소증 진단에 공식 인정.<br>
-              <span style="color:var(--text-secondary);">근육량 감소를 조기에 발견하면 운동·영양 중재로 되돌릴 수 있습니다.</span>
+              65세 이상 10~16% 유병. 낙상, 골절, 사망률 증가의 핵심 원인.<br>
+              AWGS 2025에서 Multi-frequency BIA를 근감소증 진단에 공식 인정.
             </p>
           </div>
         </div>
@@ -1377,14 +1390,12 @@ body::before {
         <p class="scene-number">India Story — Scene 05</p>
         <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1.5rem;">인도에서 <span class="gold">세계로</span></h2>
       </div>
-      <div class="reveal reveal-delay-1">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem;">
-          <img src="assets/images/lee-jaeyong-india.jpg" alt="이재용 터번" style="width:120px; height:120px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid rgba(255,255,255,0.3); box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-          <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6;">
-            <span class="gold bold">이재용</span> 삼성 회장도 주목한 인도.<br>
-            <span class="gold bold">암바니</span> 자택에도 InBody가 들어갔습니다.
-          </p>
-        </div>
+      <div class="reveal reveal-delay-1" style="position:relative;">
+        <img src="assets/images/lee-jaeyong-india.jpg" alt="이재용 터번" style="position:absolute; top:-3rem; right:0; width:clamp(160px,18vw,240px); height:clamp(160px,18vw,240px); border-radius:50%; object-fit:cover; object-position:center top; border:3px solid rgba(255,255,255,0.3); box-shadow:0 8px 24px rgba(0,0,0,0.25); z-index:1;">
+        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-bottom:1rem; max-width:70%;">
+          <span class="gold bold">이재용</span> 삼성 회장도 주목한 인도.<br>
+          <span class="gold bold">암바니</span> 자택에도 InBody가 들어갔습니다.
+        </p>
         <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.8; margin-bottom:1.2rem;">
           글로벌 기업들이 몰려드는 그곳에서,<br>
           InBody는 이미 <span class="gold bold">8년째</span> 뿌리를 내리고 있었습니다.
@@ -1414,7 +1425,7 @@ body::before {
     <div class="reveal reveal-delay-1">
       <div class="video-container">
         <video controls preload="metadata" poster="">
-          <source src="assets/251218_해외법인제도.mp4" type="video/mp4">
+          <source src="assets/251218_해외법인제도 2.mp4" type="video/mp4">
         </video>
       </div>
     </div>
@@ -1531,7 +1542,6 @@ body::before {
           kenneth@inbody.com<br>
           010-7737-3939
         </p>
-        <a href="https://link.rmbr.in/lins2r" target="_blank" rel="noopener" style="font-size:var(--small-size); color:var(--blue); margin-top:0.4rem; display:inline-block; text-decoration:none;">리멤버로 명함 저장 →</a>
       </div>
     </div>
     <div class="reveal reveal-delay-1" style="width:100%;">
@@ -1621,11 +1631,15 @@ body::before {
   function goToSlide(index) {
     if (index < 0 || index >= totalSlides || isAnimating) return;
     isAnimating = true;
+    // Reset reveal animations on previous slide
+    slides[currentSlide].querySelectorAll('.reveal').forEach(el => {
+      el.classList.remove('visible');
+    });
     slides[currentSlide].classList.remove('active');
     currentSlide = index;
     slides[index].classList.add('active');
     updateUI();
-    setTimeout(() => { isAnimating = false; }, 150);
+    setTimeout(() => { isAnimating = false; }, 700);
   }
 
   // Keyboard navigation
