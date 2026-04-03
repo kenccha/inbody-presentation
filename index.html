@@ -713,6 +713,38 @@ body::before {
   display: none;
 }
 
+/* Fullscreen button */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  color: var(--text-dim);
+  font-family: var(--font-kr);
+  font-size: var(--small-size);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.fullscreen-btn:hover {
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+}
+
+.fullscreen-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
 /* Scroll hint */
 .scroll-hint {
   position: absolute;
@@ -922,6 +954,10 @@ body::before {
       </p>
     </div>
     <div class="scroll-hint">SCROLL ↓</div>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+      <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      전체화면
+    </button>
   </div>
 </section>
 
@@ -1579,6 +1615,14 @@ body::before {
 
 <!-- ============ JAVASCRIPT ============ -->
 <script>
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen();
+  }
+}
+
 (function() {
   'use strict';
 
