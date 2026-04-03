@@ -2,4 +2,5 @@
 .gstack/
 .DS_Store
 *.mp4
+!assets/251218_해외법인제도_2_compressed.mp4
 *.pdf
