@@ -247,6 +247,13 @@ body::before {
   text-align: center;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.slide p, .slide h2, .slide h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .subtitle {
@@ -259,7 +266,7 @@ body::before {
 }
 
 .accent { color: var(--brand); }
-.gold { color: var(--gold); font-family: var(--font-mono); }
+.gold { color: var(--gold); }
 .bold { font-weight: 700; }
 
 /* ===========================================
@@ -667,25 +674,65 @@ body::before {
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  align-items: flex-end;
 }
 
 .nav-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-dot::after {
+  content: '';
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--charcoal);
-  border: none;
-  cursor: pointer;
   transition: all 0.3s ease;
-  padding: 8px;
-  background-clip: content-box;
 }
 
-.nav-dot.active {
+/* Section label on hover */
+.nav-dot::before {
+  content: attr(title);
+  position: absolute;
+  right: 44px;
+  background: var(--text-primary);
+  color: var(--dark-bg);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-dot:hover::before {
+  opacity: 1;
+}
+
+.nav-dot:hover::after {
+  background: var(--text-secondary);
+  transform: scale(1.3);
+}
+
+.nav-dot.active::after {
+  width: 12px;
+  height: 12px;
   background: var(--brand);
-  background-clip: content-box;
-  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(172, 4, 48, 0.3);
 }
 
 /* Progress bar — bottom left */
@@ -715,9 +762,9 @@ body::before {
 
 /* Fullscreen button */
 .fullscreen-btn {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -730,7 +777,7 @@ body::before {
   font-size: var(--small-size);
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 10;
+  z-index: 100;
 }
 
 .fullscreen-btn:hover {
@@ -935,6 +982,10 @@ body::before {
 <nav class="nav-dots" id="navDots"></nav>
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 <div class="page-number" id="pageNumber">01 / 22</div>
+<button class="fullscreen-btn" onclick="toggleFullscreen()">
+  <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+  전체화면
+</button>
 
 <!-- ============ ACT 1: 호기심 (S0-S4) ============ -->
 
@@ -954,10 +1005,6 @@ body::before {
       </p>
     </div>
     <div class="scroll-hint">SCROLL ↓</div>
-    <button class="fullscreen-btn" onclick="toggleFullscreen()">
-      <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      전체화면
-    </button>
   </div>
 </section>
 
@@ -966,6 +1013,179 @@ body::before {
   <div class="slide-content" style="padding:clamp(1rem,2vw,2rem);">
     <div class="reveal" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
       <img src="assets/images/result-sheet-kor.png" alt="InBody 결과지" style="max-height:90vh; max-width:90vw; width:auto; height:auto; object-fit:contain; border-radius:8px; filter:drop-shadow(0 12px 40px rgba(0,0,0,0.15));">
+    </div>
+  </div>
+</section>
+
+<!-- ============ S1b: SAME WEIGHT, DIFFERENT BODY ============ -->
+<section class="slide" data-slide="1b">
+  <div class="slide-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(0.5rem,1vw,1rem);height:100%;padding-top:clamp(1rem,2vw,2rem);padding-bottom:clamp(0.5rem,1vw,1rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">01 &nbsp; 인바디의 시작</p>
+      <h2 class="title" style="font-size:var(--h2-size);margin-bottom:0;">'같은 체중, 다른 체성분'<br><span class="accent">체지방</span>을 알아야 정확한 비만 진단 및<br>대사증후군 관리가 가능합니다.</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="width:100%;max-width:1100px;position:relative;flex:1;display:flex;align-items:center;">
+      <!-- Three body types -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,3rem);align-items:end;position:relative;width:100%;">
+
+        <!-- Person 1: Athletic -->
+        <div style="text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
+            <span style="font-size:0.7em;">▼</span> 80Kg
+          </div>
+          <svg viewBox="0 0 200 380" style="width:100%;max-width:160px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Athletic body -->
+            <defs>
+              <linearGradient id="bodyAth" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+            <!-- Head -->
+            <circle cx="100" cy="36" r="28" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1.5"/>
+            <!-- Neck -->
+            <rect x="88" y="62" width="24" height="16" rx="4" fill="url(#bodyAth)"/>
+            <!-- Torso - V shape athletic -->
+            <path d="M62,78 L138,78 Q144,78 144,84 L136,180 Q136,186 130,186 L70,186 Q64,186 64,180 L56,84 Q56,78 62,78Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Chest definition lines -->
+            <path d="M80,100 Q100,115 120,100" fill="none" stroke="#8a9bb0" stroke-width="1" opacity="0.4"/>
+            <line x1="100" y1="100" x2="100" y2="140" stroke="#8a9bb0" stroke-width="0.8" opacity="0.3"/>
+            <!-- Arms - muscular -->
+            <path d="M56,82 L36,90 Q28,92 26,100 L22,145 Q20,155 28,158 L38,155 Q44,152 44,144 L50,105 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M144,82 L164,90 Q172,92 174,100 L178,145 Q180,155 172,158 L162,155 Q156,152 156,144 L150,105 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Hands -->
+            <ellipse cx="26" cy="162" rx="8" ry="10" fill="url(#bodyAth)"/>
+            <ellipse cx="174" cy="162" rx="8" ry="10" fill="url(#bodyAth)"/>
+            <!-- Legs - strong -->
+            <path d="M70,186 L66,300 Q64,318 72,320 L86,320 Q92,318 90,300 L94,186 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M106,186 L110,300 Q112,318 118,320 L132,320 Q138,318 136,300 L130,186 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Feet -->
+            <ellipse cx="78" cy="326" rx="16" ry="8" fill="url(#bodyAth)"/>
+            <ellipse cx="124" cy="326" rx="16" ry="8" fill="url(#bodyAth)"/>
+            <!-- Bicep bump -->
+            <circle cx="30" cy="118" r="8" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
+            <circle cx="170" cy="118" r="8" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">근육량</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:85%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">체지방</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:25%;height:100%;background:var(--brand);border-radius:4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Person 2: Average (skinny fat) -->
+        <div style="text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
+            <span style="font-size:0.7em;">▼</span> 80Kg
+          </div>
+          <svg viewBox="0 0 200 380" style="width:100%;max-width:160px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bodyAvg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.12"/>
+              </linearGradient>
+            </defs>
+            <!-- Head -->
+            <circle cx="100" cy="36" r="26" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1.5"/>
+            <!-- Neck -->
+            <rect x="90" y="60" width="20" height="16" rx="4" fill="url(#bodyAvg)"/>
+            <!-- Torso - average, slightly narrow -->
+            <path d="M68,76 L132,76 Q136,76 136,82 L132,180 Q132,186 126,186 L74,186 Q68,186 68,180 L64,82 Q64,76 68,76Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Arms - thin -->
+            <path d="M64,80 L46,88 Q40,90 38,96 L34,148 Q33,156 38,158 L46,156 Q50,154 50,148 L54,100 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M136,80 L154,88 Q160,90 162,96 L166,148 Q167,156 162,158 L154,156 Q150,154 150,148 L146,100 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Hands -->
+            <ellipse cx="38" cy="162" rx="7" ry="9" fill="url(#bodyAvg)"/>
+            <ellipse cx="162" cy="162" rx="7" ry="9" fill="url(#bodyAvg)"/>
+            <!-- Legs - average -->
+            <path d="M74,186 L72,302 Q70,318 78,320 L88,320 Q94,318 92,302 L96,186 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M104,186 L108,302 Q110,318 116,320 L126,320 Q132,318 130,302 L126,186 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Feet -->
+            <ellipse cx="84" cy="326" rx="14" ry="7" fill="url(#bodyAvg)"/>
+            <ellipse cx="120" cy="326" rx="14" ry="7" fill="url(#bodyAvg)"/>
+          </svg>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">근육량</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:55%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">체지방</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:55%;height:100%;background:var(--brand);border-radius:4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Person 3: Obese -->
+        <div style="text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
+            <span style="font-size:0.7em;">▼</span> 80Kg
+          </div>
+          <svg viewBox="0 0 240 380" style="width:100%;max-width:185px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bodyOb" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.12"/>
+              </linearGradient>
+            </defs>
+            <!-- Head -->
+            <circle cx="120" cy="36" r="30" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1.5"/>
+            <!-- Double chin hint -->
+            <ellipse cx="120" cy="62" rx="18" ry="8" fill="url(#bodyOb)" opacity="0.6"/>
+            <!-- Neck - thick -->
+            <rect x="104" y="58" width="32" height="14" rx="6" fill="url(#bodyOb)"/>
+            <!-- Torso - wide, round belly -->
+            <path d="M70,72 L170,72 Q180,72 182,82 L186,140 Q190,180 178,194 L62,194 Q50,180 54,140 L58,82 Q60,72 70,72Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Belly curve -->
+            <ellipse cx="120" cy="150" rx="60" ry="42" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
+            <!-- Arms - thick short -->
+            <path d="M58,76 L34,86 Q26,90 24,98 L18,148 Q16,158 24,162 L36,158 Q42,154 42,146 L48,100 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M182,76 L206,86 Q214,90 216,98 L222,148 Q224,158 216,162 L204,158 Q198,154 198,146 L192,100 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Hands -->
+            <ellipse cx="22" cy="166" rx="9" ry="10" fill="url(#bodyOb)"/>
+            <ellipse cx="218" cy="166" rx="9" ry="10" fill="url(#bodyOb)"/>
+            <!-- Legs - short thick -->
+            <path d="M78,194 L74,300 Q72,318 80,320 L96,320 Q104,318 102,300 L108,194 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
+            <path d="M132,194 L138,300 Q140,318 146,320 L162,320 Q168,318 166,300 L160,194 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
+            <!-- Feet -->
+            <ellipse cx="88" cy="326" rx="18" ry="8" fill="url(#bodyOb)"/>
+            <ellipse cx="152" cy="326" rx="18" ry="8" fill="url(#bodyOb)"/>
+          </svg>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">근육량</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:30%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
+              <span style="white-space:nowrap;">체지방</span>
+              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
+                <div style="width:85%;height:100%;background:var(--brand);border-radius:4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Dashed connection lines (SVG overlay) -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 1100 500" preserveAspectRatio="xMidYMid meet">
+        <line x1="240" y1="250" x2="550" y2="180" stroke="var(--charcoal)" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+        <line x1="550" y1="180" x2="860" y2="260" stroke="var(--charcoal)" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -979,28 +1199,34 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div class="three-col" style="max-width:1200px;">
-        <div class="card">
-          <img src="assets/images/hydrostatic-weighing.jpg" alt="수중체중법" style="width:100%; height:220px; object-fit:cover; border-radius:8px; margin-bottom:0.8rem;">
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="width:100%;height:180px;border-radius:8px;overflow:hidden;margin-bottom:0.8rem;background:var(--dark-surface);display:flex;align-items:center;justify-content:center;">
+            <img src="assets/images/hydrostatic-weighing.jpg" alt="수중체중법" style="width:100%;height:100%;object-fit:cover;">
+          </div>
           <h3>수중체중법</h3>
-          <p>물탱크에 들어가서 숨을 참아야 했습니다. 완전히 잠수한 채로 3회 반복. 연구실에서만 가능했죠.</p>
+          <p style="flex:1;">물탱크에 들어가서 숨을 참아야 했습니다. 완전히 잠수한 채로 3회 반복. 연구실에서만 가능했죠.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">오차 ±2.5%</span>
             <span class="tag">노인·어린이 불가</span>
           </div>
         </div>
-        <div class="card">
-          <img src="assets/images/skinfold-caliper.jpg?v=2" alt="피부두겹법 캘리퍼" style="width:100%; height:180px; object-fit:contain; border-radius:8px; margin-bottom:0.8rem; background:var(--dark-surface);">
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="width:100%;height:180px;border-radius:8px;overflow:hidden;margin-bottom:0.8rem;background:var(--dark-surface);display:flex;align-items:center;justify-content:center;">
+            <img src="assets/images/skinfold-caliper.jpg?v=2" alt="피부두겹법 캘리퍼" style="max-width:100%;max-height:100%;object-fit:contain;">
+          </div>
           <h3>피부두겹법</h3>
-          <p>캘리퍼로 피부를 집어서 지방 두께를 쟀습니다. 누가 재느냐에 따라 결과가 달랐습니다.</p>
+          <p style="flex:1;">캘리퍼로 피부를 집어서 지방 두께를 쟀습니다. 누가 재느냐에 따라 결과가 달랐습니다.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">오차 ±3~9%</span>
             <span class="tag">비만인 측정 불가</span>
           </div>
         </div>
-        <div class="card">
-          <img src="assets/images/supine-bia.png?v=2" alt="누운 BIA 전극" style="width:100%; height:180px; object-fit:contain; border-radius:8px; margin-bottom:0.8rem; background:var(--dark-surface);">
+        <div class="card" style="display:flex;flex-direction:column;">
+          <div style="width:100%;height:180px;border-radius:8px;overflow:hidden;margin-bottom:0.8rem;background:var(--dark-surface);display:flex;align-items:center;justify-content:center;">
+            <img src="assets/images/supine-bia.png?v=2" alt="누운 BIA 전극" style="max-width:100%;max-height:100%;object-fit:contain;">
+          </div>
           <h3>누운 BIA</h3>
-          <p>누워서 전극 4개를 붙이고, 50kHz 하나로 측정했습니다. 자세가 바뀌면 값도 바뀌었죠.</p>
+          <p style="flex:1;">누워서 전극 4개를 붙이고, 50kHz 하나로 측정했습니다. 자세가 바뀌면 값도 바뀌었죠.</p>
           <div style="margin-top:0.8rem;">
             <span class="tag">자세 의존</span>
             <span class="tag">추정값 기반</span>
@@ -1038,7 +1264,7 @@ body::before {
       <div>
         <div class="reveal">
           <p class="label">30초의 결과</p>
-          <h2 style="font-size:var(--h2-size); margin-bottom:1rem;">종이 한 장에<br>여러분 몸의 구성이 전부 나옵니다</h2>
+          <h2 style="font-size:var(--h2-size); margin-bottom:1rem; text-wrap:balance; word-break:keep-all;">종이 한 장에 여러분 몸의 구성이 전부 나옵니다</h2>
         </div>
         <div class="reveal reveal-delay-1">
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
@@ -1057,7 +1283,135 @@ body::before {
 
 <!-- ============ ACT 2: 발견 (S5-S8) ============ -->
 
-<!-- ============ S5: BODY COMPOSITION + COVID 500g ============ -->
+<!-- ============ S5: BIA PRINCIPLE — MUSCLE vs FAT ============ -->
+<section class="slide" data-slide="5">
+  <div class="slide-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(0.3rem,0.8vw,0.6rem);padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">BIOELECTRICAL IMPEDANCE ANALYSIS</p>
+      <h2 class="title" style="font-size:var(--h2-size);">전류가 흐르면, <span class="accent">몸의 구성</span>이 보입니다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="position:relative;width:100%;max-width:1000px;flex:1;min-height:0;">
+      <canvas id="biaCanvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+      <!-- HTML text overlays for crispness -->
+      <div id="biaLabels" style="position:absolute;inset:0;pointer-events:none;">
+        <!-- Muscle side -->
+        <div style="position:absolute;left:6%;bottom:6%;text-align:center;width:38%;">
+          <p style="font-size:clamp(1rem,1.8vw,1.4rem);font-weight:700;color:var(--text-primary);">수분이 많은 근육</p>
+          <p style="font-size:clamp(0.8rem,1.2vw,1rem);color:var(--text-dim);margin-top:4px;">→ 전류가 잘 흐른다 → <strong style="color:#005b9e;">낮은 임피던스</strong></p>
+        </div>
+        <!-- Fat side -->
+        <div style="position:absolute;right:6%;bottom:6%;text-align:center;width:38%;">
+          <p style="font-size:clamp(1rem,1.8vw,1.4rem);font-weight:700;color:var(--text-primary);">수분이 없는 지방</p>
+          <p style="font-size:clamp(0.8rem,1.2vw,1rem);color:var(--text-dim);margin-top:4px;">→ 전류가 안 흐른다 → <strong style="color:var(--brand);">높은 임피던스</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="text-align:center;">
+      <p style="font-size:var(--body-size);color:var(--text-secondary);line-height:1.6;">
+        미세 전류를 흘려 <strong style="color:var(--text-primary);">임피던스(저항)</strong>를 측정하면,<br>
+        수분이 많은 근육과 수분이 없는 지방을 구분할 수 있습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S5b: 8-POINT ELECTRODE + SEGMENTAL MEASUREMENT ============ -->
+<section class="slide" data-slide="5b">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">8점 접촉 전극 × 부위별 직접 측정</p>
+      <h2 class="title" style="font-size:var(--h2-size);">어디서 재든, <span class="accent">같은 결과</span>가 나온다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.8rem,1.5vw,1.2rem);">
+      <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:clamp(1.2rem,3vw,3rem);max-width:1200px;margin:0 auto;align-items:center;">
+
+        <!-- Left: InBody device photo -->
+        <div style="text-align:center;">
+          <div style="border-radius:16px;overflow:hidden;background:var(--dark-surface);box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+            <img src="assets/images/inbody-970s.png" alt="InBody 970" style="width:100%;height:auto;object-fit:contain;display:block;">
+          </div>
+          <p style="font-size:var(--small-size);color:var(--text-dim);margin-top:clamp(0.3rem,0.6vw,0.5rem);">InBody 970</p>
+          <div style="display:flex;gap:clamp(0.3rem,0.5vw,0.4rem);justify-content:center;margin-top:clamp(0.3rem,0.5vw,0.4rem);flex-wrap:wrap;">
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.8vw,0.75rem);background:rgba(172,4,48,0.08);color:var(--brand);padding:2px 8px;border-radius:4px;font-weight:600;">양손 4전극</span>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.8vw,0.75rem);background:rgba(0,91,158,0.08);color:#005b9e;padding:2px 8px;border-radius:4px;font-weight:600;">양발 4전극</span>
+          </div>
+        </div>
+
+        <!-- Center: 5-cylinder geometric diagram -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(0.3rem,0.6vw,0.5rem);">
+          <!-- Top row: arms + trunk -->
+          <div style="display:flex;align-items:flex-end;gap:clamp(0.4rem,0.8vw,0.6rem);">
+            <!-- Left Arm -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <div style="width:clamp(30px,4vw,48px);height:clamp(80px,12vw,130px);border-radius:clamp(15px,2vw,24px);background:linear-gradient(135deg,#005b9e,#0077cc);opacity:0.85;position:relative;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#005b9e;">LA</span>
+            </div>
+            <!-- Trunk -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <div style="width:clamp(70px,10vw,120px);height:clamp(100px,15vw,160px);border-radius:clamp(8px,1.2vw,14px);background:linear-gradient(135deg,var(--brand),#d4063f);opacity:0.8;position:relative;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.12) 50%,transparent 70%);"></div>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:0.1em;">TR</span>
+                </div>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:var(--brand);">Trunk</span>
+            </div>
+            <!-- Right Arm -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <div style="width:clamp(30px,4vw,48px);height:clamp(80px,12vw,130px);border-radius:clamp(15px,2vw,24px);background:linear-gradient(135deg,#005b9e,#0077cc);opacity:0.85;position:relative;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#005b9e;">RA</span>
+            </div>
+          </div>
+          <!-- Bottom row: legs -->
+          <div style="display:flex;gap:clamp(1rem,3vw,2.5rem);">
+            <!-- Left Leg -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <div style="width:clamp(36px,5vw,56px);height:clamp(90px,13vw,145px);border-radius:clamp(18px,2.5vw,28px);background:linear-gradient(135deg,#a67a00,#c99200);opacity:0.8;position:relative;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#a67a00;">LL</span>
+            </div>
+            <!-- Right Leg -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <div style="width:clamp(36px,5vw,56px);height:clamp(90px,13vw,145px);border-radius:clamp(18px,2.5vw,28px);background:linear-gradient(135deg,#a67a00,#c99200);opacity:0.8;position:relative;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#a67a00;">RL</span>
+            </div>
+          </div>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-dim);margin-top:clamp(0.1rem,0.3vw,0.2rem);">5개 부위 독립 측정</p>
+        </div>
+
+        <!-- Right: Key stats -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.2vw,1rem);">
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+            <div style="font-family:var(--font-mono);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--brand);line-height:1;">99%</div>
+            <p style="font-size:var(--small-size);color:var(--text-secondary);margin-top:0.2rem;font-weight:600;">재현성 (Reproducibility)</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-dim);margin-top:0.2rem;line-height:1.4;">누가, 언제, 어디서 재도<br>같은 결과</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+            <div style="font-family:var(--font-mono);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#005b9e;line-height:1;">30<span style="font-size:0.5em;color:var(--text-dim);">초</span></div>
+            <p style="font-size:var(--small-size);color:var(--text-secondary);margin-top:0.2rem;font-weight:600;">측정 시간</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-dim);margin-top:0.2rem;line-height:1.4;">올라서서 손잡이만 잡으면<br>자동으로 5부위 동시 측정</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+            <div style="display:flex;align-items:baseline;gap:4px;">
+              <span style="font-family:var(--font-mono);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#a67a00;line-height:1;">8</span>
+              <span style="font-size:var(--small-size);font-weight:700;color:#a67a00;">주파수</span>
+            </div>
+            <p style="font-size:var(--small-size);color:var(--text-secondary);margin-top:0.2rem;font-weight:600;">Multi-Frequency</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-dim);margin-top:0.2rem;line-height:1.4;">1kHz ~ 3MHz<br>세포 안팎까지 정밀 측정</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ S6: THREE INNOVATIONS ============ -->
 <section class="slide" data-slide="6">
@@ -1099,8 +1453,60 @@ body::before {
   <div class="slide-content">
     <div class="two-col">
       <div class="reveal">
-        <div class="svg-placeholder" style="background:transparent;border:none;">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400" font-family="'Noto Sans KR',sans-serif"><defs><marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#e74c5e"/></marker><marker id="arrowBrand" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6Z" fill="#ac0430"/></marker><filter id="glowMembrane" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><text x="250" y="32" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="700" letter-spacing="2">CELL MEMBRANE</text><text x="408" y="100" text-anchor="middle" fill="#005b9e" font-size="13" font-weight="700">ECW</text><text x="408" y="116" text-anchor="middle" fill="#4a4e5a" font-size="9">세포외수분</text><circle cx="250" cy="210" r="120" fill="none" stroke="#ac0430" stroke-width="3" filter="url(#glowMembrane)"/><circle cx="250" cy="210" r="114" fill="none" stroke="#ac0430" stroke-width="1" opacity="0.35"/><circle cx="250" cy="210" r="75" fill="none" stroke="#005b9e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/><text x="250" y="205" text-anchor="middle" fill="#005b9e" font-size="18" font-weight="700">ICW</text><text x="250" y="222" text-anchor="middle" fill="#4a4e5a" font-size="9">세포내수분</text><line x1="30" y1="210" x2="122" y2="210" stroke="#e74c5e" stroke-width="2.5" marker-end="url(#arrowRed)"/><g transform="translate(136,210)" stroke="#e74c5e" stroke-width="3" stroke-linecap="round"><line x1="-8" y1="-8" x2="8" y2="8"/><line x1="8" y1="-8" x2="-8" y2="8"/></g><text x="70" y="190" text-anchor="middle" fill="#e74c5e" font-size="12" font-weight="700">저주파</text><text x="70" y="238" text-anchor="middle" fill="#4a4e5a" font-size="9">Low Freq</text><line x1="470" y1="210" x2="260" y2="210" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowBrand)"><animate attributeName="stroke-dashoffset" from="0" to="26" dur="1s" repeatCount="indefinite"/></line><g transform="translate(370,210)" opacity="0.5"><line x1="-3" y1="-6" x2="3" y2="6" stroke="#ac0430" stroke-width="1.5"/><line x1="3" y1="-6" x2="-3" y2="6" stroke="#ac0430" stroke-width="1.5"/></g><text x="430" y="190" text-anchor="middle" fill="#ac0430" font-size="12" font-weight="700">고주파</text><text x="430" y="238" text-anchor="middle" fill="#4a4e5a" font-size="9">High Freq</text><circle cx="270" cy="200" r="2" fill="#ac0430" opacity="0.6"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="290" cy="220" r="1.5" fill="#ac0430" opacity="0.4"><animate attributeName="opacity" values="0.1;0.7;0.1" dur="2s" repeatCount="indefinite" begin="0.3s"/></circle><circle cx="265" cy="230" r="1.8" fill="#ac0430" opacity="0.5"><animate attributeName="opacity" values="0.15;0.75;0.15" dur="1.8s" repeatCount="indefinite" begin="0.7s"/></circle><g transform="translate(100,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#e74c5e" stroke-width="2.5"/><text x="38" y="4" fill="#4a4e5a" font-size="9">차단 (저주파, ~5kHz)</text></g><g transform="translate(270,370)"><line x1="0" y1="0" x2="30" y2="0" stroke="#ac0430" stroke-width="2.5" stroke-dasharray="8 5"/><text x="38" y="4" fill="#4a4e5a" font-size="9">관통 (고주파, ~1MHz)</text></g><g transform="translate(250,328)" stroke="#e8b73a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"><line x1="-8" y1="-4" x2="8" y2="-4"/><line x1="-8" y1="4" x2="8" y2="4"/><line x1="0" y1="-10" x2="0" y2="-4"/><line x1="0" y1="4" x2="0" y2="10"/></g><text x="250" y="352" text-anchor="middle" fill="#e8b73a" font-size="8" opacity="0.7">capacitor</text></svg>
+        <!-- Cell Membrane Interactive Animation -->
+        <div class="cm-stage" id="cmStage" style="position:relative;width:100%;max-width:560px;aspect-ratio:4/3;background:var(--dark-surface);border-radius:12px;overflow:hidden;">
+          <canvas id="cmCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+          <!-- HTML text overlays for crisp rendering -->
+          <div style="position:absolute;top:4%;left:0;right:0;text-align:center;pointer-events:none;">
+            <div style="font-size:clamp(12px,2.2vw,17px);font-weight:700;color:var(--text-primary);letter-spacing:.3em;">CELL MEMBRANE</div>
+            <div style="font-size:clamp(10px,1.5vw,13px);font-weight:500;color:var(--brand);letter-spacing:.12em;margin-top:2px;">인지질 이중층 = 캐패시터</div>
+          </div>
+          <div style="position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;">
+            <div style="font-size:clamp(20px,4vw,32px);font-weight:800;color:#005b9e;opacity:.55;">ICW</div>
+            <div style="font-size:clamp(9px,1.4vw,13px);font-weight:600;color:#005b9e;opacity:.4;">세포내수분</div>
+          </div>
+          <div style="position:absolute;top:14%;right:6%;text-align:center;pointer-events:none;">
+            <div style="font-size:clamp(13px,2.4vw,19px);font-weight:700;color:#005b9e;opacity:.5;">ECW</div>
+            <div style="font-size:clamp(8px,1.2vw,11px);font-weight:500;color:#005b9e;opacity:.35;">세포외수분</div>
+          </div>
+          <div id="cmLblLow" style="position:absolute;top:33%;left:4%;pointer-events:none;line-height:1.3;">
+            <div style="font-size:clamp(14px,2.8vw,24px);font-weight:800;color:#c0392b;">저주파</div>
+            <div style="font-size:clamp(10px,1.7vw,15px);font-weight:700;color:#c0392b;opacity:.7;font-family:var(--font-mono);">~5 kHz</div>
+            <div style="font-size:clamp(9px,1.4vw,13px);font-weight:700;color:#c0392b;opacity:.85;margin-top:clamp(12px,4vw,32px);">세포막에서 차단 ✕</div>
+            <div style="font-size:clamp(8px,1.2vw,12px);font-weight:500;color:var(--text-dim);margin-top:2px;">→ ECW만 측정</div>
+          </div>
+          <div id="cmLblHigh" style="position:absolute;top:33%;right:4%;text-align:right;pointer-events:none;line-height:1.3;display:none;">
+            <div style="font-size:clamp(14px,2.8vw,24px);font-weight:800;color:var(--brand);">고주파</div>
+            <div style="font-size:clamp(10px,1.7vw,15px);font-weight:700;color:var(--brand);opacity:.7;font-family:var(--font-mono);">~1 MHz</div>
+            <div style="font-size:clamp(9px,1.4vw,13px);font-weight:700;color:var(--brand);opacity:.85;margin-top:clamp(12px,4vw,32px);">세포막 관통 →</div>
+            <div style="font-size:clamp(8px,1.2vw,12px);font-weight:500;color:var(--text-dim);margin-top:2px;">→ ICW + ECW 측정</div>
+          </div>
+          <!-- Capacitor SVG -->
+          <div style="position:absolute;bottom:13%;left:50%;transform:translateX(-50%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;pointer-events:none;">
+            <svg style="width:clamp(30px,5vw,44px);height:auto;" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="0" x2="20" y2="16" stroke="var(--gold)" stroke-width="1.8"/>
+              <line x1="6" y1="16" x2="34" y2="16" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></line>
+              <line x1="6" y1="28" x2="34" y2="28" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></line>
+              <line x1="20" y1="28" x2="20" y2="44" stroke="var(--gold)" stroke-width="1.8"/>
+            </svg>
+            <div style="font-size:clamp(9px,1.3vw,12px);font-weight:700;color:var(--gold);font-family:var(--font-mono);">capacitor</div>
+          </div>
+          <!-- Cole model -->
+          <div style="position:absolute;bottom:3%;left:50%;transform:translateX(-50%);background:var(--dark-card);border:1px solid var(--charcoal);border-radius:6px;padding:4px 12px;white-space:nowrap;pointer-events:none;">
+            <span style="font-size:clamp(8px,1.2vw,11px);font-weight:600;color:var(--text-dim);">등가회로 : </span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:#005b9e;">Re</span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:var(--text-dim);"> // [</span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:var(--gold);">Cm</span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:var(--text-dim);"> + </span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:#005b9e;">Ri</span>
+            <span style="font-size:clamp(9px,1.3vw,12px);font-weight:700;font-family:var(--font-mono);color:var(--text-dim);">]</span>
+          </div>
+          <!-- Mode buttons -->
+          <div style="position:absolute;bottom:3%;right:3%;display:flex;gap:4px;">
+            <button class="cm-btn cm-btn-on" data-mode="low" style="padding:3px 10px;border:1.5px solid #c0392b;border-radius:5px;background:rgba(192,57,43,0.1);color:#c0392b;font-size:clamp(7px,1vw,10px);font-weight:700;cursor:pointer;font-family:var(--font-mono);">LOW</button>
+            <button class="cm-btn" data-mode="high" style="padding:3px 10px;border:1.5px solid var(--brand);border-radius:5px;background:transparent;color:var(--brand);font-size:clamp(7px,1vw,10px);font-weight:700;cursor:pointer;font-family:var(--font-mono);">HIGH</button>
+            <button class="cm-btn" data-mode="both" style="padding:3px 10px;border:1.5px solid var(--gold);border-radius:5px;background:transparent;color:var(--gold);font-size:clamp(7px,1vw,10px);font-weight:700;cursor:pointer;font-family:var(--font-mono);">BOTH</button>
+          </div>
         </div>
       </div>
       <div>
@@ -1125,6 +1531,86 @@ body::before {
   </div>
 </section>
 
+<!-- ============ S7b: EDEMA — 부종 ============ -->
+<section class="slide" data-slide="7b">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal">
+      <p class="label">체수분 균형과 부종</p>
+      <h2 class="title" style="font-size:var(--h2-size);">우리 몸의 <span class="accent">50-70%</span>는 물입니다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.6rem,1.2vw,1rem);">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(1rem,2.5vw,2.5rem);max-width:1200px;align-items:center;">
+        <!-- Left: edema symptoms infographic -->
+        <div style="text-align:center;">
+          <div style="width:100%;border-radius:12px;overflow:hidden;background:var(--dark-card);box-shadow:0 4px 20px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06);">
+            <div style="background:var(--brand);padding:clamp(0.4rem,0.6vw,0.5rem);text-align:center;">
+              <span style="font-size:clamp(0.75rem,1vw,0.9rem);font-weight:700;color:#fff;letter-spacing:0.05em;">부종 증상별 의심 질환</span>
+            </div>
+            <img src="assets/images/edema-symptoms.png" alt="부종 증상별 의심 질환 — 신부전, 심부전, 심부정맥혈전증" style="width:100%;height:auto;object-fit:contain;display:block;">
+          </div>
+        </div>
+
+        <!-- Center: explanation -->
+        <div>
+          <div style="background:rgba(172,4,48,0.05);border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:clamp(0.8rem,1.2vw,1.2rem);margin-bottom:clamp(0.6rem,1vw,0.8rem);">
+            <h3 style="font-size:var(--h3-size);font-weight:700;color:var(--text-primary);margin-bottom:0.3rem;">부종 (Edema)</h3>
+            <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.6;">
+              조직 내 <strong style="color:var(--brand);">액체</strong>가 과잉 축적된 상태
+            </p>
+          </div>
+          <div style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.8;">
+            신장 질환 → 체수분 과잉 축적<br>
+            심부전 → 하지 부종<br>
+            림프부종 → 수술 후 합병증
+          </div>
+        </div>
+
+        <!-- Right: ECW/TBW gauges -->
+        <div>
+          <div style="display:flex;gap:clamp(1rem,2vw,1.5rem);justify-content:center;">
+            <!-- Normal gauge -->
+            <div style="text-align:center;">
+              <p style="font-size:var(--small-size);font-weight:600;color:#005b9e;margin-bottom:0.4rem;">정상</p>
+              <div style="position:relative;width:clamp(80px,10vw,120px);height:clamp(80px,10vw,120px);margin:0 auto;">
+                <svg viewBox="0 0 120 120" style="width:100%;height:100%;transform:rotate(-90deg);">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#e3e1dc" stroke-width="10"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#005b9e" stroke-width="10" stroke-dasharray="119.4 195" stroke-linecap="round"/>
+                </svg>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:var(--font-mono);font-size:clamp(1rem,1.6vw,1.4rem);font-weight:800;color:#005b9e;">0.380</span>
+                </div>
+              </div>
+              <p style="font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-dim);margin-top:0.3rem;">ECW/TBW</p>
+            </div>
+            <!-- Edema gauge -->
+            <div style="text-align:center;">
+              <p style="font-size:var(--small-size);font-weight:700;color:var(--brand);margin-bottom:0.4rem;">부종</p>
+              <div style="position:relative;width:clamp(80px,10vw,120px);height:clamp(80px,10vw,120px);margin:0 auto;">
+                <svg viewBox="0 0 120 120" style="width:100%;height:100%;transform:rotate(-90deg);">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#e3e1dc" stroke-width="10"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="var(--brand)" stroke-width="10" stroke-dasharray="157 157" stroke-linecap="round"/>
+                </svg>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-family:var(--font-mono);font-size:clamp(1rem,1.6vw,1.4rem);font-weight:800;color:var(--brand);">0.410</span>
+                </div>
+              </div>
+              <p style="font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-dim);margin-top:0.3rem;">ECW/TBW</p>
+            </div>
+          </div>
+          <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-dim);text-align:center;margin-top:clamp(0.5rem,0.8vw,0.7rem);line-height:1.4;">
+            정상 <strong style="color:#005b9e;">0.360–0.390</strong><br>부종 의심 <strong style="color:var(--brand);">> 0.400</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="margin-top:clamp(0.6rem,1vw,0.8rem);">
+      <p style="font-size:var(--body-size);color:var(--text-primary);font-weight:600;">
+        InBody는 <span class="accent">ECW/TBW 비율</span>로 부종을 정량적으로 측정합니다.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ S8: PHASE ANGLE + SARCOPENIA (MERGED) ============ -->
 <section class="slide glow-brand" data-slide="8" style="overflow:hidden;">
   <img src="assets/images/cell-membrane.png" alt="" style="position:absolute; left:-5%; top:50%; transform:translateY(-50%); width:45%; height:auto; opacity:0.1; pointer-events:none; filter:blur(1px);">
@@ -1134,11 +1620,19 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,4vw,4rem); max-width:1300px; align-items:center;">
       <div style="text-align:center;">
-        <div style="font-family:var(--font-mono); font-size:clamp(6rem,12vw,10rem); font-weight:700; color:var(--brand); line-height:1; margin-bottom:0.5rem; text-shadow:0 4px 30px rgba(172,4,48,0.15);">5~7°</div>
+        <div style="font-family:var(--font-mono); font-size:clamp(4rem,9vw,7rem); font-weight:700; color:var(--brand); line-height:1; margin-bottom:0.5rem; text-shadow:0 4px 30px rgba(172,4,48,0.15);">5~7°</div>
         <p style="font-size:var(--h3-size); font-weight:600; color:var(--text-primary); margin-bottom:0.5rem;">Phase Angle</p>
-        <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7; max-width:400px; margin:0 auto;">
+        <!-- Formula -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.6rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);margin:0 auto clamp(0.5rem,1vw,0.8rem);max-width:380px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <p style="font-family:var(--font-mono);font-size:clamp(1rem,1.8vw,1.4rem);color:var(--text-primary);text-align:center;letter-spacing:0.02em;">
+            θ = arctan(<span style="color:var(--brand);">Xc</span> / <span style="color:#005b9e;">R</span>) × 180/π
+          </p>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.8rem);color:var(--text-dim);text-align:center;margin-top:0.3rem;">
+            <span style="color:var(--brand);">Xc</span> 리액턴스(세포막 저항) &nbsp;|&nbsp; <span style="color:#005b9e;">R</span> 레지스턴스(체수분 저항)
+          </p>
+        </div>
+        <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.7; max-width:400px; margin:0 auto;">
           세포막의 건강 점수.<br>
-          전류가 세포막을 만나면 생기는 지연.<br>
           튼튼할수록 크고, 손상되면 줄어듭니다.
         </p>
       </div>
@@ -1228,6 +1722,46 @@ body::before {
   </div>
 </section>
 
+<!-- ============ FACTORY DETAIL — 제조 품질 ============ -->
+<section class="slide" data-slide="factory-detail">
+  <div class="slide-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(0.6rem,1.2vw,1rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">MANUFACTURING QUALITY</p>
+      <h2 class="title" style="font-size:var(--h2-size);">천안 본사 공장, <span class="accent">직접 제조</span></h2>
+    </div>
+    <!-- Factory panorama photo -->
+    <div class="reveal reveal-delay-1" style="width:100%;max-width:1200px;">
+      <img src="assets/images/factory.jpg" alt="InBody 천안 본사 공장" style="width:100%;height:auto;border-radius:var(--radius-sm);box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+    </div>
+    <!-- 3 key points -->
+    <div class="reveal reveal-delay-2">
+      <div class="three-col" style="max-width:1200px;align-items:stretch;">
+        <div class="card" style="display:flex;flex-direction:column;padding:clamp(1rem,1.8vw,1.5rem);text-align:center;gap:clamp(0.3rem,0.5vw,0.5rem);">
+          <span style="font-family:var(--font-mono);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--brand);">ISO</span>
+          <h3 style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:700;color:var(--text-primary);">국제 품질 인증</h3>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+            ISO 9001 · ISO 13485 정기 감사
+          </p>
+        </div>
+        <div class="card" style="display:flex;flex-direction:column;padding:clamp(1rem,1.8vw,1.5rem);text-align:center;gap:clamp(0.3rem,0.5vw,0.5rem);">
+          <span style="font-family:var(--font-mono);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--gold);">Cell</span>
+          <h3 style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:700;color:var(--text-primary);">셀 방식 생산</h3>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+            한 명이 한 대를 처음부터 끝까지 조립
+          </p>
+        </div>
+        <div class="card" style="display:flex;flex-direction:column;padding:clamp(1rem,1.8vw,1.5rem);text-align:center;gap:clamp(0.3rem,0.5vw,0.5rem);">
+          <span style="font-family:var(--font-mono);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#005b9e;">0.23%</span>
+          <h3 style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:700;color:var(--text-primary);">불량률</h3>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+            5만 회 내구성 테스트 + 장인 제도
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ GLOBAL NETWORK + WORLD MAP ============ -->
 <section class="slide" data-slide="16" style="background:var(--dark-bg);">
   <div class="slide-content">
@@ -1238,12 +1772,12 @@ body::before {
     <div class="reveal reveal-delay-1" style="margin-top:0.5rem;">
       <div style="position:relative; width:100%; max-width:1100px; margin:0 auto;">
         <img src="assets/world-map-dots.svg" alt="World Map" style="width:100%; height:auto; display:block;">
-        <style>.corp-dot{position:absolute;width:12px;height:12px;background:var(--brand);border-radius:50%;box-shadow:0 0 8px var(--brand),0 0 16px rgba(172,4,48,0.4);animation:corpPulse 2s ease-in-out infinite;transform:translate(-50%,-50%);}.corp-dot::after{content:attr(data-label);position:absolute;font-size:0.65rem;color:var(--text-dim);white-space:nowrap;opacity:0.9;font-family:var(--font-mono);font-weight:600;}.corp-dot.label-top::after{bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);}.corp-dot.label-right::after{left:calc(100% + 6px);top:50%;transform:translateY(-50%);}.corp-dot.label-left::after{right:calc(100% + 6px);top:50%;transform:translateY(-50%);}.corp-dot.label-bottom::after{top:calc(100% + 5px);left:50%;transform:translateX(-50%);}@keyframes corpPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1;}50%{transform:translate(-50%,-50%) scale(1.4);opacity:0.7;}}</style>
+        <style>.corp-dot{position:absolute;width:12px;height:12px;background:var(--brand);border-radius:50%;box-shadow:0 0 8px var(--brand),0 0 16px rgba(172,4,48,0.4);animation:corpPulse 2s ease-in-out infinite;transform:translate(-50%,-50%);}.corp-dot::after{content:attr(data-label);position:absolute;font-size:clamp(0.6rem,0.85vw,0.8rem);color:var(--text-primary);white-space:nowrap;font-family:var(--font-kr);font-weight:700;background:rgba(242,240,235,0.8);padding:1px 4px;border-radius:3px;}.corp-dot.label-top::after{bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);}.corp-dot.label-right::after{left:calc(100% + 6px);top:50%;transform:translateY(-50%);}.corp-dot.label-left::after{right:calc(100% + 6px);top:50%;transform:translateY(-50%);}.corp-dot.label-bottom::after{top:calc(100% + 5px);left:50%;transform:translateX(-50%);}@keyframes corpPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1;}50%{transform:translate(-50%,-50%) scale(1.4);opacity:0.7;}}</style>
         <div class="corp-dot label-top" style="top:31.8%;left:28.6%;" data-label="미국"></div>
         <div class="corp-dot label-bottom" style="top:45.2%;left:22.5%;" data-label="멕시코"></div>
         <div class="corp-dot label-left" style="top:22.0%;left:48.8%;" data-label="영국"></div>
-        <div class="corp-dot label-right" style="top:20.5%;left:51.8%;" data-label="네덜란드"></div>
-        <div class="corp-dot label-left" style="top:26.0%;left:49.8%;" data-label="프랑스"></div>
+        <div class="corp-dot label-top" style="top:20.5%;left:51.8%;" data-label="네덜란드"></div>
+        <div class="corp-dot label-bottom" style="top:26.0%;left:49.8%;" data-label="프랑스"></div>
         <div class="corp-dot label-right" style="top:23.5%;left:53.2%;" data-label="독일"></div>
         <div class="corp-dot label-right" style="top:30.3%;left:58.1%;" data-label="터키"></div>
         <div class="corp-dot label-bottom" style="top:38.9%;left:71.4%;" data-label="인도"></div>
@@ -1275,19 +1809,30 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div class="chart-container">
-        <div class="bar-group"><div class="bar-value">1,179</div><div class="bar" style="--target-h: 150px;"></div><div class="bar-label">2019</div></div>
-        <div class="bar-group"><div class="bar-value">1,071</div><div class="bar" style="--target-h: 137px;"></div><div class="bar-label">2020</div></div>
-        <div class="bar-group"><div class="bar-value">1,378</div><div class="bar" style="--target-h: 176px;"></div><div class="bar-label">2021</div></div>
-        <div class="bar-group"><div class="bar-value">1,600</div><div class="bar" style="--target-h: 204px;"></div><div class="bar-label">2022</div></div>
-        <div class="bar-group"><div class="bar-value">1,704</div><div class="bar" style="--target-h: 218px;"></div><div class="bar-label">2023</div></div>
-        <div class="bar-group"><div class="bar-value">2,045</div><div class="bar gold-bar" style="--target-h: 261px;"></div><div class="bar-label">2024</div></div>
-        <div class="bar-group"><div class="bar-value">2,339</div><div class="bar gold-bar" style="--target-h: 300px;"></div><div class="bar-label">2025</div></div>
+        <div class="bar-group"><div class="bar-value">1,179</div><div class="bar" style="--target-h: 120px;"></div><div class="bar-label">2019</div></div>
+        <div class="bar-group"><div class="bar-value">1,071</div><div class="bar" style="--target-h: 110px;"></div><div class="bar-label">2020</div></div>
+        <div class="bar-group"><div class="bar-value">1,378</div><div class="bar" style="--target-h: 141px;"></div><div class="bar-label">2021</div></div>
+        <div class="bar-group"><div class="bar-value">1,600</div><div class="bar" style="--target-h: 163px;"></div><div class="bar-label">2022</div></div>
+        <div class="bar-group"><div class="bar-value">1,704</div><div class="bar" style="--target-h: 174px;"></div><div class="bar-label">2023</div></div>
+        <div class="bar-group"><div class="bar-value">2,045</div><div class="bar gold-bar" style="--target-h: 209px;"></div><div class="bar-label">2024</div></div>
+        <div class="bar-group"><div class="bar-value">2,339</div><div class="bar gold-bar" style="--target-h: 240px;"></div><div class="bar-label">2025</div></div>
       </div>
     </div>
     <div class="reveal reveal-delay-2" style="margin-top:1.5rem;">
       <p style="font-size:var(--body-size); color:var(--text-secondary); text-align:center; max-width:600px;">
         인수합병 없이. <span class="gold bold">조급한 토끼보다 꾸준한 거북이가 낫다.</span>
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDIA INTRO ============ -->
+<section class="slide india-mood" data-slide="india-intro">
+  <div class="slide-content" style="display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div class="reveal">
+      <p class="label" style="color:rgba(255,255,255,0.6);letter-spacing:0.3em;margin-bottom:1rem;">MY STORY</p>
+      <h1 style="font-family:var(--font-serif);font-size:clamp(5rem,12vw,10rem);font-weight:400;color:#fff;letter-spacing:-0.02em;line-height:0.9;">India</h1>
+      <p style="font-size:var(--body-size);color:rgba(255,255,255,0.7);margin-top:1.5rem;">2016 — Present</p>
     </div>
   </div>
 </section>
@@ -1387,7 +1932,7 @@ body::before {
     <div class="reveal reveal-delay-1" style="margin-top:1rem;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,3vw,3rem); width:100%; max-width:1300px; align-items:stretch;">
         <div style="display:flex; flex-direction:column; justify-content:center;">
-          <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1rem;">그리고 <span class="gold">Apollo Hospital</span>이 온 날</h2>
+          <h2 style="font-size:var(--h2-size); font-weight:700; margin-bottom:1rem; text-wrap:balance; word-break:keep-all;">그리고 <span class="gold" style="white-space:nowrap;">Apollo Hospital</span>이 온 날</h2>
           <p class="subtitle" style="text-align:left; margin-bottom:1rem;">2024년 상반기, 인도 메디컬 매출 <span class="gold bold">100%+ 성장</span></p>
           <p style="font-size:var(--body-size); color:var(--text-secondary); line-height:1.7;">
             8년간의 노력이 결실을 맺었습니다.<br>
@@ -1523,7 +2068,7 @@ body::before {
   <div class="slide-content">
     <div class="reveal">
       <p class="label">Choose Your Path</p>
-      <h2 class="title" style="font-size:var(--h2-size);">생물학과라면, <span class="accent">어떤 일</span>을 할 수 있을까?</h2>
+      <h2 class="title" style="font-size:var(--h2-size);">의공학과라면, <span class="accent">어떤 일</span>을 할 수 있을까?</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:1.5rem;">
       <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; max-width:1200px;">
@@ -1655,19 +2200,64 @@ function toggleFullscreen() {
   let currentSlide = 0;
   let isAnimating = false;
 
-  // Build nav dots
+  // Build section nav dots (6 sections)
   const navDots = document.getElementById('navDots');
-  slides.forEach((_, i) => {
+  const sections = [
+    { label: '시작', slide: 0 },
+    { label: '호기심', slide: null },   // ACT 1 start
+    { label: '발견', slide: null },     // ACT 2 start
+    { label: '인도', slide: null },     // India intro
+    { label: '도전', slide: null },     // ACT 3 start
+    { label: '마무리', slide: totalSlides - 1 }
+  ];
+  // Find ACT boundaries and India intro by scanning HTML comments / slide data attributes
+  const actStarts = [];
+  let indiaIdx = null;
+  slides.forEach((s, i) => {
+    if (s.dataset.slide === 'india-intro') indiaIdx = i;
+    const prev = s.previousElementSibling;
+    if (prev && prev.nodeType === 8) { // comment node
+      const txt = prev.textContent || '';
+      if (txt.includes('ACT 1')) actStarts.push({ act: 1, idx: i });
+      if (txt.includes('ACT 2')) actStarts.push({ act: 2, idx: i });
+      if (txt.includes('ACT 3')) actStarts.push({ act: 3, idx: i });
+    }
+  });
+  // Fallback: divide evenly if comments not found
+  if (actStarts.length >= 3) {
+    sections[1].slide = actStarts[0].idx;
+    sections[2].slide = actStarts[1].idx;
+    sections[4].slide = actStarts[2].idx;
+  } else {
+    const chunk = Math.floor(totalSlides / 6);
+    sections[1].slide = chunk;
+    sections[2].slide = chunk * 2;
+    sections[3].slide = chunk * 3;
+    sections[4].slide = chunk * 4;
+  }
+  // Set India intro dot
+  if (indiaIdx !== null) sections[3].slide = indiaIdx;
+
+  sections.forEach((sec, i) => {
     const dot = document.createElement('button');
     dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Slide ${i + 1}`);
-    dot.addEventListener('click', () => goToSlide(i));
+    dot.setAttribute('aria-label', sec.label);
+    dot.setAttribute('title', sec.label);
+    dot.addEventListener('click', () => goToSlide(sec.slide));
     navDots.appendChild(dot);
   });
 
+  function getActiveSection() {
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (currentSlide >= sections[i].slide) return i;
+    }
+    return 0;
+  }
+
   function updateUI() {
+    const activeIdx = getActiveSection();
     document.querySelectorAll('.nav-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentSlide);
+      dot.classList.toggle('active', i === activeIdx);
     });
     const progress = ((currentSlide) / (totalSlides - 1)) * 100;
     document.getElementById('progressFill').style.width = progress + '%';
@@ -1750,6 +2340,485 @@ function toggleFullscreen() {
   // Initial — show first slide
   slides[0].classList.add('active');
   updateUI();
+})();
+</script>
+
+<!-- Cell Membrane Animation Script -->
+<script>
+(function(){
+  const cv=document.getElementById('cmCanvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const stageEl=document.getElementById('cmStage');
+  let W,H,CX,CY,MR,MW;
+
+  function resize(){
+    const rect=stageEl.getBoundingClientRect();
+    const dpr=window.devicePixelRatio||1;
+    W=rect.width;H=rect.height;
+    cv.width=W*dpr;cv.height=H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    CX=W/2;CY=H*0.46;
+    MR=Math.min(W,H)*0.27;
+    MW=MR*0.11;
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  let mode='low',particles=[],sparks=[],t=0;
+  const LIPIDS=28,lips=[];
+  for(let i=0;i<LIPIDS;i++)lips.push({a:(i/LIPIDS)*Math.PI*2});
+
+  class P{
+    constructor(type){this.type=type;this.reset()}
+    reset(){
+      if(this.type==='low'){
+        this.x=-10;this.y=CY+(Math.random()-.5)*MR*.4;
+        this.vx=W*.004+Math.random()*W*.002;
+        this.vy=(Math.random()-.5)*W*.0006;
+        this.col='#c0392b';this.r=Math.max(2,W*.005+Math.random()*W*.003);
+      }else{
+        this.x=W+10;this.y=CY+(Math.random()-.5)*MR*.4;
+        this.vx=-(W*.004+Math.random()*W*.002);
+        this.vy=(Math.random()-.5)*W*.0006;
+        this.col='#ac0430';this.r=Math.max(2,W*.005+Math.random()*W*.003);
+      }
+      this.a=.9;this.st='m';this.trail=[];this.gp=Math.random()*6.28;
+    }
+    update(){
+      const dx=this.x-CX,dy=this.y-CY,d=Math.sqrt(dx*dx+dy*dy);
+      if(this.st==='m'||this.st==='t'){
+        this.trail.push({x:this.x,y:this.y,a:.5});
+        if(this.trail.length>12)this.trail.shift();
+      }
+      this.trail.forEach(tr=>tr.a*=.9);
+      if(this.st==='m'){
+        this.x+=this.vx;this.y+=this.vy;
+        if(this.type==='low'&&d>=MR-MW&&d<=MR+MW){
+          this.st='b';const ang=Math.atan2(dy,dx);
+          this.vx=Math.cos(ang)*W*.005;this.vy=Math.sin(ang)*W*.005;
+          for(let i=0;i<6;i++){const sa=ang+(Math.random()-.5)*1.4;
+            sparks.push({x:this.x,y:this.y,vx:Math.cos(sa)*(W*.003+Math.random()*W*.005),vy:Math.sin(sa)*(W*.003+Math.random()*W*.005),life:1,c:'#c0392b'});}
+        }
+        if(this.type==='high'&&d>=MR-MW&&d<=MR+MW){
+          this.st='t';this.a=.65;
+          for(let i=0;i<4;i++){const sa=Math.atan2(dy,dx)+(Math.random()-.5)*.8;
+            sparks.push({x:this.x,y:this.y,vx:Math.cos(sa)*(W*.002+Math.random()*W*.003),vy:Math.sin(sa)*(W*.002+Math.random()*W*.003),life:1,c:'#ac0430'});}
+        }
+        if(this.x>W+40||this.x<-40)this.st='d';
+      }else if(this.st==='b'){
+        this.x+=this.vx;this.y+=this.vy;this.vx*=.96;this.vy*=.96;this.a*=.96;
+        if(this.a<.04)this.st='d';
+      }else if(this.st==='t'){
+        this.x+=this.vx;this.y+=this.vy;
+        if(this.x<-40||d<MR*.08)this.st='d';
+      }
+    }
+    draw(){
+      this.trail.forEach(tr=>{ctx.beginPath();ctx.arc(tr.x,tr.y,this.r*.35,0,6.28);ctx.fillStyle=this.col;ctx.globalAlpha=tr.a*.2;ctx.fill()});
+      ctx.globalAlpha=1;
+      const g=.2+.1*Math.sin(t*3+this.gp);
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r*2,0,6.28);ctx.fillStyle=this.col;ctx.globalAlpha=g*this.a*.2;ctx.fill();
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,6.28);ctx.fillStyle=this.col;ctx.globalAlpha=this.a;ctx.fill();
+      ctx.globalAlpha=1;
+    }
+  }
+
+  function spawn(){
+    if(mode==='low'||mode==='both'){if(Math.random()<.07)particles.push(new P('low'))}
+    if(mode==='high'||mode==='both'){if(Math.random()<.07)particles.push(new P('high'))}
+  }
+
+  function drawMembrane(){
+    const bg=getComputedStyle(stageEl).getPropertyValue('background-color')||'#eae8e3';
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+    // ECW fill
+    ctx.beginPath();ctx.arc(CX,CY,MR-MW,0,6.28);ctx.fillStyle='rgba(0,0,0,0.03)';ctx.fill();
+    // thick ring glow
+    ctx.beginPath();ctx.arc(CX,CY,MR,0,6.28);ctx.strokeStyle='#ac0430';ctx.lineWidth=MW*2;ctx.globalAlpha=.06;ctx.stroke();ctx.globalAlpha=1;
+    // main membrane line
+    ctx.beginPath();ctx.arc(CX,CY,MR,0,6.28);ctx.strokeStyle='#ac0430';ctx.lineWidth=Math.max(2,W*.004);ctx.globalAlpha=.75;ctx.stroke();ctx.globalAlpha=1;
+    // dashed inner/outer
+    ctx.setLineDash([4,3]);
+    ctx.beginPath();ctx.arc(CX,CY,MR-MW,0,6.28);ctx.strokeStyle='#ac0430';ctx.lineWidth=1;ctx.globalAlpha=.2;ctx.stroke();
+    ctx.beginPath();ctx.arc(CX,CY,MR+MW,0,6.28);ctx.stroke();ctx.globalAlpha=1;ctx.setLineDash([]);
+    // phospholipid heads + tails
+    const hr=Math.max(2.5,W*.006);
+    lips.forEach(l=>{
+      const bob=Math.sin(t*1.5+l.a*3)*W*.002;
+      const oR=MR+MW+bob,iR=MR-MW-bob;
+      const ox=CX+Math.cos(l.a)*oR,oy=CY+Math.sin(l.a)*oR;
+      const ix=CX+Math.cos(l.a)*iR,iy=CY+Math.sin(l.a)*iR;
+      ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(ix,iy);
+      ctx.strokeStyle='#ac0430';ctx.lineWidth=1;ctx.globalAlpha=.08;ctx.stroke();ctx.globalAlpha=1;
+      ctx.beginPath();ctx.arc(ox,oy,hr,0,6.28);ctx.fillStyle='#ac0430';ctx.globalAlpha=.4;ctx.fill();
+      ctx.beginPath();ctx.arc(ix,iy,hr,0,6.28);ctx.fill();ctx.globalAlpha=1;
+    });
+    // ICW dashed circle
+    ctx.setLineDash([6,4]);
+    ctx.beginPath();ctx.arc(CX,CY,MR-MW-MR*.15,0,6.28);ctx.strokeStyle='#005b9e';ctx.lineWidth=1;ctx.globalAlpha=.18;ctx.stroke();
+    ctx.globalAlpha=1;ctx.setLineDash([]);
+    // connecting line to capacitor area
+    const memBottom=CY+MR+MW;
+    const capTop=H*0.82;
+    ctx.beginPath();ctx.moveTo(CX,memBottom);ctx.lineTo(CX,capTop);
+    ctx.strokeStyle='#a67a00';ctx.lineWidth=1.5;ctx.globalAlpha=.2;
+    ctx.setLineDash([4,4]);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
+  }
+
+  function drawSparks(){
+    sparks.forEach(s=>{s.x+=s.vx;s.y+=s.vy;s.vx*=.94;s.vy*=.94;s.life*=.92;
+      ctx.beginPath();ctx.arc(s.x,s.y,Math.max(1.5,W*.003)*s.life,0,6.28);ctx.fillStyle=s.c;ctx.globalAlpha=s.life*.5;ctx.fill()});
+    ctx.globalAlpha=1;sparks=sparks.filter(s=>s.life>.03);
+  }
+
+  // Only animate when slide 7 is active
+  let animating=false;
+  function loop(){
+    if(!animating)return;
+    t+=.016;
+    ctx.clearRect(0,0,W,H);
+    drawMembrane();spawn();
+    particles.forEach(p=>p.update());
+    particles=particles.filter(p=>p.st!=='d');
+    particles.forEach(p=>p.draw());
+    drawSparks();
+    requestAnimationFrame(loop);
+  }
+
+  // Watch for slide activation
+  const observer=new MutationObserver(()=>{
+    const slide=stageEl.closest('.slide');
+    const isActive=slide&&slide.classList.contains('active');
+    if(isActive&&!animating){animating=true;resize();loop();}
+    else if(!isActive&&animating){animating=false;particles=[];sparks=[];}
+  });
+  const slideEl=stageEl.closest('.slide');
+  if(slideEl)observer.observe(slideEl,{attributes:true,attributeFilter:['class']});
+  // Also start if already active
+  if(slideEl&&slideEl.classList.contains('active')){animating=true;resize();loop();}
+
+  function setMode(m){
+    mode=m;particles=[];
+    document.getElementById('cmLblLow').style.display=(m==='high')?'none':'';
+    document.getElementById('cmLblHigh').style.display=(m==='low')?'none':'';
+    document.querySelectorAll('.cm-btn').forEach(b=>{
+      b.classList.toggle('cm-btn-on',b.dataset.mode===m);
+      b.style.background=b.dataset.mode===m?'rgba(0,0,0,0.08)':'transparent';
+    });
+  }
+
+  document.querySelectorAll('.cm-btn').forEach(b=>{
+    b.addEventListener('click',()=>setMode(b.dataset.mode));
+  });
+})();
+</script>
+
+<!-- BIA Principle Canvas Animation -->
+<script>
+(function(){
+  const canvas=document.getElementById('biaCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,dpr;
+  const particles=[];
+  let t=0;
+
+  function resize(){
+    dpr=window.devicePixelRatio||1;
+    const rect=canvas.getBoundingClientRect();
+    W=rect.width; H=rect.height;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize',resize);
+
+  // Particle class for current flow
+  class Particle{
+    constructor(side){
+      this.side=side; // 'muscle' or 'fat'
+      const boxW=W*0.38, boxH=H*0.52;
+      const boxX=side==='muscle'? W*0.06 : W*0.56;
+      const boxY=H*0.12;
+      this.boxX=boxX; this.boxW=boxW; this.boxH=boxH; this.boxY=boxY;
+      // Start from top wire
+      this.x=boxX+boxW*0.5;
+      this.y=boxY-H*0.02;
+      this.vy=0.8+Math.random()*0.5;
+      this.vx=(Math.random()-0.5)*0.3;
+      this.phase='enter'; // enter → inside → exit or blocked
+      this.life=1;
+      this.r=Math.max(2.5, W*0.004);
+      this.blocked=false;
+      this.wobble=Math.random()*6.28;
+    }
+    update(){
+      this.wobble+=0.05;
+      if(this.side==='muscle'){
+        // Flows through freely
+        if(this.phase==='enter'){
+          this.y+=this.vy*1.2;
+          this.x+=Math.sin(this.wobble)*0.5;
+          if(this.y>this.boxY+this.boxH*0.15) this.phase='inside';
+        }else if(this.phase==='inside'){
+          this.y+=this.vy*0.8;
+          this.x+=Math.sin(this.wobble*1.5)*1.2;
+          // Keep within box horizontally
+          if(this.x<this.boxX+8)this.x=this.boxX+8;
+          if(this.x>this.boxX+this.boxW-8)this.x=this.boxX+this.boxW-8;
+          if(this.y>this.boxY+this.boxH*0.85) this.phase='exit';
+        }else{
+          this.y+=this.vy*1.2;
+          this.x=this.boxX+this.boxW*0.5+Math.sin(this.wobble)*0.3;
+          if(this.y>this.boxY+this.boxH+H*0.06) this.life=0;
+        }
+      }else{
+        // Fat: gets blocked inside
+        if(this.phase==='enter'){
+          this.y+=this.vy*0.8;
+          if(this.y>this.boxY+this.boxH*0.25){
+            this.phase='blocked';
+            this.blocked=true;
+          }
+        }else{
+          // Wobble in place then fade
+          this.x+=Math.sin(this.wobble*2)*0.8;
+          this.y+=Math.sin(this.wobble*1.3)*0.4;
+          this.vy*=0.95;
+          this.life-=0.008;
+        }
+      }
+    }
+    draw(){
+      if(this.life<=0)return;
+      const alpha=this.side==='muscle'? 0.8 : this.life*0.5;
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.r,0,6.28);
+      if(this.side==='muscle'){
+        ctx.fillStyle=`rgba(0,91,158,${alpha})`;
+      }else{
+        ctx.fillStyle=`rgba(172,4,48,${alpha*0.6})`;
+      }
+      ctx.fill();
+      // Glow
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.r*2,0,6.28);
+      ctx.fillStyle=this.side==='muscle'?`rgba(0,91,158,${alpha*0.15})`:`rgba(172,4,48,${alpha*0.08})`;
+      ctx.fill();
+    }
+  }
+
+  // Water droplet positions (pre-generated for muscle tissue)
+  function drawScene(){
+    const leftX=W*0.06, rightX=W*0.56;
+    const boxW=W*0.38, boxH=H*0.52;
+    const boxY=H*0.12;
+    const cornerR=Math.min(16, W*0.015);
+
+    // --- MUSCLE SIDE (LEFT) ---
+    // Box background - light blue tint (water-rich)
+    ctx.fillStyle='rgba(0,91,158,0.06)';
+    roundRect(ctx,leftX,boxY,boxW,boxH,cornerR);
+    ctx.fill();
+    // Box border
+    ctx.strokeStyle='rgba(0,91,158,0.3)';
+    ctx.lineWidth=2;
+    roundRect(ctx,leftX,boxY,boxW,boxH,cornerR);
+    ctx.stroke();
+
+    // Water droplets inside muscle (static, scattered)
+    const muscleDrops=12;
+    ctx.globalAlpha=0.12;
+    for(let i=0;i<muscleDrops;i++){
+      const dx=leftX+boxW*0.15+((i%4)/3)*boxW*0.7;
+      const dy=boxY+boxH*0.2+(Math.floor(i/4)/2)*boxH*0.55;
+      drawWaterDrop(dx+Math.sin(t*0.5+i)*3, dy+Math.cos(t*0.3+i)*2, W*0.012);
+    }
+    ctx.globalAlpha=1;
+
+    // Tissue fibers (muscle striations)
+    ctx.strokeStyle='rgba(0,91,158,0.08)';
+    ctx.lineWidth=1.5;
+    for(let i=0;i<6;i++){
+      const fy=boxY+boxH*0.15+i*(boxH*0.7/5);
+      ctx.beginPath();
+      ctx.moveTo(leftX+10,fy);
+      for(let x=0;x<boxW-20;x+=5){
+        ctx.lineTo(leftX+10+x, fy+Math.sin(x*0.05+t+i)*3);
+      }
+      ctx.stroke();
+    }
+
+    // Wire top (current in)
+    ctx.strokeStyle='#005b9e';
+    ctx.lineWidth=2.5;
+    ctx.beginPath();
+    ctx.moveTo(leftX+boxW*0.5, boxY-H*0.06);
+    ctx.lineTo(leftX+boxW*0.5, boxY);
+    ctx.stroke();
+    // Wire bottom (current out)
+    ctx.beginPath();
+    ctx.moveTo(leftX+boxW*0.5, boxY+boxH);
+    ctx.lineTo(leftX+boxW*0.5, boxY+boxH+H*0.06);
+    ctx.stroke();
+
+    // Arrow on bottom wire (showing flow)
+    const arrowY=boxY+boxH+H*0.04;
+    ctx.fillStyle='#005b9e';
+    ctx.beginPath();
+    ctx.moveTo(leftX+boxW*0.5-6, arrowY-4);
+    ctx.lineTo(leftX+boxW*0.5, arrowY+4);
+    ctx.lineTo(leftX+boxW*0.5+6, arrowY-4);
+    ctx.fill();
+
+    // Bright lightbulb indicator
+    const bulbX=leftX+boxW*0.5, bulbY=boxY-H*0.09;
+    const glowR=W*0.02;
+    // Glow
+    const grd=ctx.createRadialGradient(bulbX,bulbY,0,bulbX,bulbY,glowR*3);
+    grd.addColorStop(0,'rgba(255,200,0,0.5)');
+    grd.addColorStop(0.5,'rgba(255,200,0,0.15)');
+    grd.addColorStop(1,'rgba(255,200,0,0)');
+    ctx.fillStyle=grd;
+    ctx.fillRect(bulbX-glowR*3,bulbY-glowR*3,glowR*6,glowR*6);
+    // Bulb
+    ctx.fillStyle='#ffd000';
+    ctx.beginPath();ctx.arc(bulbX,bulbY,glowR,0,6.28);ctx.fill();
+    ctx.strokeStyle='#b8960a';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(bulbX,bulbY,glowR,0,6.28);ctx.stroke();
+
+    // Label: "Muscle" inside box
+    ctx.fillStyle='rgba(0,91,158,0.25)';
+    ctx.font=`700 ${Math.max(14,W*0.022)}px var(--font-en)`;
+    ctx.textAlign='center';
+    ctx.fillText('MUSCLE',leftX+boxW*0.5,boxY+boxH*0.5);
+
+    // --- FAT SIDE (RIGHT) ---
+    // Box background - beige/yellow tint
+    ctx.fillStyle='rgba(200,180,100,0.08)';
+    roundRect(ctx,rightX,boxY,boxW,boxH,cornerR);
+    ctx.fill();
+    // Box border
+    ctx.strokeStyle='rgba(180,160,80,0.3)';
+    ctx.lineWidth=2;
+    roundRect(ctx,rightX,boxY,boxW,boxH,cornerR);
+    ctx.stroke();
+
+    // Fat globules (circles)
+    ctx.globalAlpha=0.12;
+    const fatDrops=[[0.2,0.25],[0.5,0.2],[0.8,0.3],[0.15,0.55],[0.45,0.5],[0.75,0.55],[0.3,0.75],[0.6,0.7],[0.85,0.8]];
+    fatDrops.forEach(([fx,fy],i)=>{
+      const cx=rightX+boxW*fx;
+      const cy=boxY+boxH*fy;
+      const fr=W*0.018+Math.sin(t*0.3+i)*W*0.002;
+      ctx.fillStyle='rgba(200,180,100,0.4)';
+      ctx.beginPath();ctx.arc(cx,cy,fr,0,6.28);ctx.fill();
+      ctx.strokeStyle='rgba(180,160,80,0.3)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.arc(cx,cy,fr,0,6.28);ctx.stroke();
+    });
+    ctx.globalAlpha=1;
+
+    // Wire top
+    ctx.strokeStyle='#999';
+    ctx.lineWidth=2.5;
+    ctx.beginPath();
+    ctx.moveTo(rightX+boxW*0.5, boxY-H*0.06);
+    ctx.lineTo(rightX+boxW*0.5, boxY);
+    ctx.stroke();
+    // Wire bottom — no current flows, so shorter/dimmer
+    ctx.strokeStyle='#ccc';
+    ctx.beginPath();
+    ctx.moveTo(rightX+boxW*0.5, boxY+boxH);
+    ctx.lineTo(rightX+boxW*0.5, boxY+boxH+H*0.06);
+    ctx.stroke();
+
+    // X mark on bottom wire (current blocked)
+    const xY=boxY+boxH+H*0.03;
+    const xX=rightX+boxW*0.5;
+    ctx.strokeStyle='var(--brand)';
+    ctx.lineWidth=2.5;
+    ctx.beginPath();ctx.moveTo(xX-6,xY-6);ctx.lineTo(xX+6,xY+6);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(xX+6,xY-6);ctx.lineTo(xX-6,xY+6);ctx.stroke();
+
+    // Dim lightbulb
+    const bulb2X=rightX+boxW*0.5, bulb2Y=boxY-H*0.09;
+    ctx.fillStyle='#d0d0d0';
+    ctx.beginPath();ctx.arc(bulb2X,bulb2Y,glowR,0,6.28);ctx.fill();
+    ctx.strokeStyle='#aaa';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(bulb2X,bulb2Y,glowR,0,6.28);ctx.stroke();
+
+    // Label: "FAT" inside box
+    ctx.fillStyle='rgba(180,160,80,0.25)';
+    ctx.font=`700 ${Math.max(14,W*0.022)}px var(--font-en)`;
+    ctx.textAlign='center';
+    ctx.fillText('FAT',rightX+boxW*0.5,boxY+boxH*0.5);
+
+    // --- VS divider ---
+    ctx.fillStyle='var(--text-dim)';
+    ctx.font=`400 ${Math.max(14,W*0.016)}px var(--font-serif)`;
+    ctx.textAlign='center';
+    ctx.fillText('vs',W*0.5,boxY+boxH*0.5);
+  }
+
+  function drawWaterDrop(x,y,r){
+    ctx.fillStyle='rgba(0,91,158,0.5)';
+    ctx.beginPath();
+    ctx.moveTo(x,y-r*1.5);
+    ctx.quadraticCurveTo(x+r,y,x,y+r*0.5);
+    ctx.quadraticCurveTo(x-r,y,x,y-r*1.5);
+    ctx.fill();
+  }
+
+  function roundRect(c,x,y,w,h,r){
+    c.beginPath();
+    c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);
+    c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);
+    c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);
+    c.closePath();
+  }
+
+  // Spawn particles
+  let spawnTimer=0;
+  function spawn(){
+    spawnTimer+=0.016;
+    if(spawnTimer>0.15){
+      spawnTimer=0;
+      if(particles.filter(p=>p.side==='muscle').length<25){
+        particles.push(new Particle('muscle'));
+      }
+      if(particles.filter(p=>p.side==='fat').length<8){
+        particles.push(new Particle('fat'));
+      }
+    }
+  }
+
+  let animating=false;
+  function loop(){
+    if(!animating)return;
+    t+=0.016;
+    ctx.clearRect(0,0,W,H);
+    drawScene();
+    spawn();
+    particles.forEach(p=>p.update());
+    // Remove dead particles
+    for(let i=particles.length-1;i>=0;i--){
+      if(particles[i].life<=0)particles.splice(i,1);
+    }
+    particles.forEach(p=>p.draw());
+    requestAnimationFrame(loop);
+  }
+
+  const slideEl=canvas.closest('.slide');
+  if(slideEl){
+    const obs=new MutationObserver(()=>{
+      const isActive=slideEl.classList.contains('active');
+      if(isActive&&!animating){animating=true;resize();loop();}
+      else if(!isActive&&animating){animating=false;particles.length=0;}
+    });
+    obs.observe(slideEl,{attributes:true,attributeFilter:['class']});
+    if(slideEl.classList.contains('active')){animating=true;resize();loop();}
+  }
 })();
 </script>
 
