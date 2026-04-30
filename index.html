@@ -1024,168 +1024,10 @@ body::before {
       <p class="label">01 &nbsp; 인바디의 시작</p>
       <h2 class="title" style="font-size:var(--h2-size);margin-bottom:0;">'같은 체중, 다른 체성분'<br><span class="accent">체지방</span>을 알아야 정확한 비만 진단 및<br>대사증후군 관리가 가능합니다.</h2>
     </div>
-    <div class="reveal reveal-delay-1" style="width:100%;max-width:1100px;position:relative;flex:1;display:flex;align-items:center;">
-      <!-- Three body types -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,3rem);align-items:end;position:relative;width:100%;">
-
-        <!-- Person 1: Athletic -->
-        <div style="text-align:center;">
-          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
-            <span style="font-size:0.7em;">▼</span> 80Kg
-          </div>
-          <svg viewBox="0 0 200 380" style="width:100%;max-width:160px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
-            <!-- Athletic body -->
-            <defs>
-              <linearGradient id="bodyAth" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.15"/>
-              </linearGradient>
-            </defs>
-            <!-- Head -->
-            <circle cx="100" cy="36" r="28" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1.5"/>
-            <!-- Neck -->
-            <rect x="88" y="62" width="24" height="16" rx="4" fill="url(#bodyAth)"/>
-            <!-- Torso - V shape athletic -->
-            <path d="M62,78 L138,78 Q144,78 144,84 L136,180 Q136,186 130,186 L70,186 Q64,186 64,180 L56,84 Q56,78 62,78Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Chest definition lines -->
-            <path d="M80,100 Q100,115 120,100" fill="none" stroke="#8a9bb0" stroke-width="1" opacity="0.4"/>
-            <line x1="100" y1="100" x2="100" y2="140" stroke="#8a9bb0" stroke-width="0.8" opacity="0.3"/>
-            <!-- Arms - muscular -->
-            <path d="M56,82 L36,90 Q28,92 26,100 L22,145 Q20,155 28,158 L38,155 Q44,152 44,144 L50,105 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M144,82 L164,90 Q172,92 174,100 L178,145 Q180,155 172,158 L162,155 Q156,152 156,144 L150,105 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Hands -->
-            <ellipse cx="26" cy="162" rx="8" ry="10" fill="url(#bodyAth)"/>
-            <ellipse cx="174" cy="162" rx="8" ry="10" fill="url(#bodyAth)"/>
-            <!-- Legs - strong -->
-            <path d="M70,186 L66,300 Q64,318 72,320 L86,320 Q92,318 90,300 L94,186 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M106,186 L110,300 Q112,318 118,320 L132,320 Q138,318 136,300 L130,186 Z" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Feet -->
-            <ellipse cx="78" cy="326" rx="16" ry="8" fill="url(#bodyAth)"/>
-            <ellipse cx="124" cy="326" rx="16" ry="8" fill="url(#bodyAth)"/>
-            <!-- Bicep bump -->
-            <circle cx="30" cy="118" r="8" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
-            <circle cx="170" cy="118" r="8" fill="url(#bodyAth)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
-          </svg>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">근육량</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:85%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">체지방</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:25%;height:100%;background:var(--brand);border-radius:4px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Person 2: Average (skinny fat) -->
-        <div style="text-align:center;">
-          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
-            <span style="font-size:0.7em;">▼</span> 80Kg
-          </div>
-          <svg viewBox="0 0 200 380" style="width:100%;max-width:160px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bodyAvg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.25"/>
-                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.12"/>
-              </linearGradient>
-            </defs>
-            <!-- Head -->
-            <circle cx="100" cy="36" r="26" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1.5"/>
-            <!-- Neck -->
-            <rect x="90" y="60" width="20" height="16" rx="4" fill="url(#bodyAvg)"/>
-            <!-- Torso - average, slightly narrow -->
-            <path d="M68,76 L132,76 Q136,76 136,82 L132,180 Q132,186 126,186 L74,186 Q68,186 68,180 L64,82 Q64,76 68,76Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Arms - thin -->
-            <path d="M64,80 L46,88 Q40,90 38,96 L34,148 Q33,156 38,158 L46,156 Q50,154 50,148 L54,100 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M136,80 L154,88 Q160,90 162,96 L166,148 Q167,156 162,158 L154,156 Q150,154 150,148 L146,100 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Hands -->
-            <ellipse cx="38" cy="162" rx="7" ry="9" fill="url(#bodyAvg)"/>
-            <ellipse cx="162" cy="162" rx="7" ry="9" fill="url(#bodyAvg)"/>
-            <!-- Legs - average -->
-            <path d="M74,186 L72,302 Q70,318 78,320 L88,320 Q94,318 92,302 L96,186 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M104,186 L108,302 Q110,318 116,320 L126,320 Q132,318 130,302 L126,186 Z" fill="url(#bodyAvg)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Feet -->
-            <ellipse cx="84" cy="326" rx="14" ry="7" fill="url(#bodyAvg)"/>
-            <ellipse cx="120" cy="326" rx="14" ry="7" fill="url(#bodyAvg)"/>
-          </svg>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">근육량</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:55%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">체지방</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:55%;height:100%;background:var(--brand);border-radius:4px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Person 3: Obese -->
-        <div style="text-align:center;">
-          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;font-size:var(--small-size);font-weight:700;margin-bottom:clamp(0.5rem,1vw,1rem);">
-            <span style="font-size:0.7em;">▼</span> 80Kg
-          </div>
-          <svg viewBox="0 0 240 380" style="width:100%;max-width:185px;max-height:clamp(200px,32vh,300px);height:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bodyOb" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8a9bb0" stop-opacity="0.25"/>
-                <stop offset="100%" stop-color="#8a9bb0" stop-opacity="0.12"/>
-              </linearGradient>
-            </defs>
-            <!-- Head -->
-            <circle cx="120" cy="36" r="30" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1.5"/>
-            <!-- Double chin hint -->
-            <ellipse cx="120" cy="62" rx="18" ry="8" fill="url(#bodyOb)" opacity="0.6"/>
-            <!-- Neck - thick -->
-            <rect x="104" y="58" width="32" height="14" rx="6" fill="url(#bodyOb)"/>
-            <!-- Torso - wide, round belly -->
-            <path d="M70,72 L170,72 Q180,72 182,82 L186,140 Q190,180 178,194 L62,194 Q50,180 54,140 L58,82 Q60,72 70,72Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Belly curve -->
-            <ellipse cx="120" cy="150" rx="60" ry="42" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="0.8" opacity="0.5"/>
-            <!-- Arms - thick short -->
-            <path d="M58,76 L34,86 Q26,90 24,98 L18,148 Q16,158 24,162 L36,158 Q42,154 42,146 L48,100 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M182,76 L206,86 Q214,90 216,98 L222,148 Q224,158 216,162 L204,158 Q198,154 198,146 L192,100 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Hands -->
-            <ellipse cx="22" cy="166" rx="9" ry="10" fill="url(#bodyOb)"/>
-            <ellipse cx="218" cy="166" rx="9" ry="10" fill="url(#bodyOb)"/>
-            <!-- Legs - short thick -->
-            <path d="M78,194 L74,300 Q72,318 80,320 L96,320 Q104,318 102,300 L108,194 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
-            <path d="M132,194 L138,300 Q140,318 146,320 L162,320 Q168,318 166,300 L160,194 Z" fill="url(#bodyOb)" stroke="#8a9bb0" stroke-width="1"/>
-            <!-- Feet -->
-            <ellipse cx="88" cy="326" rx="18" ry="8" fill="url(#bodyOb)"/>
-            <ellipse cx="152" cy="326" rx="18" ry="8" fill="url(#bodyOb)"/>
-          </svg>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:clamp(0.5rem,1vw,1rem);padding:0 10%;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">근육량</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:30%;height:100%;background:var(--text-secondary);border-radius:4px;"></div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:var(--small-size);color:var(--text-dim);">
-              <span style="white-space:nowrap;">체지방</span>
-              <div style="flex:1;height:8px;background:var(--charcoal);border-radius:4px;overflow:hidden;">
-                <div style="width:85%;height:100%;background:var(--brand);border-radius:4px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <div class="reveal reveal-delay-1" style="width:100%;max-width:1100px;flex:1;display:flex;align-items:center;justify-content:center;min-height:0;">
+      <div style="border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.08);">
+        <img src="assets/images/body-composition-3types.png" alt="같은 체중 80kg, 다른 체성분 — 근육형, 균형형, 체지방형" style="max-width:min(1000px,88vw);max-height:clamp(300px,58vh,520px);width:auto;height:auto;object-fit:contain;display:block;">
       </div>
-      <!-- Dashed connection lines (SVG overlay) -->
-      <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 1100 500" preserveAspectRatio="xMidYMid meet">
-        <line x1="240" y1="250" x2="550" y2="180" stroke="var(--charcoal)" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
-        <line x1="550" y1="180" x2="860" y2="260" stroke="var(--charcoal)" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
-      </svg>
     </div>
   </div>
 </section>
@@ -1323,67 +1165,13 @@ body::before {
       <h2 class="title" style="font-size:var(--h2-size);">어디서 재든, <span class="accent">같은 결과</span>가 나온다</h2>
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:clamp(0.8rem,1.5vw,1.2rem);">
-      <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:clamp(1.2rem,3vw,3rem);max-width:1200px;margin:0 auto;align-items:center;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.5rem,3vw,3rem);max-width:1100px;margin:0 auto;align-items:center;">
 
-        <!-- Left: InBody device photo -->
-        <div style="text-align:center;">
-          <div style="border-radius:16px;overflow:hidden;background:var(--dark-surface);box-shadow:0 8px 32px rgba(0,0,0,0.08);">
-            <img src="assets/images/inbody-970s.png" alt="InBody 970" style="width:100%;height:auto;object-fit:contain;display:block;">
+        <!-- Left: BIA segmental measurement diagram -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="border-radius:12px;overflow:hidden;background:var(--dark-card);box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+            <img src="assets/images/bia-segments-electrodes.png" alt="8점 접촉 전극 부위별 측정 — ZRA, ZLA, ZT, ZRL, ZLL" style="max-height:clamp(320px,58vh,500px);width:auto;height:auto;object-fit:contain;display:block;">
           </div>
-          <p style="font-size:var(--small-size);color:var(--text-dim);margin-top:clamp(0.3rem,0.6vw,0.5rem);">InBody 970</p>
-          <div style="display:flex;gap:clamp(0.3rem,0.5vw,0.4rem);justify-content:center;margin-top:clamp(0.3rem,0.5vw,0.4rem);flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.8vw,0.75rem);background:rgba(172,4,48,0.08);color:var(--brand);padding:2px 8px;border-radius:4px;font-weight:600;">양손 4전극</span>
-            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.8vw,0.75rem);background:rgba(0,91,158,0.08);color:#005b9e;padding:2px 8px;border-radius:4px;font-weight:600;">양발 4전극</span>
-          </div>
-        </div>
-
-        <!-- Center: 5-cylinder geometric diagram -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:clamp(0.3rem,0.6vw,0.5rem);">
-          <!-- Top row: arms + trunk -->
-          <div style="display:flex;align-items:flex-end;gap:clamp(0.4rem,0.8vw,0.6rem);">
-            <!-- Left Arm -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-              <div style="width:clamp(30px,4vw,48px);height:clamp(80px,12vw,130px);border-radius:clamp(15px,2vw,24px);background:linear-gradient(135deg,#005b9e,#0077cc);opacity:0.85;position:relative;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
-              </div>
-              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#005b9e;">LA</span>
-            </div>
-            <!-- Trunk -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-              <div style="width:clamp(70px,10vw,120px);height:clamp(100px,15vw,160px);border-radius:clamp(8px,1.2vw,14px);background:linear-gradient(135deg,var(--brand),#d4063f);opacity:0.8;position:relative;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.12) 50%,transparent 70%);"></div>
-                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-                  <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:0.1em;">TR</span>
-                </div>
-              </div>
-              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:var(--brand);">Trunk</span>
-            </div>
-            <!-- Right Arm -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-              <div style="width:clamp(30px,4vw,48px);height:clamp(80px,12vw,130px);border-radius:clamp(15px,2vw,24px);background:linear-gradient(135deg,#005b9e,#0077cc);opacity:0.85;position:relative;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
-              </div>
-              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#005b9e;">RA</span>
-            </div>
-          </div>
-          <!-- Bottom row: legs -->
-          <div style="display:flex;gap:clamp(1rem,3vw,2.5rem);">
-            <!-- Left Leg -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-              <div style="width:clamp(36px,5vw,56px);height:clamp(90px,13vw,145px);border-radius:clamp(18px,2.5vw,28px);background:linear-gradient(135deg,#a67a00,#c99200);opacity:0.8;position:relative;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
-              </div>
-              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#a67a00;">LL</span>
-            </div>
-            <!-- Right Leg -->
-            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-              <div style="width:clamp(36px,5vw,56px);height:clamp(90px,13vw,145px);border-radius:clamp(18px,2.5vw,28px);background:linear-gradient(135deg,#a67a00,#c99200);opacity:0.8;position:relative;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);"></div>
-              </div>
-              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.85vw,0.8rem);font-weight:700;color:#a67a00;">RL</span>
-            </div>
-          </div>
-          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-dim);margin-top:clamp(0.1rem,0.3vw,0.2rem);">5개 부위 독립 측정</p>
         </div>
 
         <!-- Right: Key stats -->
@@ -1540,28 +1328,30 @@ body::before {
     </div>
     <div class="reveal reveal-delay-1" style="margin-top:clamp(0.6rem,1.2vw,1rem);">
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(1rem,2.5vw,2.5rem);max-width:1200px;align-items:center;">
-        <!-- Left: edema symptoms infographic -->
+        <!-- Left: edema legs image only -->
         <div style="text-align:center;">
           <div style="width:100%;border-radius:12px;overflow:hidden;background:var(--dark-card);box-shadow:0 4px 20px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06);">
-            <div style="background:var(--brand);padding:clamp(0.4rem,0.6vw,0.5rem);text-align:center;">
-              <span style="font-size:clamp(0.75rem,1vw,0.9rem);font-weight:700;color:#fff;letter-spacing:0.05em;">부종 증상별 의심 질환</span>
-            </div>
-            <img src="assets/images/edema-symptoms.png" alt="부종 증상별 의심 질환 — 신부전, 심부전, 심부정맥혈전증" style="width:100%;height:auto;object-fit:contain;display:block;">
+            <img src="assets/images/edema-symptoms.png" alt="하지 부종 증상" style="width:100%;height:auto;object-fit:contain;display:block;">
           </div>
         </div>
 
-        <!-- Center: explanation -->
-        <div>
-          <div style="background:rgba(172,4,48,0.05);border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:clamp(0.8rem,1.2vw,1.2rem);margin-bottom:clamp(0.6rem,1vw,0.8rem);">
-            <h3 style="font-size:var(--h3-size);font-weight:700;color:var(--text-primary);margin-bottom:0.3rem;">부종 (Edema)</h3>
-            <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.6;">
-              조직 내 <strong style="color:var(--brand);">액체</strong>가 과잉 축적된 상태
-            </p>
+        <!-- Center: disease breakdown -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,1vw,0.8rem);">
+          <div style="background:rgba(172,4,48,0.05);border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:clamp(0.6rem,1vw,0.9rem);">
+            <h3 style="font-size:var(--h3-size);font-weight:700;color:var(--text-primary);margin-bottom:0.2rem;">부종 (Edema)</h3>
+            <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">조직 내 <strong style="color:var(--brand);">액체</strong>가 과잉 축적된 상태</p>
           </div>
-          <div style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.8;">
-            신장 질환 → 체수분 과잉 축적<br>
-            심부전 → 하지 부종<br>
-            림프부종 → 수술 후 합병증
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem) clamp(0.6rem,1vw,0.9rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <p style="font-size:var(--small-size);font-weight:700;color:var(--brand);margin-bottom:0.2rem;">신부전</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-secondary);line-height:1.5;">양쪽 손·다리·눈 주변 부종, 복부 팽만감, 단백뇨 동반</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem) clamp(0.6rem,1vw,0.9rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <p style="font-size:var(--small-size);font-weight:700;color:var(--brand);margin-bottom:0.2rem;">심부전</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-secondary);line-height:1.5;">양쪽 종아리·발 부종, 복부 부종, 호흡 곤란 나타남</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem) clamp(0.6rem,1vw,0.9rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <p style="font-size:var(--small-size);font-weight:700;color:var(--brand);margin-bottom:0.2rem;">심부정맥혈전증</p>
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-secondary);line-height:1.5;">한쪽다리에 급성 부종 (48~72시간 이내), 갑작스러운 통증</p>
           </div>
         </div>
 
@@ -1623,13 +1413,34 @@ body::before {
         <div style="font-family:var(--font-mono); font-size:clamp(4rem,9vw,7rem); font-weight:700; color:var(--brand); line-height:1; margin-bottom:0.5rem; text-shadow:0 4px 30px rgba(172,4,48,0.15);">5~7°</div>
         <p style="font-size:var(--h3-size); font-weight:600; color:var(--text-primary); margin-bottom:0.5rem;">Phase Angle</p>
         <!-- Formula -->
-        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.6rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);margin:0 auto clamp(0.5rem,1vw,0.8rem);max-width:380px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-          <p style="font-family:var(--font-mono);font-size:clamp(1rem,1.8vw,1.4rem);color:var(--text-primary);text-align:center;letter-spacing:0.02em;">
-            θ = arctan(<span style="color:var(--brand);">Xc</span> / <span style="color:#005b9e;">R</span>) × 180/π
-          </p>
-          <p style="font-size:clamp(0.7rem,0.9vw,0.8rem);color:var(--text-dim);text-align:center;margin-top:0.3rem;">
-            <span style="color:var(--brand);">Xc</span> 리액턴스(세포막 저항) &nbsp;|&nbsp; <span style="color:#005b9e;">R</span> 레지스턴스(체수분 저항)
-          </p>
+        <div style="background:var(--dark-card);border-radius:16px;padding:clamp(1rem,2vw,1.6rem) clamp(1.5rem,3vw,2.5rem);margin:0 auto clamp(0.5rem,1vw,0.8rem);max-width:480px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06);">
+          <div style="text-align:center;line-height:1.4;">
+            <span style="font-family:var(--font-mono);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--text-primary);">θ</span>
+            <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);color:var(--text-dim);margin:0 clamp(0.3rem,0.5vw,0.4rem);"> = </span>
+            <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:600;color:var(--text-primary);">arctan</span>
+            <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);color:var(--text-dim);">(</span>
+            <span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;">
+              <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:800;color:var(--brand);border-bottom:2.5px solid var(--text-dim);padding-bottom:2px;line-height:1.2;">Xc</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:800;color:#005b9e;padding-top:2px;line-height:1.2;">R</span>
+            </span>
+            <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);color:var(--text-dim);">)</span>
+            <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);color:var(--text-dim);margin:0 clamp(0.2rem,0.4vw,0.3rem);"> × </span>
+            <span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;">
+              <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:700;color:var(--text-primary);border-bottom:2.5px solid var(--text-dim);padding-bottom:2px;line-height:1.2;">180</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:700;color:var(--text-primary);padding-top:2px;line-height:1.2;">π</span>
+            </span>
+          </div>
+          <div style="display:flex;justify-content:center;gap:clamp(1rem,2vw,2rem);margin-top:clamp(0.6rem,1vw,0.8rem);padding-top:clamp(0.5rem,0.8vw,0.6rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <div style="text-align:center;">
+              <span style="font-family:var(--font-mono);font-size:clamp(0.9rem,1.2vw,1.1rem);font-weight:800;color:var(--brand);">Xc</span>
+              <p style="font-size:clamp(0.7rem,0.9vw,0.8rem);color:var(--text-dim);margin-top:2px;">리액턴스<br><span style="font-size:0.9em;">세포막 저항</span></p>
+            </div>
+            <div style="width:1px;background:rgba(0,0,0,0.08);"></div>
+            <div style="text-align:center;">
+              <span style="font-family:var(--font-mono);font-size:clamp(0.9rem,1.2vw,1.1rem);font-weight:800;color:#005b9e;">R</span>
+              <p style="font-size:clamp(0.7rem,0.9vw,0.8rem);color:var(--text-dim);margin-top:2px;">레지스턴스<br><span style="font-size:0.9em;">체수분 저항</span></p>
+            </div>
+          </div>
         </div>
         <p style="font-size:var(--small-size); color:var(--text-secondary); line-height:1.7; max-width:400px; margin:0 auto;">
           세포막의 건강 점수.<br>
@@ -1651,6 +1462,280 @@ body::before {
             65세 이상 10~16% 유병. 낙상·골절·사망률 증가의 핵심 원인.<br>
             <strong style="color:var(--text-primary);">AWGS 2025, Multi-frequency BIA를 공식 진단 도구로 인정.</strong>
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEDICAL APPLICATION SLIDES (S8a-S8d) ============ -->
+
+<!-- ============ S8a: EVIDENCE — RESEARCH PAPERS ============ -->
+<section class="slide" data-slide="8a">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">Clinical Evidence</p>
+      <h2 class="title" style="font-size:var(--h2-size);">이 기계는 <span class="accent">논문</span>으로 검증되었습니다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.6rem,1.2vw,1rem);">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(0.8rem,1.8vw,1.5rem);max-width:1200px;margin:0 auto;">
+        <!-- Paper 1 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:#005b9e;border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:#005b9e;font-weight:700;letter-spacing:0.03em;">NEPHROLOGY</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">BIA를 이용한 건체중 측정은 임상 건체중과 높은 상관관계</p>
+          <div style="font-family:var(--font-mono);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#005b9e;line-height:1;">r=0.99</div>
+          <p style="font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);line-height:1.4;">p&lt;0.001 · BIA-DW vs cDW (CTR·hANP·IVC)</p>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Japanese Journal of Dialysis, 2008</p>
+          </div>
+        </div>
+        <!-- Paper 2 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:var(--brand);border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--brand);font-weight:700;letter-spacing:0.03em;">CARDIOLOGY</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">BIA 기반 체수분 평가는 급성 심부전 진단의 유망한 도구</p>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-secondary);line-height:1.5;">ECW Ratio로 체액 과부하를 정량화하여 이뇨제 용량 결정에 직접 활용</p>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Korean J Intern Med 2018;33:911-921</p>
+          </div>
+        </div>
+        <!-- Paper 3 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:var(--brand);border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--brand);font-weight:700;letter-spacing:0.03em;">HEART FAILURE</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">근감소증은 심부전 환자에서 더 나쁜 임상 결과와 광범위하게 관련</p>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-secondary);line-height:1.5;">InBody SMI로 근감소증 선별 → 사망률·재입원율 예측</p>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Circ Heart Fail. 2022;15:e009322</p>
+          </div>
+        </div>
+        <!-- Paper 4 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:#a67a00;border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:#a67a00;font-weight:700;letter-spacing:0.03em;">SARCOPENIA</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">AWGS 2019 아시아 근감소증 진단 알고리즘에 InBody 채택</p>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-secondary);line-height:1.5;">남 &lt;7.0, 여 &lt;5.7 kg/m² 기준으로 BIA 근감소증 선별</p>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Chen et al., J Am Med Dir Assoc, 2020</p>
+          </div>
+        </div>
+        <!-- Paper 5 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:#005b9e;border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:#005b9e;font-weight:700;letter-spacing:0.03em;">ICU / NUTRITION</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">Adjusted FFM 기반 단백질 투여 프로토콜</p>
+          <div style="font-family:var(--font-mono);font-size:clamp(0.75rem,1vw,0.9rem);font-weight:700;color:#005b9e;">adjFFM × 1.85 g/day</div>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Van Zanten AR, et al. Nutrition Protocol ICU Gelderse Vallei, NL, 2023</p>
+          </div>
+        </div>
+        <!-- Paper 6 -->
+        <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.4vw,1.2rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:clamp(0.4rem,0.6vw,0.5rem);">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:4px;height:clamp(28px,3vw,36px);background:#a67a00;border-radius:2px;flex-shrink:0;"></div>
+            <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:#a67a00;font-weight:700;letter-spacing:0.03em;">BODY COMPOSITION</span>
+          </div>
+          <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.35;">ECW/FFM 보정으로 부종 환자의 실제 근육량 산출</p>
+          <p style="font-size:clamp(0.7rem,0.9vw,0.85rem);color:var(--text-secondary);line-height:1.5;">연령별 ECW/FFM 비율 기준으로 과잉 수분 제거</p>
+          <div style="margin-top:auto;padding-top:clamp(0.3rem,0.5vw,0.4rem);border-top:1px solid rgba(0,0,0,0.06);">
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;line-height:1.4;">Kidney International 61, 2250-2258, 2002</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="text-align:center;margin-top:clamp(0.5rem,1vw,0.8rem);">
+      <p style="font-family:var(--font-mono);font-size:clamp(0.8rem,1.1vw,1rem);color:var(--text-dim);">전 세계 <strong style="color:var(--text-primary);">8,000+</strong> 학술 논문에서 기준 장비로 사용</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S8b: NEPHROLOGY + CARDIOLOGY ============ -->
+<section class="slide" data-slide="8b">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal">
+      <p class="label">Nephrology &amp; Cardiology</p>
+      <h2 class="title" style="font-size:var(--h2-size);">투석 <span class="accent">건체중</span>과 심부전 <span class="accent">이뇨제</span>를 결정합니다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.6rem,1.2vw,1rem);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2.5rem);max-width:1200px;margin:0 auto;align-items:start;">
+        <!-- Left: Nephrology -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,0.8vw,0.7rem);">
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.3rem;">
+              <span style="font-family:var(--font-mono);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#005b9e;line-height:1;">r=0.99</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,0.9vw,0.85rem);color:#005b9e;font-weight:700;">p&lt;0.001</span>
+            </div>
+            <p style="font-size:var(--small-size);font-weight:600;color:var(--text-primary);">BIA 건체중 vs 임상 건체중 상관관계</p>
+            <p style="font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);font-style:italic;margin-top:0.2rem;">Japanese Journal of Dialysis, 2008</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:clamp(0.3rem,0.5vw,0.4rem);">
+            <div style="background:rgba(0,91,158,0.04);border-radius:8px;padding:clamp(0.5rem,0.8vw,0.7rem);">
+              <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+                <strong style="color:var(--text-primary);">일반인</strong> ECW Ratio ≒ <strong style="color:#005b9e;">0.380</strong>
+              </p>
+            </div>
+            <div style="background:rgba(172,4,48,0.04);border-radius:8px;padding:clamp(0.5rem,0.8vw,0.7rem);">
+              <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+                <strong style="color:var(--text-primary);">투석 환자</strong> ECW Ratio ≒ <strong style="color:var(--brand);">0.418</strong> → 과잉 수분
+              </p>
+            </div>
+            <div style="background:rgba(166,122,0,0.04);border-radius:8px;padding:clamp(0.5rem,0.8vw,0.7rem);">
+              <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">
+                <strong style="color:var(--text-primary);">당뇨·저알부민</strong> 동반 시 기준 <strong style="color:#a67a00;">상향 조정</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Cardiology -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,0.8vw,0.7rem);">
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+            <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.4;margin-bottom:0.3rem;">"Body fluid status assessment by BIA may be a <strong style="color:var(--brand);">promising tool</strong> in diagnosing acute heart failure"</p>
+            <p style="font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);font-style:italic;">Korean J Intern Med 2018;33:911-921</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+            <p style="font-size:clamp(0.8rem,1.1vw,1rem);font-weight:700;color:var(--text-primary);line-height:1.4;margin-bottom:0.3rem;">"Sarcopenia has been extensively associated with <strong style="color:var(--brand);">worse clinical outcomes</strong> in patients with HF"</p>
+            <p style="font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);font-style:italic;">Circ Heart Fail. 2022;15:e009322</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+            <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">ECW Ratio로 <strong style="color:var(--text-primary);">이뇨제 효과</strong>를 정량적으로 추적하고, SMI로 <strong style="color:var(--text-primary);">근감소증</strong>을 조기 진단합니다.</p>
+            <p style="font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);font-style:italic;margin-top:0.2rem;">Int. J. Environ. Res. Public Health 2022, 19, 6477</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S8c: ONCOLOGY + ICU ============ -->
+<section class="slide" data-slide="8c">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal">
+      <p class="label">Oncology &amp; Intensive Care</p>
+      <h2 class="title" style="font-size:var(--h2-size);">암 환자의 <span class="accent">생존</span>과 중환자의 <span class="accent">영양</span>을 결정합니다</h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.6rem,1.2vw,1rem);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,2.5vw,2.5rem);max-width:1200px;margin:0 auto;align-items:start;">
+        <!-- Left: Oncology cases -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.4rem,0.7vw,0.6rem);">
+          <div style="background:rgba(172,4,48,0.04);border-left:4px solid var(--brand);border-radius:0 10px 10px 0;padding:clamp(0.6rem,1vw,0.8rem);">
+            <p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--brand);font-weight:700;letter-spacing:0.05em;margin-bottom:0.2rem;">ONCOLOGY — CACHEXIA</p>
+            <p style="font-size:var(--small-size);font-weight:700;color:var(--text-primary);line-height:1.4;">6개월간 체중 5%↓ 또는 BMI&lt;20 + 체중 2%↓</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.15rem;">
+              <span style="font-size:var(--small-size);font-weight:700;color:var(--brand);">악성 림프종</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);">PhA 7.1° → 6.5°</span>
+            </div>
+            <p style="font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-secondary);line-height:1.4;">사지근육 8.2→7.4kg 감소 → 집중 영양 치료 전환</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.15rem;">
+              <span style="font-size:var(--small-size);font-weight:700;color:#005b9e;">유방암 후 림프부종</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--text-dim);">Seg. ECW</span>
+            </div>
+            <p style="font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-secondary);line-height:1.4;">부위별 ECW Ratio로 림프 순환 개선도 추적</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.15rem;">
+              <span style="font-size:var(--small-size);font-weight:700;color:var(--text-primary);">췌장암 말기</span>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:var(--brand);font-weight:700;">PhA 1.8°</span>
+            </div>
+            <p style="font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-secondary);line-height:1.4;">ECW/TBW 0.453 — 세포막 기능 심각 저하</p>
+          </div>
+        </div>
+        <!-- Right: ICU protocol -->
+        <div style="display:flex;flex-direction:column;gap:clamp(0.4rem,0.7vw,0.6rem);">
+          <div style="background:rgba(0,91,158,0.04);border-left:4px solid #005b9e;border-radius:0 10px 10px 0;padding:clamp(0.6rem,1vw,0.8rem);">
+            <p style="font-family:var(--font-mono);font-size:clamp(0.6rem,0.75vw,0.7rem);color:#005b9e;font-weight:700;letter-spacing:0.05em;margin-bottom:0.2rem;">ICU — NUTRITION PROTOCOL</p>
+            <p style="font-size:var(--small-size);font-weight:700;color:var(--text-primary);line-height:1.4;">부종 환자의 실제 근육량을 알아야 단백질을 처방합니다</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:12px;padding:clamp(0.8rem,1.2vw,1rem);box-shadow:0 4px 16px rgba(0,0,0,0.04);text-align:center;">
+            <p style="font-family:var(--font-mono);font-size:clamp(0.65rem,0.8vw,0.75rem);color:var(--text-dim);letter-spacing:0.08em;margin-bottom:clamp(0.3rem,0.5vw,0.4rem);">ADJUSTED FFM</p>
+            <div style="line-height:1.4;">
+              <span style="font-family:var(--font-mono);font-size:clamp(0.85rem,1.3vw,1.1rem);color:var(--text-primary);font-weight:600;">FFM − (ECW − </span>
+              <span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;">
+                <span style="font-family:var(--font-mono);font-size:clamp(0.85rem,1.3vw,1.1rem);font-weight:700;color:#005b9e;border-bottom:2px solid var(--text-dim);padding-bottom:1px;line-height:1.2;">0.380 × ICW</span>
+                <span style="font-family:var(--font-mono);font-size:clamp(0.85rem,1.3vw,1.1rem);font-weight:700;color:#005b9e;padding-top:1px;line-height:1.2;">0.620</span>
+              </span>
+              <span style="font-family:var(--font-mono);font-size:clamp(0.85rem,1.3vw,1.1rem);color:var(--text-primary);font-weight:600;">)</span>
+            </div>
+            <div style="margin-top:clamp(0.4rem,0.6vw,0.5rem);padding-top:clamp(0.4rem,0.6vw,0.5rem);border-top:1px solid rgba(0,0,0,0.06);">
+              <div style="font-family:var(--font-mono);font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:800;color:var(--brand);">adjFFM × 1.85 <span style="font-size:0.5em;color:var(--text-dim);font-weight:600;">g/day</span></div>
+            </div>
+            <p style="font-size:clamp(0.55rem,0.7vw,0.65rem);color:var(--text-dim);font-style:italic;margin-top:0.3rem;">Van Zanten AR, et al. ICU Gelderse Vallei, NL, 2023<br>Kidney International 61, 2250-2258, 2002</p>
+          </div>
+          <div style="background:var(--dark-card);border-radius:10px;padding:clamp(0.5rem,0.8vw,0.7rem);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <p style="font-size:clamp(0.7rem,0.85vw,0.8rem);color:var(--text-secondary);line-height:1.5;">
+              <strong style="color:var(--text-primary);">Phase Angle</strong>은 감염 예측 지표 — 염증 마커와 유의미한 상관관계
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S8d: CLINICAL SUMMARY ============ -->
+<section class="slide" data-slide="8d">
+  <div class="slide-content" style="padding-top:clamp(0.8rem,1.5vw,1.2rem);padding-bottom:clamp(0.5rem,1vw,0.8rem);">
+    <div class="reveal" style="text-align:center;">
+      <p class="label">Clinical Summary</p>
+      <h2 class="title" style="font-size:var(--h2-size);">하나의 기계, <span class="accent">세 가지 답</span></h2>
+    </div>
+    <div class="reveal reveal-delay-1" style="margin-top:clamp(0.8rem,1.5vw,1.2rem);">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.8rem);max-width:1200px;margin:0 auto;">
+        <!-- ECW Ratio -->
+        <div style="background:var(--dark-card);border-radius:16px;padding:clamp(1rem,1.8vw,1.5rem);box-shadow:0 6px 24px rgba(0,0,0,0.05);text-align:center;">
+          <div style="width:clamp(48px,6vw,64px);height:clamp(48px,6vw,64px);border-radius:50%;background:rgba(0,91,158,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto clamp(0.5rem,0.8vw,0.6rem);">
+            <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:#005b9e;">ECW</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#005b9e;line-height:1;margin-bottom:0.3rem;">0.380</div>
+          <p style="font-size:var(--body-size);font-weight:700;color:var(--text-primary);margin-bottom:0.3rem;">체수분 균형</p>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">투석 건체중 설정<br>심부전 이뇨제 용량<br>수액 치료 목표</p>
+          <div style="margin-top:clamp(0.5rem,0.8vw,0.6rem);display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(0,91,158,0.06);color:#005b9e;padding:2px 8px;border-radius:4px;font-weight:600;">신장내과</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(0,91,158,0.06);color:#005b9e;padding:2px 8px;border-radius:4px;font-weight:600;">순환기내과</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(0,91,158,0.06);color:#005b9e;padding:2px 8px;border-radius:4px;font-weight:600;">중환자의학과</span>
+          </div>
+        </div>
+        <!-- SMI -->
+        <div style="background:var(--dark-card);border-radius:16px;padding:clamp(1rem,1.8vw,1.5rem);box-shadow:0 6px 24px rgba(0,0,0,0.05);text-align:center;">
+          <div style="width:clamp(48px,6vw,64px);height:clamp(48px,6vw,64px);border-radius:50%;background:rgba(172,4,48,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto clamp(0.5rem,0.8vw,0.6rem);">
+            <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:var(--brand);">SMI</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:800;color:var(--brand);line-height:1;margin-bottom:0.3rem;">7.0 <span style="font-size:0.5em;color:var(--text-dim);">kg/m²</span></div>
+          <p style="font-size:var(--body-size);font-weight:700;color:var(--text-primary);margin-bottom:0.3rem;">근감소증 진단</p>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">AWGS 2019 국제 기준<br>악액질 조기 발견<br>수술 전 위험도 평가</p>
+          <div style="margin-top:clamp(0.5rem,0.8vw,0.6rem);display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(172,4,48,0.05);color:var(--brand);padding:2px 8px;border-radius:4px;font-weight:600;">노년내과</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(172,4,48,0.05);color:var(--brand);padding:2px 8px;border-radius:4px;font-weight:600;">종양내과</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(172,4,48,0.05);color:var(--brand);padding:2px 8px;border-radius:4px;font-weight:600;">정형외과</span>
+          </div>
+        </div>
+        <!-- Phase Angle -->
+        <div style="background:var(--dark-card);border-radius:16px;padding:clamp(1rem,1.8vw,1.5rem);box-shadow:0 6px 24px rgba(0,0,0,0.05);text-align:center;">
+          <div style="width:clamp(48px,6vw,64px);height:clamp(48px,6vw,64px);border-radius:50%;background:rgba(166,122,0,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto clamp(0.5rem,0.8vw,0.6rem);">
+            <span style="font-family:var(--font-mono);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:#a67a00;">PhA</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#a67a00;line-height:1;margin-bottom:0.3rem;">5~7°</div>
+          <p style="font-size:var(--body-size);font-weight:700;color:var(--text-primary);margin-bottom:0.3rem;">예후 예측</p>
+          <p style="font-size:var(--small-size);color:var(--text-secondary);line-height:1.5;">합병증·사망률 예측<br>영양 상태 평가<br>감염 위험도 판별</p>
+          <div style="margin-top:clamp(0.5rem,0.8vw,0.6rem);display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(166,122,0,0.06);color:#a67a00;padding:2px 8px;border-radius:4px;font-weight:600;">전 분과</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(166,122,0,0.06);color:#a67a00;padding:2px 8px;border-radius:4px;font-weight:600;">중환자실</span>
+            <span style="font-size:clamp(0.55rem,0.7vw,0.65rem);background:rgba(166,122,0,0.06);color:#a67a00;padding:2px 8px;border-radius:4px;font-weight:600;">기능의학</span>
+          </div>
         </div>
       </div>
     </div>

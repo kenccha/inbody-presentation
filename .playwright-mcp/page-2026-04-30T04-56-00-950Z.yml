@@ -1,0 +1,20 @@
+- generic [active]:
+  - generic:
+    - img "InBody"
+  - navigation [ref=e1]:
+    - button "시작" [ref=e2] [cursor=pointer]
+    - button "호기심" [ref=e3] [cursor=pointer]
+    - button "발견" [ref=e4] [cursor=pointer]
+    - button "인도" [ref=e5] [cursor=pointer]
+    - button "도전" [ref=e6] [cursor=pointer]
+    - button "마무리" [ref=e7] [cursor=pointer]
+  - button "전체화면" [ref=e9] [cursor=pointer]:
+    - img [ref=e10]
+    - text: 전체화면
+  - generic [ref=e13]:
+    - img "InBody" [ref=e15]
+    - paragraph [ref=e17]: 차인준 부사장
+    - paragraph [ref=e19]:
+      - text: 한국의 의료기기 회사의 성장기.
+      - text: 인도법인에서부터 지금까지 개인의 성장기.
+    - generic [ref=e20]: SCROLL ↓
